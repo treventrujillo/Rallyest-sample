@@ -1,51 +1,20 @@
-import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import React from 'react';
+import {
+   Menu,
+   Container,
+   Icon,
+   Input,
+  } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 
-class NavBar extends Component {
-  rightNavs = () => {
-    const { user, dispatch, history } = this.props;
+const NavBar = () => (
+  <Menu>
+    <Menu.Item position='right'>
+      <Input className='icon' icon='search' placeholder='Search...' />
+    </Menu.Item>
+  </Menu>
+)
 
-    if (user.id) {
-      return (
-        <Menu.Menu position='right'>
-          <Menu.Item
-            name='Logout'
-            onClick={() => dispatch(handleLogout(history))}
-          />
-        </Menu.Menu>
-      );
-    }
-    return (
-      <Menu.Menu position='right'>
-        <Link to='/register'>
-          <Menu.Item name='Register' />
-        </Link>
-        <Link to='/login'>
-          <Menu.Item name='Login' />
-        </Link>
-      </Menu.Menu>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item name='home' />
-          </Link>
-          { this.rightNavs() }
-        </Menu>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return { user: state.user };
-};
-
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default NavBar;
