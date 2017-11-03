@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
+import {
+   Header,
+   Grid,
+   Container,
+   Segment,
+   } from 'semantic-ui-react';
 
 class Home extends Component {
   render() {
     return (
-      <Header as='h1' textAlign='center'>Home Component</Header>
+    <Container>
+      <Grid width={2}>
+        <Grid.Column>
+          <Segment basic>
+            <Header as='h1'>Where Commnunity &<br />Recovery Meets</Header>
+          </Segment>    
+        </Grid.Column> 
+        <Grid.Column>
+        
+        </Grid.Column> 
+      </Grid>
+    </Container>
     );
   }
 }
