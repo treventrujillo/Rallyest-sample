@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jshint": "^2.9.5",
-    "react-font-face": "^0.2.1"
+    "jshint": "^2.9.5"
   }
 }
