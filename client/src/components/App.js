@@ -72,9 +72,6 @@ const styles = {
   page: {
     width: '100%',
   },
-  menu: {
-    
-  }
 }
 
 export default App;

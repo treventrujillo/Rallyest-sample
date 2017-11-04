@@ -10,13 +10,12 @@ import { injectGlobal } from 'styled-components';
 
 
 // eslint-disable-next-line
-injectGlobal`
-html, body {
+injectGlobal
+`html, body {
   background-color: #e1e6e7;
   width: 100%;
   height: 100%;
-}
-`
+}`
 
 ReactDOM.render(
   <Provider store={store}>
