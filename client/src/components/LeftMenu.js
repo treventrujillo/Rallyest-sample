@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
+import ReactFontFace from 'react-font-face'
+import ChunkFiveEx from '../assets/Fonts/chunkfive ex.ttf'
 
 class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
@@ -14,8 +16,8 @@ class LeftMenu extends Component {
       <div >
         <div style={styles.menu}>
           <Menu pointing secondary vertical>           
-            <Menu.Item name='Rallyest' active={activeItem === 'Rallyest'} onClick={this.handleItemClick}>
-              <Link to={'/'} style={{color: '#e1e6e7'}}>RALLYEST</Link>
+            <Menu.Item  onClick={this.handleItemClick}>
+              <Link to={'/'} style={styles.rally} as='h1'>Rally</Link><Link to={'/'} style={styles.est} as='h1'>est</Link>
             </Menu.Item>
 
             <Menu.Item name='Files' active={activeItem === 'Files'} onClick={this.handleItemClick}>
@@ -72,8 +74,19 @@ const styles = {
     top: 0,
     overflowY: 'hidden',
     position: 'fixed',
-  }
+  },
+  rally: {
+    fontFamily: 'chunkfive Ex',
+    color: '#e1e6e7',
+    fontSize: '4vh',
+    flex: 1,
+  },
+  est: {
+    fontFamily: 'chunkfive Ex',
+    color: '#ffc713',
+    fontSize: '4vh',
+    flex: 1,
+  },
 }
-
 
 export default LeftMenu;
