@@ -5,6 +5,7 @@ import {
    Container,
    Segment,
    } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -13,11 +14,11 @@ class Home extends Component {
       <Grid width={2}>
         <Grid.Column>
           <Segment basic>
-            <Header as='h1'>Where Commnunity &<br />Recovery Meets</Header>
-          </Segment>    
-        </Grid.Column> 
+            <Header as='h1'>Where Commnunity &<br/>Recovery Meet</Header>
+          </Segment>
+        </Grid.Column>
         <Grid.Column>
-        
+        <Link to='/Login'>Login</Link>
         </Grid.Column> 
       </Grid>
     </Container>
