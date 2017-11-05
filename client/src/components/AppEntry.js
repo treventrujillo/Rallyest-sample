@@ -1,10 +1,11 @@
-// Components
-import React, { Component } from 'react';
+
+import React from 'react';
 import Flash from './Flash';
 import LeftMenu from './LeftMenu';
 import AppEntry2 from './AppEntry2';
 
 const AppEntry = () => (
+
   <div style={styles.container}>
     <div style={styles.menu}>
       <LeftMenu/>
@@ -19,13 +20,17 @@ const AppEntry = () => (
 const styles ={
   container:{
     display: 'flex',
+    flexDirection: 'row',
+    flex: 1,
+    bottom: 0,
+
   },
   menu:{
-    width:'210px', 
+
   },
   page:{
-    width:'100%',
-  },
+    flexGrow: '2',
+  }
 }
 
 export default AppEntry;

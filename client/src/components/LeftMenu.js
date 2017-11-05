@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Menu, Icon, Image } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import ReactFontFace from 'react-font-face'
-import ChunkFiveEx from '../assets/Fonts/chunkfive ex.ttf'
+import '../assets/Fonts/chunkfive ex.ttf'
 
 class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
@@ -15,7 +14,7 @@ class LeftMenu extends Component {
     return (
       <div >
         <div style={styles.menu}>
-          <Menu pointing secondary vertical>           
+          <Menu pointing secondary vertical style={styles.menu}>           
             <Menu.Item  onClick={this.handleItemClick}>
               <Link to={'/'} style={styles.rally} as='h1'>Rally</Link>
               <Link to={'/'} style={styles.est} as='h1'>est</Link>
@@ -150,27 +149,24 @@ class LeftMenu extends Component {
 const styles = {
   menu: {
     backgroundColor: '#005687',
-    height: '100%',
-    left: 0,
-    top: 0,
-    position: 'fixed',
+    margin: 'auto',
+    position: 'relative',
   },
   rally: {
     fontFamily: 'chunkfive Ex',
     color: '#e1e6e7',
-    fontSize: '38px',
-    flex: 1,
+    fontSize: '45px',
+    margin: '0px',
   },
   est: {
     fontFamily: 'chunkfive Ex',
     color: '#ffc713',
-    fontSize: '38px',
-    flex: 1,
+    fontSize: '45px',
+    margin: '0px',
   },
   icoimage: {
-    display: 'inline-block',
-    paddingLeft: '2%',
-    paddingRight:'2%',
+    display: 'inline',
+    margin: '0px 10px 0px 5px',
   }
 }
 

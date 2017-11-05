@@ -1,7 +1,6 @@
 import React from 'react';
 import {
    Menu,
-   Container,
    Icon,
    Input,
    Image,
@@ -12,7 +11,7 @@ import { handleLogout } from '../actions/auth';
 
 const NavBar = () => (
   //TODO: Make links active 
-  <Menu style={styles.bar} borderless>
+  <Menu borderless>
     <Menu.Item position='right'>
       <Input className='icon' icon='search' placeholder='Search...' size='huge' />
     </Menu.Item>

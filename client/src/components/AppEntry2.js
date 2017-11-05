@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import App from './App';
+import { Container } from 'semantic-ui-react';
 
 const AppEntry2 = () => (
   <div style={styles.container}>
@@ -9,19 +9,16 @@ const AppEntry2 = () => (
       <NavBar />
     </div>
     <div>
-      <App/>
+      <Container>
+        <App/>
+      </Container>
     </div>
   </div>
 )
 const styles = {
   container:{
-    display: 'flex',
-    flexDirection: 'column',
+    right: '0px',
   },
-  navbar: {
-    height: '100%',
-  },
-
 }
 
 export default AppEntry2;

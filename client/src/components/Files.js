@@ -9,4 +9,4 @@ class Files extends Component {
   }
 }
 
-export default Files;
+export default Files; 

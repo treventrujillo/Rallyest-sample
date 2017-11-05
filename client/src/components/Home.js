@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
     <Container>
-      <Grid width={2}>
+      <Grid>
         <Grid.Column>
           <Segment basic>
             <Header as='h1'>Where Commnunity &<br/>Recovery Meet</Header>
