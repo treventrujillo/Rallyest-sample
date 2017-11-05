@@ -23,41 +23,37 @@ class Login extends Component {
     const { email, password, redirect } = this.state;
     return (
       <div style={{width: '20%', float: 'none', margin: '0 auto'}}>
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Login</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label htmlFor='email'>Email</label>
-            <input
-              required
-              id='email'
-              value={email}
-              placeholder='Email'
-              onChange={this.handleChange}
+        <Segment basic>
+          <Header as='h1' textAlign='center'>Login</Header>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label htmlFor='email'>Email</label>
+              <input
+                required
+                id='email'
+                value={email}
+                placeholder='Email'
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='password'>Password</label>
+              <input
+                required
+                id='password'
+                value={password}
+                placeholder='Password'
+                type='password'
+                onChange={this.handleChange}
             />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='password'>Password</label>
-            <input
-              required
-              id='password'
-              value={password}
-              placeholder='Password'
-              type='password'
-              onChange={this.handleChange}
-          />
-          </Form.Field>
-          <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
-          </Segment>
-        </Form>
-      </Segment>
-<<<<<<< HEAD
+            </Form.Field>
+            <Segment textAlign='center' basic>
+              <Button primary type='submit'>Submit</Button>
+            </Segment>
+          </Form>
+        </Segment>
       </div>
-    );
-=======
     )     
->>>>>>> began authentication in controllers and client
   }
 }
 
