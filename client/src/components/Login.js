@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Segment, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
 
 class Login extends Component {
@@ -19,7 +20,7 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, redirect } = this.state;
     return (
       <div style={{width: '20%', float: 'none', margin: '0 auto'}}>
       <Segment basic>
@@ -44,16 +45,21 @@ class Login extends Component {
               placeholder='Password'
               type='password'
               onChange={this.handleChange}
-            />
+          />
           </Form.Field>
           <Segment textAlign='center' basic>
             <Button primary type='submit'>Submit</Button>
           </Segment>
         </Form>
       </Segment>
+<<<<<<< HEAD
       </div>
     );
+=======
+    )     
+>>>>>>> began authentication in controllers and client
   }
 }
+
 
 export default connect()(Login);

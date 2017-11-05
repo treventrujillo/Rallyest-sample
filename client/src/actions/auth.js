@@ -54,7 +54,30 @@ export const handleLogout = history => {
 
 export const handleLogin = (email, password, history) => {
   return dispatch => {
-    axios.post('/api/auth/sign_in', { email, password })
+
+    axios.post('/api/logins', { email, password })
+      .then(res => {
+        const { data } = res;
+        if (data.authenticated === true) {
+          // dispatch(login(user));
+          // dispatch(setHeaders(headers));
+          dispatch(setFlash('Login Successful!', 'green'))
+          history.push('/');
+        } else {
+          dispatch(setFlash('Invalid login credentials', 'red'))
+        }
+      })
+      .catch(res => {
+        dispatch(setFlash('Invalid login credentials', 'red'))
+        //const messages =
+          //res.response.data.errors.map(message =>
+        //    <div>{message}</div>);
+        //const { headers } = res;
+        //dispatch(setFlash(messages, 'red'));
+        //dispatch(setHeaders(headers));
+      });
+/*
+    axios.post('/api/logins/create', { email, password })
       .then(res => {
         const { data: { data: user }, headers } = res;
         dispatch(login(user));
@@ -69,6 +92,8 @@ export const handleLogin = (email, password, history) => {
         dispatch(setFlash(messages, 'red'));
         dispatch(setHeaders(headers));
       });
+      */
+
   };
 };
 
