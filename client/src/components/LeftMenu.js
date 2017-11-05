@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Icon, Image } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import ReactFontFace from 'react-font-face'
 import ChunkFiveEx from '../assets/Fonts/chunkfive ex.ttf'
+
+
+// TODO: add icons to each button
 
 class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
@@ -21,43 +24,53 @@ class LeftMenu extends Component {
             </Menu.Item>
 
             <Menu.Item name='Files' active={activeItem === 'Files'} onClick={this.handleItemClick}>
-              <Link to={'/Files'} style={{color: '#e1e6e7'}}>Files</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Files.png')}/>
+              <Link to={'/Files'} style={{color: '#e1e6e7'}}> Files</Link>
             </Menu.Item>
 
             <Menu.Item name='Photos' active={activeItem === 'Photos'} onClick={this.handleItemClick}>
-              <Link to={'/Photos'} style={{color: '#e1e6e7'}}>Photos</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Photos.png')}/>
+              <Link to={'/Photos'} style={{color: '#e1e6e7'}}> Photos</Link>
             </Menu.Item>
 
             <Menu.Item name='Letters' active={activeItem === 'Letters'} onClick={this.handleItemClick}>
-              <Link to={'/Letters'} style={{color: '#e1e6e7'}}>Letters</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Letters.png')}/>
+              <Link to={'/Letters'} style={{color: '#e1e6e7'}}> Letters</Link>
             </Menu.Item>
 
             <Menu.Item name='Goals' active={activeItem === 'Goals'} onClick={this.handleItemClick}>
-              <Link to={'/Goals'} style={{color: '#e1e6e7'}}>Goals</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Goals.png')}/>
+              <Link to={'/Goals'} style={{color: '#e1e6e7'}}> Goals</Link>
             </Menu.Item>
-           
+
             <Menu.Item name='Courses' active={activeItem === 'Courses'} onClick={this.handleItemClick}>
-              <Link to={'/Courses'} style={{color: '#e1e6e7'}}>Courses</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Library.png')}/> 
+              <Link to={'/Courses'} style={{color: '#e1e6e7'}}> Courses</Link>
             </Menu.Item>
-            
+
             <Menu.Item name='Announcements' active={activeItem === 'Announcements'} onClick={this.handleItemClick}>
-              <Link to={'/Announcements'} style={{color: '#e1e6e7'}}>Announcements</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Announcements.png')}/> 
+              <Link to={'/Announcements'} style={{color: '#e1e6e7'}}> Announcements</Link>
             </Menu.Item>
-           
+
             <Menu.Item name='Updates' active={activeItem === 'Updates'} onClick={this.handleItemClick}>
-              <Link to={'/Updates'} style={{color: '#e1e6e7'}}>Updates</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Updates.png')}/>
+              <Link to={'/Updates'} style={{color: '#e1e6e7'}}> Updates</Link>
             </Menu.Item>
-            
+
             <Menu.Item name='Assignments' active={activeItem === 'Assignments'} onClick={this.handleItemClick}>
-              <Link to={'/Assignments'} style={{color: '#e1e6e7'}}>Assignements</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Assignments.png')}/>
+              <Link to={'/Assignments'} style={{color: '#e1e6e7'}}> Assignements</Link>
             </Menu.Item>
-           
+
             <Menu.Item name='Community' active={activeItem === 'Community'} onClick={this.handleItemClick}>
-              <Link to={'/Community'} style={{color: '#e1e6e7'}}>Community</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Community.png')}/>
+              <Link to={'/Community'} style={{color: '#e1e6e7'}}> Community</Link>
             </Menu.Item>
-           
+
             <Menu.Item name='Settings' active={activeItem === 'Settings'} onClick={this.handleItemClick}>
-              <Link to={'/Settings'} style={{color: '#e1e6e7'}}>Settings</Link>
+              <Image style={styles.icoimage} src={require('../assets/images/ICON_Settings.png')}/>
+              <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
             </Menu.Item>
           </Menu>
         </div>
@@ -78,15 +91,20 @@ const styles = {
   rally: {
     fontFamily: 'chunkfive Ex',
     color: '#e1e6e7',
-    fontSize: '4vh',
+    fontSize: '38px',
     flex: 1,
   },
   est: {
     fontFamily: 'chunkfive Ex',
     color: '#ffc713',
-    fontSize: '4vh',
+    fontSize: '38px',
     flex: 1,
   },
+  icoimage: {
+    display: 'inline-block',
+    paddingLeft: '2%',
+    paddingRight:'2%',
+  }
 }
 
 export default LeftMenu;
