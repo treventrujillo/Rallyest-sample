@@ -57,7 +57,7 @@ export const handleLogin = (email, password, history) => {
 
     axios.post('/api/logins', { email, password })
       .then(res => {
-        const { data: { data: user }, headers } = res;
+        const { data: user, headers } = res;
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))

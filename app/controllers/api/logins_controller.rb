@@ -14,16 +14,13 @@ class Api::LoginsController < ApplicationController
       :username => username, :password => password, :scope => '' },
       :verify_ssl => false)
 
-    if response.code === 200  
-
-      login_json = JSON.parse(response);
+    login_json = JSON.parse(response);
+    
+    # retrieve access token
+    access_token = login_json["access_token"]
+    # set sesssion to token
+    session["ACCESS_TOKEN"] = access_token
       
-      # retrieve access token
-      access_token = login_json["access_token"]
-      # set sesssion to token
-      session["ACCESS_TOKEN"] = access_token
-        
-      render json: { res: response }
-    end
+    render json: { res: response }
   end
 end
