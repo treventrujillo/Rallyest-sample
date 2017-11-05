@@ -26,10 +26,10 @@ const styles ={
     overflow: 'hidden',
   },
   menu:{
-    width:'220px', 
+    width:'210px', 
   },
   page:{
-    width:'89%',
+    width:'100%',
   },
 }
 

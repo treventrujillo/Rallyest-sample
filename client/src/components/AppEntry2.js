@@ -30,7 +30,6 @@ const styles = {
     overflow: 'hidden',
   },
   navbar: {
-    width: '100%',
     height: '100%',
     overflow: 'hidden',
   },
