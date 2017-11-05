@@ -8,6 +8,7 @@ import {
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
+import { NavWrap } from './styles/styles';
 
 const NavBar = () => (
   //TODO: Make links active 
@@ -26,11 +27,5 @@ const NavBar = () => (
     </Menu.Item>
   </Menu>
 )
-
-const styles = {
-  bar : {
-    
-  },
-}
 
 export default NavBar;
