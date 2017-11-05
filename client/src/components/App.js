@@ -27,27 +27,25 @@ import Page3 from './Tour/Page3'
 class App extends Component {
   render() {
     return (
-      <FetchUser>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/Files' component={Files} />
-          <Route path='/Photos' component={Photos} />
-          <Route path='/Letters' component={Letters} />
-          <Route path='/Goals' component={Goals} />
-          <Route path='/Courses' component={Courses} />
-          <Route path='/Announcements' component={Announcements} />
-          <Route path='/Updates' component={Updates} />
-          <Route path='/Assignments' component={Assignments} />
-          <Route path='/Community' component={Community} />
-          <Route path='/Settings' component={Settings} />
-          <Route path='/Tour_1' component={Page1} />
-          <Route path='/Tour_2' component={Page2} />
-          <Route path='/Tour_3' component={Page3} />
-          <AuthRoute exact path='/login' component={Login} />
-          <AuthRoute exact path='/register' component={Register} />
-          <Route component={NoMatch} />
-        </Switch>
-      </FetchUser>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/Files' component={Files} />
+        <Route path='/Photos' component={Photos} />
+        <Route path='/Letters' component={Letters} />
+        <Route path='/Goals' component={Goals} />
+        <Route path='/Courses' component={Courses} />
+        <Route path='/Announcements' component={Announcements} />
+        <Route path='/Updates' component={Updates} />
+        <Route path='/Assignments' component={Assignments} />
+        <Route path='/Community' component={Community} />
+        <Route path='/Settings' component={Settings} />
+        <Route path='/Tour_1' component={Page1} />
+        <Route path='/Tour_2' component={Page2} />
+        <Route path='/Tour_3' component={Page3} />
+        <AuthRoute exact path='/login' component={Login} />
+        <AuthRoute exact path='/register' component={Register} />
+        <Route component={NoMatch} />
+      </Switch>
     );
   }
 }

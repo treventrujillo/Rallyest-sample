@@ -57,24 +57,18 @@ export const handleLogin = (email, password, history) => {
 
     axios.post('/api/logins', { email, password })
       .then(res => {
-        const { data } = res;
-        if (data.authenticated === true) {
-          // dispatch(login(user));
-          // dispatch(setHeaders(headers));
-          dispatch(setFlash('Login Successful!', 'green'))
-          history.push('/');
-        } else {
-          dispatch(setFlash('Invalid login credentials', 'red'))
-        }
+        const { data: { data: user }, headers } = res;
+        dispatch(login(user));
+        dispatch(setHeaders(res.headers));
+        dispatch(setFlash('Login Successful!', 'green'))
+        history.push('/');
       })
       .catch(res => {
-        dispatch(setFlash('Invalid login credentials', 'red'))
-        //const messages =
-          //res.response.data.errors.map(message =>
-        //    <div>{message}</div>);
-        //const { headers } = res;
-        //dispatch(setFlash(messages, 'red'));
-        //dispatch(setHeaders(headers));
+        const { response } = res;
+        const messages = response.request.statusText + ", " + response.request.status
+        const { headers } = res;
+        dispatch(setFlash(messages, 'red'));
+        dispatch(setHeaders(headers));
       });
 /*
     axios.post('/api/logins/create', { email, password })
@@ -97,16 +91,16 @@ export const handleLogin = (email, password, history) => {
   };
 };
 
-export const validateToken = (callBack = () => {}) => {
-  return dispatch => {
-    dispatch({ type: 'VALIDATE_TOKEN' });
-    const headers = axios.defaults.headers.common;
-    axios.get('/api/auth/validate_token', headers)
-      .then(res => {
-        const user = res.data.data;
-        dispatch(login(user));
-        dispatch(setHeaders(res.headers));
-      })
-      .catch(() => callBack());
-  };
-};
+// export const validateToken = (callBack = () => {}) => {
+//   return dispatch => {
+//     dispatch({ type: 'VALIDATE_TOKEN' });
+//     const headers = axios.defaults.headers.common;
+//     axios.get('/api/auth/validate_token', headers)
+//       .then(res => {
+//         const user = res.data.data;
+//         dispatch(login(user));
+//         dispatch(setHeaders(res.headers));
+//       })
+//       .catch(() => callBack());
+//   };
+// };
