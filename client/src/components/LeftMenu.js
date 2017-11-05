@@ -148,7 +148,7 @@ class LeftMenu extends Component {
 
 const styles = {
   menu: {
-    backgroundColor: '#005687',
+    backgroundColor: '#2d618e',
     margin: 'auto',
     position: 'relative',
   },
