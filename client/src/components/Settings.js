@@ -7,7 +7,7 @@ class Settings extends Component {
     return (
       <div>
         <Header as='h1' textAlign='center'>Settings Component</Header>
-        <Link to={'/Tour'}>Tour</Link>
+        <Link to={'/Tour_1'}>Tour</Link>
       </div>
     );
   }
