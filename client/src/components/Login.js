@@ -21,6 +21,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
+      <div style={{width: 'auto'}}>
       <Segment basic>
         <Header as='h1' textAlign='center'>Login</Header>
         <Form onSubmit={this.handleSubmit}>
@@ -50,6 +51,7 @@ class Login extends Component {
           </Segment>
         </Form>
       </Segment>
+      </div>
     );
   }
 }

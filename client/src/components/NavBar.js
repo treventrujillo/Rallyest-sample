@@ -30,7 +30,7 @@ const NavBar = () => (
 
 const styles = {
   bar : {
-    'height': '10vh',
+    
   },
 }
 

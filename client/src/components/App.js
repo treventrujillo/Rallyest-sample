@@ -4,10 +4,6 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
-import { Grid } from 'semantic-ui-react'
-import Flash from './Flash';
-import NavBar from './NavBar';
-import LeftMenu from './LeftMenu';
 
 // Pages in Switch
 import NoMatch from './NoMatch';
@@ -28,33 +24,24 @@ import Register from './Register';
 class App extends Component {
   render() {
     return (
-      <div style={styles.container}>
-        <div>
-          <LeftMenu/>
-        </div >
-        <div style={styles.page}>
-          <NavBar />
-          <Flash />
-          <FetchUser>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/Files' component={Files} />
-              <Route path='/Photos' component={Photos} />
-              <Route path='/Letters' component={Letters} />
-              <Route path='/Goals' component={Goals} />
-              <Route path='/Courses' component={Courses} />
-              <Route path='/Announcements' component={Announcements} />
-              <Route path='/Updates' component={Updates} />
-              <Route path='/Assignments' component={Assignments} />
-              <Route path='/Community' component={Community} />
-              <Route path='/Settings' component={Settings} />
-              <AuthRoute exact path='/login' component={Login} />
-              <AuthRoute exact path='/register' component={Register} />
-              <Route component={NoMatch} />
-            </Switch>
-          </FetchUser>
-        </div>
-      </div>
+      <FetchUser>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/Files' component={Files} />
+          <Route path='/Photos' component={Photos} />
+          <Route path='/Letters' component={Letters} />
+          <Route path='/Goals' component={Goals} />
+          <Route path='/Courses' component={Courses} />
+          <Route path='/Announcements' component={Announcements} />
+          <Route path='/Updates' component={Updates} />
+          <Route path='/Assignments' component={Assignments} />
+          <Route path='/Community' component={Community} />
+          <Route path='/Settings' component={Settings} />
+          <AuthRoute exact path='/login' component={Login} />
+          <AuthRoute exact path='/register' component={Register} />
+          <Route component={NoMatch} />
+        </Switch>
+      </FetchUser>
     );
   }
 }
