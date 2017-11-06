@@ -1,0 +1,57 @@
+import React, { Component } from 'react'
+import { Menu } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+
+
+class NoAuthFooter extends Component {
+  state = { activeItem: 'closest' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <div style={styles.menu}>
+        <div style={styles.menuItem}>
+          <Menu text vertical>
+            <Menu.Item header>Using Rallyest</Menu.Item>
+            <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} />
+            <Menu.Item name='Support' active={activeItem === 'Support'} onClick={this.handleItemClick} />
+          </Menu>  
+        </div> 
+        <div style={styles.menuItem}>
+          <Menu text vertical>
+            <Menu.Item header>Legal</Menu.Item>
+            <Menu.Item name='Privacy' active={activeItem === 'Privacy'} onClick={this.handleItemClick} />
+            <Menu.Item name='Security' active={activeItem === 'Security'} onClick={this.handleItemClick} />
+            <Menu.Item name='Terms of service' active={activeItem === 'Terms of Service'} onClick={this.handleItemClick} />
+            <Menu.Item name='Policies' active={activeItem === 'Security'} onClick={this.handleItemClick} />
+          </Menu>  
+        </div>     
+        <div style={styles.menuItem}>
+          <Menu text vertical>
+            <Menu.Item header>Handy Links</Menu.Item>
+            <Menu.Item name='Download desktop app' active={activeItem === 'Download desktop app'} onClick={this.handleItemClick} />
+            <Menu.Item name='Dowload mobile app' active={activeItem === 'Download mobile app'} onClick={this.handleItemClick} />
+          </Menu>  
+        </div>
+      </div>
+    )
+  }
+}
+
+const styles = {
+  menu: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    text: 'downcase',
+  },
+  menuItem: {
+    marginTop: '20px',
+
+  }
+}
+
+export default NoAuthFooter;

@@ -1,5 +1,6 @@
 import React from 'react'
 import NoAuthNav from './NoAuthNav'
+import NoAuthFooter from './NoAuthFooter'
 
 const Page1 = () => (
   <div style={styles.tour_flex_container}>
@@ -13,7 +14,7 @@ const Page1 = () => (
     </div>
     <div style={styles.footer_container}>
       <div>
-        Hello, Mr footer with links goes here.
+        <NoAuthFooter/>
       </div>
     </div>
   </div>
