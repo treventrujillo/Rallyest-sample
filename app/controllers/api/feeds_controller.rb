@@ -1,8 +1,8 @@
-class Api::FeedsController < RallybaseController
-  before_action super 
+class Api::FeedsController < Api::RallybaseController
+  
 
   def index
-  
+    
   end
 
   def show
