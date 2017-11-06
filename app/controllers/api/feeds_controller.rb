@@ -1,4 +1,5 @@
-class Api::FeedsController < ApplicationController
+class Api::FeedsController < RallybaseController
+  
   def index
   
   end
