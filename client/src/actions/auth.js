@@ -61,7 +61,7 @@ export const handleLogin = (email, password, history) => {
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))
-        history.push('/');
+        history.push('/feed');
       })
       .catch(res => {
         const { response } = res;
