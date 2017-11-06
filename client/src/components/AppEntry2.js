@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import App from './App';
+import Flash from './Flash';
 import { Container } from 'semantic-ui-react';
 
 const AppEntry2 = () => (
@@ -10,6 +11,7 @@ const AppEntry2 = () => (
     </div>
     <div>
       <Container>
+        <Flash/>
         <App/>
       </Container>
     </div>

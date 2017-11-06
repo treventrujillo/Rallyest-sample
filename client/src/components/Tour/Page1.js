@@ -31,7 +31,7 @@ const styles={
     height: '70vh',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   tour_box:{
   },
