@@ -20,6 +20,7 @@ class Api::LoginsController < ApplicationController
     access_token = login_json["access_token"]
     # set sesssion to token
     session["ACCESS_TOKEN"] = access_token
+    session["USER_NAME"] = username 
       
     render json: { res: response }
   end
