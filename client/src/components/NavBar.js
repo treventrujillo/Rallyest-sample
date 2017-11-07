@@ -11,6 +11,11 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
 
+const options = [
+  { value: '0', text: <span><Icon name='protect' /> Team 1</span> },
+  { value: '1', text: <span><Icon name='protect'/> Team 2</span> },
+  { value: '2', text: <span><Icon name='protect' /> Team 3</span> },
+]
 
 
 const NavBar = () => (
@@ -26,7 +31,7 @@ const NavBar = () => (
       <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
     </Menu.Item>
     <Menu.Item>
-    <Dropdown fluid selection options={4} />
+    <Dropdown image='../assets/images/selected.png' options={options}/>
     </Menu.Item>
   </Menu>
 )
