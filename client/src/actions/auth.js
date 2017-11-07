@@ -61,7 +61,7 @@ export const handleLogin = (email, password, history) => {
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))
-        history.push('/feed');
+        history.push('/');
       })
       .catch(res => {
         const { response } = res;
@@ -70,6 +70,24 @@ export const handleLogin = (email, password, history) => {
         dispatch(setFlash(messages, 'red'));
         dispatch(setHeaders(headers));
       });
+
+
+    }
+  }
+export const verifyToken = (history) => {
+  return dispatch => {
+    
+    axios.get('api/verifytoken')
+      .then(res => {
+        if ( res.data.authenticated === true ) {
+          return;
+        } else {
+          dispatch(setFlash('Login to continue', 'red'));
+          history.push('/login')
+        }
+      })
+  }
+}
 /*
     axios.post('/api/logins/create', { email, password })
       .then(res => {
@@ -88,8 +106,8 @@ export const handleLogin = (email, password, history) => {
       });
       */
 
-  };
-};
+//   };
+// };
 
 // export const validateToken = (callBack = () => {}) => {
 //   return dispatch => {

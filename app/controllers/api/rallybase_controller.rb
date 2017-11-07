@@ -1,11 +1,12 @@
 class Api::RallybaseController < ApplicationController
 
-  def logged_in?
-    @token = session["ACCESS_TOKEN"]
-    if @token === true
-      render json: {Authenticated: true}
+  def index
+    
+    binding.pry
+    if $session.empty?
+      return false
     else
-      render json: {Authenticated: false}
+      return true
     end
   end
 
