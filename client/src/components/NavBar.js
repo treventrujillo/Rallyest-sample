@@ -4,11 +4,13 @@ import {
    Icon,
    Input,
    Image,
+   Dropdown,
   } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
+
 
 const NavBar = () => (
   //TODO: Make links active 
@@ -23,7 +25,12 @@ const NavBar = () => (
       <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
     </Menu.Item>
     <Menu.Item>
-      <Image src={require('../assets/images/teamimg1.png')} alt='Home teams' />
+      <Dropdown 
+        fluid
+        options={4}
+        >
+          <Image src={require('../assets/images/teamimg1.png')} alt='Home teams' />
+      </Dropdown>
     </Menu.Item>
   </Menu>
 )
