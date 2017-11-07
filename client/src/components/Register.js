@@ -1,11 +1,11 @@
 // import React, { Component } from 'react';
 // import { Header, Form, Button, Segment } from 'semantic-ui-react';
 // import { connect } from 'react-redux';
-<<<<<<< Updated upstream
+
 // import { verifyToken } from '../actions/auth';
-=======
+
 // import { registerUser } from '../actions/auth';
->>>>>>> Stashed changes
+
 // import { setFlash } from '../actions/flash';
 
 // class Register extends Component {
@@ -16,11 +16,8 @@
 //     const { email, password, passwordConfirmation } = this.state;
 //     const { dispatch, history } = this.props;
 //     if (password === passwordConfirmation) {
-<<<<<<< Updated upstream
-//       dispatch(verifyToken(email, password, passwordConfirmation, history));
-=======
 //       dispatch(registerUser(email, password, passwordConfirmation, history));
->>>>>>> Stashed changes
+
 //     } else dispatch(setFlash('Passwords do not match!, please try again', 'red'));
 //   }
 
