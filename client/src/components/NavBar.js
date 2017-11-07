@@ -12,23 +12,34 @@ import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
 
 
+const options = [{
+  value: '0', image: { avatar: true, src: '../assets/images/selected.png'}
+}]
 
-const NavBar = () => (
-  //TODO: Make links active 
-  <Menu borderless>
-    <Menu.Item position='right'>
-      <Input className='icon' icon='search' placeholder='Search...' size='huge' />
-    </Menu.Item>
-    <Menu.Item>
-      <Icon className='users' size='big' />
-    </Menu.Item>
-    <Menu.Item>
-      <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
-    </Menu.Item>
-    <Menu.Item>
-    <Dropdown fluid selection options={4} />
-    </Menu.Item>
-  </Menu>
-)
+class NavBar extends React.Component {
+  render() {
+    return (
+      <div style={{minWidth: '100%'}}>
+        <Menu borderless>
+          <Menu.Item position='right'>
+            <Input className='icon' icon='search' placeholder='Search...' size='huge' />
+          </Menu.Item>
+          <Menu.Item>
+            <Icon className='users' size='big' />
+          </Menu.Item>
+          <Menu.Item>
+            <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
+          </Menu.Item>
+          <Menu.Item>
+            <Dropdown
+              options={4}>
+              <Image src={require('../assets/images/teamimg1.png')} options={options}/>
+            </Dropdown>
+          </Menu.Item>
+        </Menu>
+      </div>
+    )
+  }
+};
 
 export default NavBar;

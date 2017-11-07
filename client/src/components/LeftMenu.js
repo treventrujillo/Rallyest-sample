@@ -158,7 +158,7 @@ const styles = {
     height: '100vh',
     display: 'flex',
     justifyContent: 'flex-start',
-  },
+  }, 
   rally: {
     fontFamily: 'chunkfive Ex',
     color: '#e1e6e7',
