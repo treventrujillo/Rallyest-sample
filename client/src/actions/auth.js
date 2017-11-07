@@ -11,29 +11,30 @@ const logout = () => {
   return { type: 'LOGOUT' };
 };
 
-export const registerUser = (email, password, passwordConfirmation, history) => {
-  return dispatch => {
-    axios.post('/api/auth', { email, password, password_confirmation: passwordConfirmation })
-      .then(res => {
-        const { data: { data: user }, headers } = res;
-        dispatch(login(user));
-        dispatch(setHeaders(headers));
-        history.push('/');
-      })
-      .catch(res => {
-        const messages =
-          res.response.data.errors.full_messages.map(message =>
-            <div>{message}</div>);
-        const { headers } = res;
-        dispatch(setFlash(messages, 'red'));
-        dispatch(setHeaders(headers));
-      });
-  };
-};
+// export const registerUser = (email, password, passwordConfirmation, history) => {
+//   return dispatch => {
+//     axios.post('/api/auth', { email, password, password_confirmation: passwordConfirmation })
+//       .then(res => {
+//         const { data: { data: user }, headers } = res;
+//         dispatch(login(user));
+//         dispatch(setHeaders(headers));
+//         history.push('/');
+//       })
+//       .catch(res => {
+//         const messages =
+//           res.response.data.errors.full_messages.map(message =>
+//             <div>{message}</div>);
+//         const { headers } = res;
+//         dispatch(setFlash(messages, 'red'));
+//         dispatch(setHeaders(headers));
+//       });
+//   };
+// };
 
-export const handleLogout = history => {
+export const handleLogout = (history) => {
+
   return dispatch => {
-    axios.delete('/api/auth/sign_out')
+    axios.delete('/api/logins')
       .then(res => {
         const { headers } = res;
         dispatch(logout());
@@ -42,10 +43,8 @@ export const handleLogout = history => {
         history.push('/login');
       })
       .catch(res => {
-        const messages =
-          res.response.data.errors.map(message =>
-            <div>{message}</div>);
-        const { headers } = res;
+        const { response, headers } = res;
+        const messages = response.request.statusText + ", " + response.request.status
         dispatch(setFlash(messages, 'red'));
         dispatch(setHeaders(headers));
       });

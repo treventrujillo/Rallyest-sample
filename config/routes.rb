@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'static#index'
   
   namespace :api do
-    resources :logins, only: [:create]
+    resources :logins, only: [:create, :destroy]
     get '/verifytoken', as: 'verify', to: 'verifytoken#verify'
   end
 

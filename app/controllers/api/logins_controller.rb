@@ -24,4 +24,9 @@ class Api::LoginsController < ApplicationController
     session[:username] = username 
     
   end
+
+  def destroy
+    reset_session
+  end
+
 end
