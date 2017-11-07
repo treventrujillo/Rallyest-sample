@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={Login} />
         <Route path='/Files' component={Files} />
         <Route path='/Photos' component={Photos} />
         <Route path='/Letters' component={Letters} />
@@ -42,7 +42,6 @@ class App extends Component {
         <Route path='/Tour_1' component={Page1} />
         <Route path='/Tour_2' component={Page2} />
         <Route path='/Tour_3' component={Page3} />
-        <AuthRoute exact path='/login' component={Login} />
         <AuthRoute exact path='/register' component={Register} />
         <Route component={NoMatch} />
       </Switch>
