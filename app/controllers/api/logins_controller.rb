@@ -21,9 +21,8 @@ class Api::LoginsController < ApplicationController
     # set sesssion to token
     session[:access_token] = access_token
 
-    $session = session[:access_token]
-    
     session[:username] = username 
-      
+
+    
   end
 end
