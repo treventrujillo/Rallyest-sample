@@ -37,8 +37,12 @@ const styles={
   tour_box:{
   },
   footer_container:{
-    height: '20vh',
+    paddingBottom: '20px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
     backgroundColor: 'white',
+    
+
   },
 }
 
