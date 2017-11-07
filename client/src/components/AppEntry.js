@@ -2,77 +2,55 @@
 import React from 'react';
 import LeftMenu from './LeftMenu';
 import NavBar from './NavBar';
-import App from './App';
-import Flash from './Flash';
-import { Container } from 'semantic-ui-react';
 import AppEntry2 from './AppEntry2';
 
 const AppEntry = () => (
 
   <div>
-    <div style={styles.rowContainer}>
+    <div style={styles.uiContainer}>
 
-      <div style={styles.leftMenu}>
+      <div style={styles.menu}>
         <div>
           <LeftMenu/>
         </div>
       </div>
 
-      <div style={styles.userPage}>
-    </div>
-    <div style={styles.columnContainer}>
       <div>
-        <div tyle={styles.userNav}>
-          <NavBar />
-        </div>
-      </div>
-
         <div>
-          <div style={styles.page}>
-            <Container>
-            <Flash/>
-            <App/>
-            </Container> 
+          <div>
+            <NavBar />
           </div>
         </div>
-
+    
+        <div style={styles.page}>
+          <div>
+            <AppEntry2/>
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
-)
+);
 
 
 
 const styles ={
-  rowContainer:{
-    display:'flex',
-    flexDirection:'row',
-    flex:1,
+  uiContainer:{
+    flexDirection: 'row',
+    alignItems: 'stretch',
   },
-  columnContainer:{
-    display:'flex',
-    flexDirection:'column',
-    flex:1,
+  leftSide:{
+    display: 'flex',
   },
-  leftMenu:{
-    display:'flex',
+  rightSide:{
+    display: 'flex',
+  },
+  menu:{
     position: 'fixed',
   },
-  userPage:{
-    display:'flex',
-  },
-  userNav:{
-    display:'flex',
-    flex:1,
-  },
   page:{
-    display:'flex',
-    left:0,
-    right:0,
-    bottom:0,
-    top:0,
-  }
+  },
+}
   
   // container:{
   //   display: 'flex',
@@ -92,6 +70,6 @@ const styles ={
   //   flexGrow: '2',
   //   display: 'flex',
   // }
-}
+// }
 
 export default AppEntry;

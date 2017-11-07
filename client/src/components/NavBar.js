@@ -19,23 +19,25 @@ const options = [{
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu borderless>
-      <Menu.Item position='right'>
-        <Input className='icon' icon='search' placeholder='Search...' size='huge' />
-      </Menu.Item>
-      <Menu.Item>
-        <Icon className='users' size='big' />
-      </Menu.Item>
-      <Menu.Item>
-        <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
-      </Menu.Item>
-      <Menu.Item>
-        <Dropdown
-          options={4}>
-          <Image src={require('../assets/images/teamimg1.png')} options={options}/>
-        </Dropdown>
-      </Menu.Item>
-    </Menu>
+      <div style={{minWidth: '100%'}}>
+        <Menu borderless>
+          <Menu.Item position='right'>
+            <Input className='icon' icon='search' placeholder='Search...' size='huge' />
+          </Menu.Item>
+          <Menu.Item>
+            <Icon className='users' size='big' />
+          </Menu.Item>
+          <Menu.Item>
+            <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
+          </Menu.Item>
+          <Menu.Item>
+            <Dropdown
+              options={4}>
+              <Image src={require('../assets/images/teamimg1.png')} options={options}/>
+            </Dropdown>
+          </Menu.Item>
+        </Menu>
+      </div>
     )
   }
 };
