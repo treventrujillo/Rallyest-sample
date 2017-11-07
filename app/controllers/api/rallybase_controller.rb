@@ -1,13 +1,7 @@
 class Api::RallybaseController < ApplicationController
 
-  def index
-    
-    binding.pry
-    if $session.empty?
-      return false
-    else
-      return true
-    end
+  def verify
+    session[:access_token] ? true : false
   end
 
 end

@@ -52,6 +52,7 @@ export const handleLogout = history => {
   };
 };
 
+/* Creates new session access token for user */
 export const handleLogin = (email, password, history) => {
   return dispatch => {
 
@@ -61,64 +62,36 @@ export const handleLogin = (email, password, history) => {
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))
-        history.push('/');
+        history.push('/feed');
       })
       .catch(res => {
-        const { response } = res;
+        const { response, headers } = res;
         const messages = response.request.statusText + ", " + response.request.status
-        const { headers } = res;
         dispatch(setFlash(messages, 'red'));
         dispatch(setHeaders(headers));
       });
-
-
     }
   }
+
+/* Verifies access token */
 export const verifyToken = (history) => {
   return dispatch => {
     
     axios.get('api/verifytoken')
       .then(res => {
+        debugger
         if ( res.data.authenticated === true ) {
           return;
         } else {
-          dispatch(setFlash('Login to continue', 'red'));
-          history.push('/login')
+          dispatch(setFlash('Please login to continue', 'red'));
+          history.push('/')
         }
       })
+      .catch(res => {
+        const { response, headers } = res;
+        const messages = response.request.statusText + ", " + response.request.status
+        dispatch(setFlash(messages, 'red'))
+        dispatch(setHeaders(headers))
+      });
   }
 }
-/*
-    axios.post('/api/logins/create', { email, password })
-      .then(res => {
-        const { data: { data: user }, headers } = res;
-        dispatch(login(user));
-        dispatch(setHeaders(headers));
-        history.push('/');
-      })
-      .catch(res => {
-        const messages =
-          res.response.data.errors.map(message =>
-            <div>{message}</div>);
-        const { headers } = res;
-        dispatch(setFlash(messages, 'red'));
-        dispatch(setHeaders(headers));
-      });
-      */
-
-//   };
-// };
-
-// export const validateToken = (callBack = () => {}) => {
-//   return dispatch => {
-//     dispatch({ type: 'VALIDATE_TOKEN' });
-//     const headers = axios.defaults.headers.common;
-//     axios.get('/api/auth/validate_token', headers)
-//       .then(res => {
-//         const user = res.data.data;
-//         dispatch(login(user));
-//         dispatch(setHeaders(res.headers));
-//       })
-//       .catch(() => callBack());
-//   };
-// };

@@ -22,7 +22,6 @@ class Api::LoginsController < ApplicationController
     session[:access_token] = access_token
 
     session[:username] = username 
-
     
   end
 end

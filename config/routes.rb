@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :logins, only: [:create]
-    resources :verifytoken, only: [:index]
+    get '/verifytoken', as: 'verify', to: 'verifytoken#verify'
   end
 
   #Do not place any routes below this one

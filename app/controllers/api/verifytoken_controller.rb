@@ -1,7 +1,7 @@
 class Api::VerifytokenController < Api::RallybaseController
-  def index
+  
+  def verify 
     response = super
-    binding.pry
     if response === true
       render json: { authenticated: true }
     else
