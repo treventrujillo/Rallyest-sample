@@ -12,6 +12,7 @@ import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
 
 
+
 const NavBar = () => (
   //TODO: Make links active 
   <Menu borderless>
@@ -25,12 +26,7 @@ const NavBar = () => (
       <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
     </Menu.Item>
     <Menu.Item>
-      <Dropdown 
-        fluid
-        options={4}
-        >
-          <Image src={require('../assets/images/teamimg1.png')} alt='Home teams' />
-      </Dropdown>
+    <Dropdown fluid selection options={4} />
     </Menu.Item>
   </Menu>
 )
