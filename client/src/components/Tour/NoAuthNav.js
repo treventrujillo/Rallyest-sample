@@ -14,19 +14,19 @@ const NoAuthNav = () => (
       <Menu.Menu position='right'>
   
         <Menu.Item borderless>
-          <Link to={'/'} style={styles.menu_item} as='h1'>Product</Link>
+          <Link to={'/'} style={styles.menuItem} as='h1'>Product</Link>
         </Menu.Item>
         
         <Menu.Item borderless>  
-          <Link to={'/'} style={styles.menu_item} as='h1'>Support</Link>
+          <Link to={'/'} style={styles.menuItem} as='h1'>Support</Link>
         </Menu.Item>
         
         <Menu.Item borderless>  
-          <Link to={'/'} style={styles.menu_item} as='h1'>Find your team</Link>
+          <Link to={'/'} style={styles.menuItem} as='h1'>Find your team</Link>
         </Menu.Item>
         
-        <Menu.Item borderless style={styles.item_right}>  
-          <Link to={'/'} style={styles.menu_item} as='h1'>Sign In</Link>
+        <Menu.Item borderless style={styles.itemRight}>  
+          <Link to={'/'} style={styles.menuItem} as='h1'>Sign In</Link>
         </Menu.Item>
   
       </Menu.Menu>
@@ -40,10 +40,10 @@ const styles = {
     marginBottom: '1vh',
     height: '10vh',
   },
-  item_right: {
+  itemRight: {
     marginRight: '2vw',
   },
-  header_container:{
+  headerContainer:{
     display: 'flex',
     flexDirection: 'row',
     flex: 1,
@@ -53,7 +53,7 @@ const styles = {
     backgroundColor: '#2d618e',
     width: '90vw',
   },
-  menu_item: {
+  menuItem: {
     color: '#e1e6e7',
     fontSize: '15px',
     margin: '0px 7px 0px 7px',
