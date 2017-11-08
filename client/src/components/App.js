@@ -7,7 +7,7 @@ import { Switch, Route } from 'react-router-dom'
 
 // Pages in Switch
 import NoMatch from './NoMatch'
-import Feed from './Feed';
+import UserFeed from './UserFeed';
 import Home from './Home'
 import Files from './Files'
 import Login from './Login'
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Login} />
-        <Route exact path='/feed' component={Feed} />
+        <Route exact path='/feed' component={UserFeed} />
         <Route path='/Files' component={Files} />
         <Route path='/Photos' component={Photos} />
         <Route path='/Letters' component={Letters} />

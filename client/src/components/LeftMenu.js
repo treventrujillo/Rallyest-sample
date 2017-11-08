@@ -18,8 +18,8 @@ class LeftMenu extends Component {
 
             <Menu pointing secondary vertical>           
               <Menu.Item  onClick={this.handleItemClick}>
-                <Link to={'/'} style={styles.rally} as='h1'>Rally</Link>
-                <Link to={'/'} style={styles.est} as='h1'>est</Link>
+                <Link to={'/feed'} style={styles.rally} as='h1'>Rally</Link>
+                <Link to={'/feed'} style={styles.est} as='h1'>est</Link>
               </Menu.Item>
 
               <Menu.Item 
