@@ -9,8 +9,14 @@ const Page1 = () => (
       <NoAuthNav/>
     </div>
     <div>
-      <div style={styles.tourBox}>
-        <TourBox/>
+      <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    }}>
+        <div style={styles.tourBox}>
+          <TourBox/>
+        </div>
       </div>
     </div>
     <div style={styles.footerContainer}>
@@ -36,6 +42,11 @@ const styles={
     backgroundColor: 'white',
   },
   tourBox:{
+    height:'80vh',
+    width: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderTopLeftRadius: '20px',
     borderTopRightRadius: '20px',
   }
