@@ -11,26 +11,6 @@ const logout = () => {
   return { type: 'LOGOUT' };
 };
 
-// export const registerUser = (email, password, passwordConfirmation, history) => {
-//   return dispatch => {
-//     axios.post('/api/auth', { email, password, password_confirmation: passwordConfirmation })
-//       .then(res => {
-//         const { data: { data: user }, headers } = res;
-//         dispatch(login(user));
-//         dispatch(setHeaders(headers));
-//         history.push('/');
-//       })
-//       .catch(res => {
-//         const messages =
-//           res.response.data.errors.full_messages.map(message =>
-//             <div>{message}</div>);
-//         const { headers } = res;
-//         dispatch(setFlash(messages, 'red'));
-//         dispatch(setHeaders(headers));
-//       });
-//   };
-// };
-
 export const handleLogout = (history) => {
 
   return dispatch => {
@@ -65,8 +45,7 @@ export const handleLogin = (email, password, history) => {
       })
       .catch(res => {
         const { response, headers } = res;
-        const messages = response.request.statusText + ", " + response.request.status
-        dispatch(setFlash(messages, 'red'));
+        dispatch(setFlash('Invalid email/password', 'red'));
         dispatch(setHeaders(headers));
       });
     }
