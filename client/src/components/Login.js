@@ -18,14 +18,14 @@ class Login extends Component {
     const { email, password } = this.state;
     dispatch(handleLogin(email, password, history));
   }
-
   render() {
     const { email, password, redirect } = this.state;
     return (
-      <Container>
-      <div class="ui stacked secondary  segment">
-        <div class="field">
+      <div>
+      <div class="secondary segment">
+        <div>
           <Segment basic>
+            <Container fluid style={styles.wrapper}>
             <Header as='h1' textAlign='center'>Login</Header>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
@@ -53,21 +53,25 @@ class Login extends Component {
                 <Button primary type='submit'>Submit</Button>
               </Segment>
             </Form>
+            </Container>
           </Segment>
         </div>
           </div>
-      </Container>
+      </div>
       )     
     }
   }
+  const styles = {
+    wrapper: { 
+        height: '100%',
+        width: '120%',
+        display: 'flex',
+        justifyContent: 'center', 
+        alignItems: 'flex-end',
+        border: 'borderless',
+         }
+  }
 
-const styles = {
-  wrapper: { 
-      justifyContent: 'center', 
-      alignItems: 'center',
-      border: 'rounded',
-       }
-}
 
 
 export default connect()(Login);
