@@ -15,9 +15,10 @@ class LeftMenu extends Component {
         <div>
           <div>
             <Menu secondary vertical style={styles.menu}>           
-              <Menu.Item  onClick={this.handleItemClick}>
-                <Link to={'/feed'} style={styles.rally} as='h1'>Rally</Link>
-                <Link to={'/feed'} style={styles.est} as='h1'>est</Link>
+              <Menu.Item>
+                <Image 
+                  src={require('../assets/images/Logo_White.svg')} 
+                />
               </Menu.Item>
 
               <Menu.Item 
