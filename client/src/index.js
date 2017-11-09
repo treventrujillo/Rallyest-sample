@@ -75,7 +75,7 @@ body{
     height: 150vh;
   }
   .test{
-
+    width: 95%;
   }
 `
 
