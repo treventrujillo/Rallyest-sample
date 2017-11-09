@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rallyest
+* Our goal is to make excellent aftercare available to every family throough technology, tools, and time tested expertise.
 
-Things you may want to cover:
+### Ruby Version 
+* 2.4.2
 
-* Ruby version
+### System Dependencies
+* jshint: 2.9.5
 
-* System dependencies
+## Build
 
-* Configuration
+### Locally using npm
+* Clone/download the repo
 
-* Database creation
+* `cd rallyest`
 
-* Database initialization
+* If you don't have create-react-app installed run `npm install create-react-app` 
 
-* How to run the test suite
+* `bundle exec rails s -p 3001`
 
-* Services (job queues, cache servers, search engines, etc.)
+* `cd client`
 
-* Deployment instructions
+* `yarn start`
 
-* ...
+### Database creation
+
+### Database initialization
+
+### How to run the test suite
+
+### Services (job queues, cache servers, search engines, etc.)
+
+
+
