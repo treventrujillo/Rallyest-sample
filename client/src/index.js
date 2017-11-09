@@ -67,8 +67,8 @@ body{
 }
 
 #hero-overlay {
-  min-height: 70px;
-  max-height: 70px;
+  min-height: 80px;
+  max-height: 80px;
   width: 100%;
   background-color: rgba(27, 188, 155, 0.8);
   display: flex;
@@ -76,10 +76,10 @@ body{
   align-items: center;
 }
 #project-one-container {
-  width: 100%;
+  width: 85%;
 }
 .test{
-  width: 100%;
+  width: 85%;
 }
 `
 
