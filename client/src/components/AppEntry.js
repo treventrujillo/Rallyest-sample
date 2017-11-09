@@ -9,8 +9,8 @@ import { Container } from 'semantic-ui-react';
 
 const AppEntry = () => (
   <div id="wrap">
-    <div id="side-bar-left">
-      <div id="contents-left">
+    <div id="left-menu-container">
+      <div id="left-menu-wrap">
         <div id="overlay">
           <LeftMenu/>
         </div>

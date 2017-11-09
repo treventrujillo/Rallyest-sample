@@ -32,20 +32,24 @@ body{
   -ms-box-orient: horizontal;
   box-orient: horizontal;*/
 }
-#side-bar-left {
+#left-menu-container {
   width: 15%;
+  min-width: 200px;
+  max-width: 200px;
   -ms-flex: 0 150px;
   -webkit-box-flex:  0;
   -moz-box-flex:  0;
   -ms-box-flex:  0;
   box-flex:  0;  
 }
-#contents-left {
+#left-menu-wrap {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 15%;
+  min-width: 200px;
+  max-width: 200px;
   overflow: hidden;
   display: -webkit-flex;
   display: flex;
@@ -54,6 +58,7 @@ body{
 }
 #overlay {
   width: 15%;
+  min-width: 200px;
   height: 0px;
   background-color: rgba(56, 56, 56, 0.7);
 }
@@ -79,7 +84,7 @@ body{
   width: 100%;
 }
 .test{
-  width: 85%;
+  width: 100%;
 }
 `
 
