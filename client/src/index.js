@@ -76,7 +76,7 @@ body{
   align-items: center;
 }
 #project-one-container {
-  width: 85%;
+  width: 100%;
 }
 .test{
   width: 85%;
