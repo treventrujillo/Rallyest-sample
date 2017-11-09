@@ -13,6 +13,7 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 body{
   margin:0px;
+  background-color: #e1e6e7;
 }
 #wrap {
   width: 100%;
@@ -65,27 +66,16 @@ body{
 
   #hero-overlay {
     width: 100%;
-
     background-color: rgba(27, 188, 155, 0.8);
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center;
   }
-  #picture-container {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-color: white;
-  }
-  #picture-overlay {
-    No styling as of yet
-  }
   #project-one-container {
-    width: 100%;
     height: 150vh;
   }
   .test{
-      width: 100%;
+
   }
 `
 
