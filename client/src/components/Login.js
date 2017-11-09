@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
 
+
 class Login extends Component {
   state = { email: '', password: '' };
 
@@ -12,20 +13,49 @@ class Login extends Component {
     this.setState({ [id]: value });
   }
 
+  setError = (fieldName, error) => {
+    const update = {};
+    update[fieldName+"Error"] = error;
+    this.setState(update);
+  }
+
+  validateEmail = (email) => {
+    const hasErrors = false;
+    if (!this.validateEmail == '') {
+      this.setError("email", "Please enter your email address");
+      hasErrors === true;
+    } else this.setError("email", null)
+
+    if (!this.validateEmail !== /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/) {
+      this.setError("email", "Please enter a valid email address");
+      hasErrors === true;
+    } else this.setError("email", null)
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch, history } = this.props;
     const { email, password } = this.state;
-    dispatch(handleLogin(email, password, history));
-  }
+      if (!this.validateEmail(this.state.text_input_email)) {
+        dispatch(handleLogin(email, password, history));
+      } else {
+        alert('This email is Invalid')
+      }
+    }
+
   render() {
     const { email, password, redirect } = this.state;
     return (
-      <div>
-      <div class="secondary segment">
+      <div style={styles.tourFlexContainer} >
+      <div style={styles.header}>
         <div>
-          <Segment basic>
-            <Container fluid style={styles.wrapper}>
+          <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+    }}>
+        <div style={styles.tourBox}>
+            <Container>
             <Header as='h1' textAlign='center'>Login</Header>
             <Form onSubmit={this.handleSubmit}>
               <Form.Field>
@@ -54,22 +84,31 @@ class Login extends Component {
               </Segment>
             </Form>
             </Container>
-          </Segment>
+          </div>
+          </div>
         </div>
           </div>
       </div>
       )     
     }
   }
+
+
   const styles = {
-    wrapper: { 
-        height: '100%',
-        width: '120%',
+    tourFlexContainer:{
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    tourBox: {
+        height:'80vh',
+        width: '50%',
         display: 'flex',
-        justifyContent: 'center', 
-        alignItems: 'flex-end',
-        border: 'borderless',
-         }
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '20px',
+        borderSize: '.5px',
+        
+  }
   }
 
 
