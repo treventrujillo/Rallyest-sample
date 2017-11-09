@@ -1,7 +1,7 @@
 # README
 
 ## Rallyest
-* Our goal is to make excellent aftercare available to every family throough technology, tools, and time tested expertise.
+* Our goal is to make excellent aftercare available to every family through technology, tools and time tested expertise.
 
 ### Ruby Version 
 * 2.4.2
