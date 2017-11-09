@@ -67,8 +67,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("img/swirl_pattern.png");
-  background-attachment: fixed;
 }
 
 #hero-overlay {
