@@ -12,11 +12,9 @@ class LeftMenu extends Component {
     const { activeItem } = this.state
 
     return (
-      <div >
-        <div style={styles.menu}>
-          <div style={{justifyContent: 'flex-start'}}>
-
-            <Menu pointing secondary vertical>           
+        <div>
+          <div>
+            <Menu secondary vertical style={styles.menu}>           
               <Menu.Item  onClick={this.handleItemClick}>
                 <Link to={'/feed'} style={styles.rally} as='h1'>Rally</Link>
                 <Link to={'/feed'} style={styles.est} as='h1'>est</Link>
@@ -141,13 +139,9 @@ class LeftMenu extends Component {
                 />
                 <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
               </Menu.Item>
-              <Menu.Item style={styles.end}>
-
-              </Menu.Item>
             </Menu>
           </div>
         </div>
-      </div>
     )
   }
 }
@@ -155,28 +149,19 @@ class LeftMenu extends Component {
 const styles = {
   menu: {
     backgroundColor: '#2d618e',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'flex-start',
+    minHeight: '100vh',
   }, 
-  rally: {
-    fontFamily: 'chunkfive Ex',
-    color: '#e1e6e7',
-    fontSize: '45px',
-    margin: '0px',
-  },
-  est: {
-    fontFamily: 'chunkfive Ex',
-    color: '#ffc713',
-    fontSize: '45px',
-    margin: '0px',
-  },
   icoimage: {
-    display: 'inline',
+    display: 'inline-flex',
     margin: '0px 10px 0px 5px',
   },
-  end:{
-    justifyContent: 'flex-end',
+  rally: {
+    color: '#e1e6e7',
+    fontSize: '45px',
+  },
+  est: {
+    color: '#ffc713',
+    fontSize: '45px',
   },
 }
 
