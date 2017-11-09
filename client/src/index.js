@@ -13,6 +13,8 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 body{
   margin:0px;
+  padding: 0px,
+  margin: 0px;
   background-color: #e1e6e7;
 }
 #wrap {
@@ -31,7 +33,7 @@ body{
   box-orient: horizontal;*/
 }
 #side-bar-left {
-  width: 230px;
+  width: 15%;
   -ms-flex: 0 150px;
   -webkit-box-flex:  0;
   -moz-box-flex:  0;
@@ -43,7 +45,7 @@ body{
   top: 0;
   left: 0;
   height: 100vh;
-  width: 230px;
+  width: 15%;
   overflow: hidden;
   display: -webkit-flex;
   display: flex;
@@ -51,32 +53,34 @@ body{
   flex-direction: column;
 }
 #overlay {
-  width: 230px;
+  width: 15%;
   height: 0px;
   background-color: rgba(56, 56, 56, 0.7);
 }
 #hero {
   width: 100%;
   display: flex;
-  justify-content: center; /* align horizontal */
+  justify-content: center;
   align-items: center;
   background-image: url("img/swirl_pattern.png");
   background-attachment: fixed;
- }
+}
 
-  #hero-overlay {
-    width: 100%;
-    background-color: rgba(27, 188, 155, 0.8);
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center;
-  }
-  #project-one-container {
-    height: 150vh;
-  }
-  .test{
-    width: 95%;
-  }
+#hero-overlay {
+  min-height: 70px;
+  max-height: 70px;
+  width: 100%;
+  background-color: rgba(27, 188, 155, 0.8);
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
+#project-one-container {
+  width: 100%;
+}
+.test{
+  width: 100%;
+}
 `
 
 
