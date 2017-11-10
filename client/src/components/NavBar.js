@@ -1,40 +1,58 @@
 import React from 'react';
 import {
-   Menu,
-   Icon,
-   Input,
-   Image,
-   Dropdown,
-  } from 'semantic-ui-react';
+  Menu,
+  Icon,
+  Input,
+  Image,
+  Dropdown,
+} from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
-
-
-const options = [{
-  value: '0', image: { avatar: true, src: '../assets/images/selected.png'}
-}]
-
 class NavBar extends React.Component {
+
+  homeTeamOptions = [
+    { key: 1, text: 'Hometeam1', value: 1 },
+    { key: 2, text: 'Hometeam2', value: 2 },
+    { key: 3, text: 'Hometeam3', value: 3 },
+  ]
+
+  announceOptions = [
+    { key: 1, text: 'Announcement1', value: 1 },
+    { key: 2, text: 'Announcement2', value: 2 },
+    { key: 3, text: 'Announcement3', value: 3 },
+  ]
+
+  homeTrigger = (
+    <span>
+      <Image src={require('../assets/images/teamimg1.png')} />
+    </span>
+  )
+
+  announceTrigger = (
+    <span>
+      <Image src={require('../assets/images/announcement_icon.png')} alt='Announcements' />
+    </span>
+  )
+
   render() {
     return (
-      <div style={{minWidth: '100%'}}>
+      <div style={{ minWidth: '100%' }}>
         <Menu borderless>
           <Menu.Item position='right'>
             <Input className='icon' icon='search' placeholder='Search...' size='huge' />
           </Menu.Item>
           <Menu.Item>
-            <Icon className='users' size='big' />
+            <Link to='/HomeTeam'>
+              <Icon className='users' size='big' />
+            </Link>
           </Menu.Item>
           <Menu.Item>
-            <Image src={require('../assets/images/selected.png')} alt='Announcements' avatar />
+            <Dropdown trigger={this.announceTrigger} options={this.announceOptions} icon={null} pointing='top right' />
           </Menu.Item>
           <Menu.Item>
-            <Dropdown
-              options={4}>
-              <Image src={require('../assets/images/teamimg1.png')} options={options}/>
-            </Dropdown>
+            <Dropdown trigger={this.homeTrigger} options={this.homeTeamOptions} icon={null} pointing='top right' />
           </Menu.Item>
         </Menu>
       </div>
