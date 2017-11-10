@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path='/' component={Login} />
-        <Route exact path='/feed' component={UserFeed} />
+        <AuthRoute exact path='/feed' component={UserFeed} />
         <Route path='/Files' component={Files} />
         <Route path='/Photos' component={Photos} />
         <Route path='/Letters' component={Letters} />

@@ -38,6 +38,7 @@ export const handleLogin = (email, password, history) => {
     axios.post('/api/logins', { email, password })
       .then(res => {
         const { data: user, headers } = res;
+        sessionStorage.setItem('token', res.data.token)
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))

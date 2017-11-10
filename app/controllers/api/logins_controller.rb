@@ -20,9 +20,9 @@ class Api::LoginsController < ApplicationController
     access_token = login_json["access_token"]
     # set sesssion to token
     session[:access_token] = access_token
-
     session[:username] = username 
-    
+
+    render json: { token: session[:access_token] }
   end
 
   def destroy
