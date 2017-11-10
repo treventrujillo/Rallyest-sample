@@ -39,7 +39,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div style={{ minWidth: '100%' }}>
-        <Menu borderless>
+        <Menu borderless style={{borderRadius: '0',}}>
           <Menu.Item position='right'>
             <Input className='icon' icon='search' placeholder='Search...' size='huge' />
           </Menu.Item>

@@ -60,7 +60,6 @@ body{
   width: 15%;
   min-width: 200px;
   height: 0px;
-  background-color: rgba(56, 56, 56, 0.7);
 }
 #hero {
   width: 100%;
@@ -70,12 +69,11 @@ body{
 }
 
 #hero-overlay {
-  min-height: 80px;
-  max-height: 80px;
+  min-height: 70px;
+  max-height: 70px;
   width: 100%;
-  background-color: rgba(27, 188, 155, 0.8);
   display: flex;
-  justify-content: center; /* align horizontal */
+  justify-content: center; 
   align-items: center;
 }
 #project-one-container {
