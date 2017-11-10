@@ -5,8 +5,7 @@ class Api::PostsController < Api::RallybaseController
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
       :verify_ssl => false 
     )
-    response_json = JSON.parse(response.body)
-    render json: { res: response_json }
+    render json: { res: response }
   end
 
 end

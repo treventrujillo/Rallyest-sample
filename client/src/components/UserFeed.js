@@ -24,7 +24,8 @@ class UserFeed extends Component {
     axios.get('/api/posts')
       .then(res => {
         const { data } = res;
-        this.setState({ posts: data.res.included }
+        const posts = JSON.parse(res.data.res)
+        this.setState({ posts: posts.included }
       )}
     )
   }
