@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Icon } from 'semantic-ui-react';
+import { Menu, Image, Segment, Icon } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 class TourBox extends Component {
@@ -14,17 +14,82 @@ class TourBox extends Component {
         <div style={styles.blueBox}>
           stuff goes here
         </div>
-        <div style={styles.buttonBar}>
+        <div>
           {/* TODO: links added */}
-          <Segment.Group horizontal style={styles.buttonBar}>
-            <Segment>Skip</Segment>
-              <Segment>
-                <Link to={'/Tour_1'}><Icon name='circle' size='tiny' style={{paddingLeft: '5px', paddingRight: '5px'}}/></Link>
-                <Link to={'/Tour_2'}><Icon name='circle' size='tiny' style={{paddingLeft: '5px', paddingRight: '5px'}}/></Link>
-                <Link to={'/Tour_3'}><Icon name='circle' size='tiny' style={{paddingLeft: '5px', paddingRight: '5px'}}/></Link>
-              </Segment>
-            <Segment>Next</Segment>
-          </Segment.Group>
+          <Menu 
+            borderless 
+            style={{borderRadius: '0px 0px 10px 10px', width: '600px', }}  
+            widths={5}
+          >
+            <Menu.Item borderless >
+              <div>
+                Skip
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+
+            </Menu.Item>
+            <Menu.Item borderless>
+              <div>
+                <Link to={'/Tour_1'}>
+                  <Icon 
+                    name='circle' 
+                    size='tiny' 
+                    style={{ paddingLeft:'15px', paddingRight:'15px' }}
+                  />
+                </Link>
+                <Link to={'/Tour_2'}>
+                  <Icon 
+                    name='circle' 
+                    size='tiny' 
+                    style={{paddingLeft: '15px', paddingRight: '15px'}}
+                  />
+                </Link>
+                <Link to={'/Tour_3'}>
+                  <Icon 
+                    name='circle' 
+                    size='tiny' 
+                    style={{paddingLeft: '15px', paddingRight: '15px'}}
+                  />
+                </Link>
+              </div>
+            </Menu.Item>
+            <Menu.Item>
+              
+            </Menu.Item>
+            <Menu.Item borderless>
+              Next
+            </Menu.Item>
+          </Menu>
+{/* -----0px
+
+<Menu.Item name='Rallyest' borderless>  
+<Image 
+src={require('../../assets/images/Logo_White.png')} 
+size='small'/>
+</Menu.Item>
+
+<Menu.Menu >
+
+<Menu.Item borderless>
+<Link to={'/'} style={styles.menuItem} as='h1'>Product</Link>
+</Menu.Item>
+
+<Menu.Item borderless>  
+<Link to={'/'} style={styles.menuItem} as='h1'>Support</Link>
+</Menu.Item>
+
+<Menu.Item borderless>  
+<Link to={'/'} style={styles.menuItem} as='h1'>Find your team</Link>
+</Menu.Item>
+
+<Menu.Item borderless style={styles.itemRight}>  
+<Link to={'/'} style={styles.menuItem} as='h1'>Sign In</Link>
+</Menu.Item>
+
+</Menu.Menu>
+</Menu> */}
+
         </div>
       </div>
     )
@@ -34,15 +99,19 @@ class TourBox extends Component {
 const styles = {
   boxContainer:{
     width: '100%',
+    height: '100%',
     justifyContent: 'center',
-    padding: 0,
-    margin: 0, 
+    paddingTop: '12vh',
+    paddingBottom: '12vh', 
     position: 'relative',
+
   },
   blueBox:{
-    backgroundColor: '#2d618e',
-    height: '40vh',
+    backgroundColor: '#0d6192',
+    minHeight: '450px',
     borderRadius: '10px 10px 0px 0px',
+    borderLeft: '', 
+    borderBottom: '',
     top: 0,
     left: 0,
   },
@@ -52,6 +121,7 @@ const styles = {
     padding:0,
     margin:0,
     borderRadius: '0px 0px 10px 10px',
+
   },
 }
 

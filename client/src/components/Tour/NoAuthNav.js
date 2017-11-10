@@ -7,7 +7,7 @@ const NoAuthNav = () => (
     <Menu borderless style={styles.menu}>
       <Menu.Item name='Rallyest' borderless>  
         <Image 
-          src={require('../../assets/images/Logo_White.svg')} 
+          src={require('../../assets/images/Logo_White.png')} 
           size='small'/>
       </Menu.Item>
       
@@ -36,7 +36,7 @@ const NoAuthNav = () => (
 
 const styles = {
   menu: {
-    backgroundColor: '#2d618e',
+    backgroundColor: '#0d6192',
     marginBottom: '1vh',
     height: '10vh',
   },

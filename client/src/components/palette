@@ -4,7 +4,7 @@
   Utility_gray: rgb(225,230,231), #e1e6e7
 
 // Logo primary colors,
-  Rallyest_Dark_blue: rgb(0,86,135), #2d618e
+  Rallyest_Dark_blue: rgb(0,86,135), #0d6192
   Rallyest_Blue: rgb(0,170,223), #00aadf
   Rallyest_Yellow: rgb(255,199,19), #ffc713
   

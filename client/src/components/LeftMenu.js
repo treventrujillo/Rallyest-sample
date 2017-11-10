@@ -17,7 +17,7 @@ class LeftMenu extends Component {
             <Menu secondary vertical style={styles.menu}>           
               <Menu.Item>
                 <Link to={'/Feed'}>
-                  <Image src={require('../assets/images/Logo_White.svg')}/>
+                  <Image src={require('../assets/images/Logo_White.png')}/>
                 </Link>
               </Menu.Item>
 
@@ -149,7 +149,7 @@ class LeftMenu extends Component {
 
 const styles = {
   menu: {
-    backgroundColor: 'rgb(57, 98, 143)',
+    backgroundColor: '#0d6192',
     minHeight: '100vh',
   }, 
   icoimage: {

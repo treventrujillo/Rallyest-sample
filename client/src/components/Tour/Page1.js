@@ -42,8 +42,8 @@ const styles={
     backgroundColor: 'white',
   },
   tourBox:{
-    height:'80vh',
-    width: '50%',
+    minHeight: '600px',
+    minWidth: '600px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
