@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Header, Accordion, Icon } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-
-
-
 class Settings extends Component {
   state = { activeIndex: '' }
   
@@ -22,14 +19,18 @@ class Settings extends Component {
     return (
       <div >
 
-      <Header as='h1' textAlign='center' style={{color: '#00aadf',paddingTop: '2vh', }}>Settings</Header>
+      <Header as='h1' textAlign='center' style={{color: '#00aadf',paddingTop: '2vh', }}>
+      <Icon name= 'settings'/>
+      Settings
+      
+      </Header>
       <div style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'}}>
       <Accordion fluid styled style={{ width: '70%' }}>
         <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-          <Icon name='dropdown' />
+          <Icon name='user' />
             Account Settings
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 0}>
@@ -46,7 +47,7 @@ class Settings extends Component {
         </Accordion.Content>
 
         <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-          <Icon name='dropdown' />
+          <Icon name='child' />
           HomeTeam Settings
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 1}>
@@ -59,7 +60,7 @@ class Settings extends Component {
         </Accordion.Content>
 
         <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
-          <Icon name='dropdown' />
+          <Icon name='mail outline' />
           Notifications
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 2}>
