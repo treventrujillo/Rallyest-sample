@@ -10,10 +10,10 @@ const Page1 = () => (
     </div>
     <div>
       <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    }}>
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
         <div style={styles.tourBox}>
           <TourBox/>
         </div>
