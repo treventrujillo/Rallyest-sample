@@ -6,6 +6,8 @@ import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { BrowserRouter as Router, Route, Link, Match, Redirect, Switch } from 'react-router-dom'
 
+import Flash from './Flash'
+
 import DashboardLayout from './Layouts/DashboardLayout';
 import LoginLayout from './Layouts/LoginLayout';
 
@@ -34,7 +36,10 @@ const DashboardRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
       <DashboardLayout>
+        <div>
+          <Flash />
           <Component {...matchProps} />
+        </div>
       </DashboardLayout>
     )} />
 )};
@@ -42,7 +47,10 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
       <LoginLayout>
+        <div>
+          <Flash />
           <Component {...matchProps} />
+        </div>
       </LoginLayout>
     )} />
 )};
