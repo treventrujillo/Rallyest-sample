@@ -154,7 +154,7 @@ const styles = {
   }, 
   icoimage: {
     display: 'inline-flex',
-    margin: '0px 10px 0px 5px',
+    margin: '0px 10px 0px 15px',
   },
 }
 
