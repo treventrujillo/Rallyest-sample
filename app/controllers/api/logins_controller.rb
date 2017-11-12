@@ -34,8 +34,4 @@ class Api::LoginsController < ApplicationController
       end
   end
 
-  def destroy
-    reset_session
-  end
-
 end

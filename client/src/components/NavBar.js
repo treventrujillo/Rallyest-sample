@@ -5,12 +5,18 @@ import {
   Input,
   Image,
   Dropdown,
+  Button,
 } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
 class NavBar extends React.Component {
+
+  handleClick = () => {
+    const { dispatch } = this.props;
+    dispatch(handleLogout())
+  }
 
   homeTeamOptions = [
     { key: 1, text: 'Hometeam1', value: 1 },
@@ -41,6 +47,9 @@ class NavBar extends React.Component {
       <div style={{ minWidth: '100%' }}>
         <Menu borderless style={{borderRadius: '0',}}>
           <Menu.Item position='right'>
+            <Button onClick={this.handleClick}>Logout</Button>
+          </Menu.Item>
+          <Menu.Item position='right'>
             <Input className='icon' icon='search' placeholder='Search...' size='huge' />
           </Menu.Item>
           <Menu.Item>
@@ -60,4 +69,4 @@ class NavBar extends React.Component {
   }
 };
 
-export default NavBar;
+export default connect()(NavBar);

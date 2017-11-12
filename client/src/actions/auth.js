@@ -11,23 +11,12 @@ const logout = () => {
   return { type: 'LOGOUT' };
 };
 
-export const handleLogout = (history) => {
+export const handleLogout = () => {
 
   return dispatch => {
-    axios.delete('/api/logins')
-      .then(res => {
-        const { headers } = res;
-        dispatch(logout());
-        dispatch(setFlash('Logged out successfully!', 'green'));
-        dispatch(setHeaders(headers));
-        history.push('/login');
-      })
-      .catch(res => {
-        const { response, headers } = res;
-        const messages = response.request.statusText + ", " + response.request.status
-        dispatch(setFlash(messages, 'red'));
-        dispatch(setHeaders(headers));
-      });
+    delete sessionStorage.token
+    dispatch(setFlash('Logged out successfully!', 'green'))
+    window.location = '/'
   };
 };
 
