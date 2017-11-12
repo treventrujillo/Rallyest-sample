@@ -4,7 +4,7 @@ import { Header, Segment, Form, Button, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
