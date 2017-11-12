@@ -3,7 +3,8 @@ import { Header, Segment, Form, Button, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 
 
 class Login extends Component {
@@ -46,64 +47,90 @@ class Login extends Component {
 
   render() {
     const { email, password, redirect } = this.state;
-      return (
-        <div style={styles.tourFlexContainer}>
-          <div style={styles.header}>
-            <div>
-              <div style={{
+    return (
+      <div style={styles.flexContainer} >
+        <div style={styles.header}>
+          <div>
+            <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-              }}>
-                <div style={styles.tourBox}>
-                    <Container>
-                    <Header as='h1' textAlign='center'>Login</Header>
-                    <Form onSubmit={this.handleSubmit}>
-                      <Form.Field>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                          required
-                          id='email'
-                          value={email}
-                          placeholder='Email'
-                          onChange={this.handleChange}
-                        />
-                      </Form.Field>
-                      <Form.Field>
-                        <label htmlFor='password'>Password</label>
-                        <input
-                          required
-                          id='password'
-                          value={password}
-                          placeholder='Password'
-                          type='password'
-                          onChange={this.handleChange}
-                      />
-                      </Form.Field>
-                      <Segment textAlign='center' basic>
-                        <Button primary type='submit'>Submit</Button>
-                      </Segment>
-                    </Form>
-                  </Container>
+    }}>
+        <div style={styles.box}>
+            <Container>
+            <Header 
+              style={styles.blueBox} 
+              as='h1' 
+              textAlign='center'
+              
+            >
+              Sign in
+            </Header>
+              <Form 
+                onSubmit={this.handleSubmit}
+                style={{backgroundColor: '#ffffff'}}
+              >
+              <div style={styles.formEmail}>
+                <Form.Field>
+                    <label htmlFor='email'>Email</label>
+                    <input
+                      required
+                      id='email'
+                      value={email}
+                      placeholder='Email'
+                      onChange={this.handleChange}
+                    />
+                  </Form.Field>
+                  </div>
+              <div style={styles.formFieldBox}>
+                  <Form.Field>
+                    <label htmlFor='password'>Password</label>
+                    <input
+                      required
+                      id='password'
+                      value={password}
+                      placeholder='Password'
+                      type='password'
+                      onChange={this.handleChange}
+                  />
+                  </Form.Field>
+              </div>
+              <Segment textAlign='center' basic>
+                <div>
+                  <Button
+                    circular 
+                    fluid 
+                    primary type='submit'
+                  >
+                    Sign in
+                  </Button>
                 </div>
-              </div>
-              <div style={styles.Box}>
-                <Link to={'/Tour_1'}>CLICK HERE to take the Tour</Link>
-              </div>
-            </div>
+                <div>
+                  <Link 
+                    to={'Home'}
+                   >
+                    Forgot Password? 
+                  </Link>
+                </div>
+              </Segment>
+              </Form>
+            </Container>
           </div>
+         </div>
         </div>
+       </div>
+      </div>
       )     
     }
   }
 
 
   const styles = {
-    tourFlexContainer:{
+    flexContainer:{
       display: 'flex',
       flexDirection: 'column',
     },
-    tourBox: {
+    box: {
       height:'80vh',
       width: '50%',
       display: 'flex',
@@ -112,13 +139,34 @@ class Login extends Component {
       borderRadius: '20px',
       borderSize: '.5px',   
     },
-    Box: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '20px',
-      borderSize: '.5px',   
+    blueBox: {
+      backgroundColor: '#0d6192',
+      minHeight: '85px',
+      borderRadius: '10px 10px 0px 0px',
+      borderLeft: '', 
+      borderBottom: '',
+      top: 0,
+      left: 0,
+      paddingTop: '3vh',
+      paddingBottom: '3vh',
+      color: '#ffffff',
+      margin:0,
     },
+    formFieldBox: {
+      paddingTop: '20px',
+      paddingBottom: '20px',
+      justifyContent: 'center',
+      margin: '',
+    },
+    formEmail: {
+      paddingTop: '20px',
+      paddingBottom: '20px',
+    },
+    button: {
+      width: '50%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
   }
 
 
