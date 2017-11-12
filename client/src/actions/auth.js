@@ -45,9 +45,9 @@ export const handleLogin = (email, password, history) => {
         history.push('/feed');
       })
       .catch(res => {
-        const { response, headers } = res;
+        const { response: data } = res;
+        dispatch(setHeaders(data.headers));
         dispatch(setFlash('Invalid email/password', 'red'));
-        dispatch(setHeaders(headers));
       });
     }
   }
@@ -58,7 +58,6 @@ export const verifyToken = (history) => {
     
     axios.get('api/verifytoken')
       .then(res => {
-        debugger
         if ( res.data.authenticated === true ) {
           return;
         } else {
@@ -66,11 +65,11 @@ export const verifyToken = (history) => {
           history.push('/')
         }
       })
-      .catch(res => {
-        const { response, headers } = res;
-        const messages = response.request.statusText + ", " + response.request.status
-        dispatch(setFlash(messages, 'red'))
-        dispatch(setHeaders(headers))
-      });
+      // .catch(res => {
+      //   const { response, headers } = res;
+      //   const messages = response.request.statusText + ", " + response.request.status
+      //   dispatch(setFlash(messages, 'red'))
+      //   dispatch(setHeaders(headers))
+      // });
   }
 }
