@@ -14,31 +14,11 @@ class Login extends Component {
     const { id, value } = event.target;
     this.setState({ [id]: value });
   }
-
-  setError = (fieldName, error) => {
-    const update = {};
-    update[fieldName+"Error"] = error;
-    this.setState(update);
-  }
-
-  validateEmail = (email) => {
-    const hasErrors = false;
-    if (!this.validateEmail == '') {
-      this.setError("email", "Please enter your email address");
-      hasErrors === true;
-    } else this.setError("email", null)
-
-    if (!this.validateEmail !== /^[a-zA-Z0-9]+@+[a-zA-Z0-9]+.+[A-z]/) {
-      this.setError("email", "Please enter a valid email address");
-      hasErrors === true;
-    } else this.setError("email", null)
-  };
-
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch, history } = this.props;
     const { email, password } = this.state;
-      if (!this.validateEmail(this.state.text_input_email)) {
+      if(/[a-z0-9]+[_a-z0-9\.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
         dispatch(handleLogin(email, password, history));
       } else {
         alert('This email is Invalid')
