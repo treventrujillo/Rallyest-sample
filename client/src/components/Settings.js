@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Header, Accordion, Icon } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Settings extends Component {
   state = { activeIndex: '' }
@@ -83,13 +83,6 @@ class Settings extends Component {
               <li>etc.</li>
             </ul>
           </p>
-        </Accordion.Content>
-        <Accordion.Title active={activeIndex === 3} index={3} onClick={this.handleClick} style={{color: '#ffc713'}}>
-          <Icon name='dropdown' />
-          Tour - Test Screens
-        </Accordion.Title>
-        <Accordion.Content active={activeIndex === 3} style={{color: '#e1e6e7'}}>
-          <Link to={'/Tour_1'}>Tour</Link>
         </Accordion.Content>
       </Accordion>
       </div>

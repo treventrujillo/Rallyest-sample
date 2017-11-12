@@ -37,9 +37,7 @@ const DashboardRoute = ({component: Component, ...rest}) => {
           <Component {...matchProps} />
       </DashboardLayout>
     )} />
-  )
-};
-
+)};
 const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
@@ -47,9 +45,7 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
           <Component {...matchProps} />
       </LoginLayout>
     )} />
-  )
-};
-
+)};
 
 /*   App   */ 
 class App extends Component {
@@ -61,6 +57,9 @@ class App extends Component {
             <Redirect to='/Login'/>
           </Route>
           <LoginLayoutRoute path='/login' component={Login}/>
+          <LoginLayoutRoute path='/Tour_1' component={Page1}/>
+          <LoginLayoutRoute path='/Tour_2' component={Page2}/>
+          <LoginLayoutRoute path='/Tour_3' component={Page3}/>
           <DashboardRoute exact path='/Feed' component={UserFeed} />
           <DashboardRoute path='/Files' component={Files} />
           <DashboardRoute path='/Photos' component={Photos} />

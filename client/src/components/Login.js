@@ -3,6 +3,7 @@ import { Header, Segment, Form, Button, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
+import {Link} from 'react-router-dom'
 
 
 class Login extends Component {
@@ -45,50 +46,53 @@ class Login extends Component {
 
   render() {
     const { email, password, redirect } = this.state;
-    return (
-      <div style={styles.tourFlexContainer} >
-      <div style={styles.header}>
-        <div>
-          <div style={{
+      return (
+        <div style={styles.tourFlexContainer}>
+          <div style={styles.header}>
+            <div>
+              <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-    }}>
-        <div style={styles.tourBox}>
-            <Container>
-            <Header as='h1' textAlign='center'>Login</Header>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Field>
-                <label htmlFor='email'>Email</label>
-                <input
-                  required
-                  id='email'
-                  value={email}
-                  placeholder='Email'
-                  onChange={this.handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='password'>Password</label>
-                <input
-                  required
-                  id='password'
-                  value={password}
-                  placeholder='Password'
-                  type='password'
-                  onChange={this.handleChange}
-              />
-              </Form.Field>
-              <Segment textAlign='center' basic>
-                <Button primary type='submit'>Submit</Button>
-              </Segment>
-            </Form>
-            </Container>
-          </div>
+              }}>
+                <div style={styles.tourBox}>
+                    <Container>
+                    <Header as='h1' textAlign='center'>Login</Header>
+                    <Form onSubmit={this.handleSubmit}>
+                      <Form.Field>
+                        <label htmlFor='email'>Email</label>
+                        <input
+                          required
+                          id='email'
+                          value={email}
+                          placeholder='Email'
+                          onChange={this.handleChange}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label htmlFor='password'>Password</label>
+                        <input
+                          required
+                          id='password'
+                          value={password}
+                          placeholder='Password'
+                          type='password'
+                          onChange={this.handleChange}
+                      />
+                      </Form.Field>
+                      <Segment textAlign='center' basic>
+                        <Button primary type='submit'>Submit</Button>
+                      </Segment>
+                    </Form>
+                  </Container>
+                </div>
+              </div>
+              <div style={styles.Box}>
+                <Link to={'/Tour_1'}>CLICK HERE to take the Tour</Link>
+              </div>
+            </div>
           </div>
         </div>
-          </div>
-      </div>
       )     
     }
   }
@@ -100,15 +104,21 @@ class Login extends Component {
       flexDirection: 'column',
     },
     tourBox: {
-        height:'80vh',
-        width: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '20px',
-        borderSize: '.5px',
-        
-  }
+      height:'80vh',
+      width: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '20px',
+      borderSize: '.5px',   
+    },
+    Box: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '20px',
+      borderSize: '.5px',   
+    },
   }
 
 

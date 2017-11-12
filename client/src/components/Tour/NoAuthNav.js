@@ -5,10 +5,12 @@ import {Link} from 'react-router-dom'
 const NoAuthNav = () => (
   <div style={styles.menu}>
     <Menu borderless style={styles.menu}>
-      <Menu.Item name='Rallyest' borderless>  
-        <Image 
-          src={require('../../assets/images/Logo_White.png')} 
-          size='small'/>
+      <Menu.Item name='Rallyest' borderless>
+        <Link to={'/login'}>
+          <Image 
+            src={require('../../assets/images/Logo_White.png')} 
+            size='small'/>
+          </Link>
       </Menu.Item>
       
       <Menu.Menu position='right'>
