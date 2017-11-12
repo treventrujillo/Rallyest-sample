@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { Header, Segment, Form, Button, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
@@ -28,81 +29,60 @@ class Login extends Component {
   render() {
     const { email, password, redirect } = this.state;
     return (
-      <div style={styles.flexContainer} >
-        <div style={styles.header}>
-          <div>
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-    }}>
-        <div style={styles.box}>
-            <Container>
-            <Header 
-              style={styles.blueBox} 
-              as='h1' 
-              textAlign='center'
-              
-            >
-              Sign in
-            </Header>
-              <Form 
-                onSubmit={this.handleSubmit}
-                style={{backgroundColor: '#ffffff'}}
-              >
-              <div style={styles.formEmail}>
-                <Form.Field>
-                    <label htmlFor='email'>Email</label>
-                    <input
-                      required
-                      id='email'
-                      value={email}
-                      placeholder='Email'
-                      onChange={this.handleChange}
-                    />
-                  </Form.Field>
-                  </div>
-              <div style={styles.formFieldBox}>
-                  <Form.Field>
-                    <label htmlFor='password'>Password</label>
-                    <input
-                      required
-                      id='password'
-                      value={password}
-                      placeholder='Password'
-                      type='password'
-                      onChange={this.handleChange}
-                  />
-                  </Form.Field>
-              </div>
-              <Segment textAlign='center' basic>
-                <div>
-                  <Button
-                    circular 
-                    fluid 
-                    primary type='submit'
-                  >
-                    Sign in
-                  </Button>
-                </div>
-                <div>
-                  <Link 
-                    to={'Home'}
-                   >
-                    Forgot Password? 
-                  </Link>
-                </div>
-              </Segment>
-              </Form>
-            </Container>
-          </div>
-         </div>
+      <div>
+        <div>
+          <Header style={styles.blueBox} as='h1' textAlign='center'>
+            Sign in
+          </Header>
         </div>
-       </div>
+        <div>
+          <Form 
+            onSubmit={this.handleSubmit}
+            style={{backgroundColor: '#ffffff',}}
+          >
+            <div style={styles.formFieldBox}>
+              <div>
+                <Form.Field>
+                  <input
+                    required
+                    id='email'
+                    value={email}
+                    placeholder='Email'
+                    onChange={this.handleChange}
+                    />
+                </Form.Field>
+              </div>
+              <div>
+                <Form.Field>
+                  <input
+                    required
+                    id='password'
+                    value={password}
+                    placeholder='Password'
+                    type='password'
+                    onChange={this.handleChange}
+                    />
+                </Form.Field>
+              </div>
+            </div>
+            <Segment textAlign='center' basic>
+              <div>
+                <Button circular fluid primary type='submit'>
+                  Sign in
+                </Button>
+              </div>
+              <div>
+                <Link to={'Home'}>
+                  Forgot Password? 
+                </Link>
+              </div>
+            </Segment>
+          </Form>
+        </div>
       </div>
-      )     
-    }
+    )     
   }
+}
 
 
   const styles = {
@@ -111,7 +91,6 @@ class Login extends Component {
       flexDirection: 'column',
     },
     box: {
-      height:'80vh',
       width: '50%',
       display: 'flex',
       alignItems: 'center',
@@ -133,14 +112,12 @@ class Login extends Component {
       margin:0,
     },
     formFieldBox: {
-      paddingTop: '20px',
-      paddingBottom: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
       justifyContent: 'center',
-      margin: '',
-    },
-    formEmail: {
-      paddingTop: '20px',
-      paddingBottom: '20px',
+      paddingTop: '5px',
+      paddingBottom: '5px',
     },
     button: {
       width: '50%',
