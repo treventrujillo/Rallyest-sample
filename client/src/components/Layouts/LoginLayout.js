@@ -48,7 +48,7 @@ const styles={
     width: '90%',
   },
   childBox:{
-    minHeight: '75vh',
+    minHeight: '80vh',
     minWidth: '75vh',
     display: 'flex',
     alignItems: 'center',
