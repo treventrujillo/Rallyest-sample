@@ -123,7 +123,9 @@ class Login extends Component {
       justifyContent: 'center',
       width: '100%',
       minWidth: '700px',
-      height: '15vh',
+      height: '100%',
+      minHeight: '15vh',
+      
     },
     formFieldBox: {
       width: '60%',
@@ -136,6 +138,7 @@ class Login extends Component {
       justifyContent: 'center',
       paddingTop: '5px',
       paddingBottom: '5px',
+      
     },
     input:{
       width: '275px', 

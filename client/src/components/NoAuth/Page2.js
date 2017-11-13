@@ -5,9 +5,6 @@ import TourBox from './TourBox'
 
 const Page2 = () => (
   <div style={styles.tourFlexContainer}>
-    <div style={styles.header}>
-      <NoAuthNav/>
-    </div>
     <div>
       <div style={{
     display: 'flex',
@@ -17,11 +14,6 @@ const Page2 = () => (
         <div style={styles.tourBox}>
           <TourBox/>
         </div>
-      </div>
-    </div>
-    <div style={styles.footerContainer}>
-      <div>
-        <NoAuthFooter/>
       </div>
     </div>
   </div>
