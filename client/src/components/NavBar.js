@@ -13,11 +13,6 @@ import { handleLogout } from '../actions/auth';
 import { NavWrap } from './styles/styles';
 class NavBar extends React.Component {
 
-  handleClick = () => {
-    const { dispatch } = this.props;
-    dispatch(handleLogout())
-  }
-
   homeTeamOptions = [
     { key: 1, text: 'Hometeam1', value: 1 },
     { key: 2, text: 'Hometeam2', value: 2 },
@@ -46,9 +41,6 @@ class NavBar extends React.Component {
     return (
       <div style={{ minWidth: '100%' }}>
         <Menu borderless style={{borderRadius: '0',}}>
-          <Menu.Item position='right'>
-            <Button onClick={this.handleClick}>Logout</Button>
-          </Menu.Item>
           <Menu.Item position='right'>
             <Input className='icon' icon='search' placeholder='Search...' size='huge' />
           </Menu.Item>

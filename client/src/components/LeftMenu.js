@@ -1,13 +1,20 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react'
-import { Menu, Image } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-import '../assets/Fonts/chunkfive ex.ttf'
+import React, { Component } from 'react';
+import { Menu, Image, Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { handleLogout } from '../actions/auth';
+import '../assets/Fonts/chunkfive ex.ttf';
 
 class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
 // Handles the menu animationthat changes the selected item
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  
+  handleClick = () => {
+    const { dispatch } = this.props;
+    dispatch(handleLogout())
+  }
   
   render() {
     const { activeItem } = this.state
@@ -141,6 +148,9 @@ class LeftMenu extends Component {
                 />
                 <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
               </Menu.Item>
+              <Menu.Item>
+                <Button onClick={this.handleClick}>Logout</Button>
+              </Menu.Item>
             </Menu>
           </div>
         </div>
@@ -159,4 +169,4 @@ const styles = {
   },
 }
 
-export default LeftMenu;
+export default connect()(LeftMenu);
