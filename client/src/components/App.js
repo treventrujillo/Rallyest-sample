@@ -27,9 +27,9 @@ import Assignments from './Assignments';
 import Community from './Community';
 import Settings from './Settings';
 import Register from './Register';
-import Page1 from './Tour/Page1';
-import Page2 from './Tour/Page2';
-import Page3 from './Tour/Page3';
+import Page1 from './NoAuth/Page1';
+import Page2 from './NoAuth/Page2';
+import Page3 from './NoAuth/Page3';
 
 /*  Route wrapper  */
 const DashboardRoute = ({component: Component, ...rest}) => {

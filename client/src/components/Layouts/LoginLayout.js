@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import NoAuthNav from '../Tour/NoAuthNav';
-import NoAuthFooter from '../Tour/NoAuthFooter';
-import TourBox from '../Tour/TourBox';
+import NoAuthNav from '../NoAuth/NoAuthNav';
+import NoAuthFooter from '../NoAuth/NoAuthFooter';
+import TourBox from '../NoAuth/TourBox';
 
 const LoginLayout = ({children, ...rest}) => {
   return (
