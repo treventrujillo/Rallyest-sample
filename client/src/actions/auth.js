@@ -28,6 +28,7 @@ export const handleLogin = (email, password, history) => {
       .then(res => {
         const { data: user, headers } = res;
         sessionStorage.setItem('token', res.data.token)
+        sessionStorage.setItem('refresh_token', res.data.refresh_token)
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))
@@ -45,7 +46,7 @@ export const handleLogin = (email, password, history) => {
 export const verifyToken = (history) => {
   return dispatch => {
     
-    axios.get('api/verifytoken')
+    axios.get('/verifytoken')
       .then(res => {
         if ( res.data.authenticated === true ) {
           return;

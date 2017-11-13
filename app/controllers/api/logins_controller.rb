@@ -1,7 +1,7 @@
 class Api::LoginsController < ApplicationController
+  before_action :set_user, only: [:destroy]
 
   def create
-
     puts 'Calling Rally API...'
     
     # set params to username and login
