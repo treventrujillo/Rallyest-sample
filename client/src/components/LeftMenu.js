@@ -17,10 +17,10 @@ class LeftMenu extends Component {
   }
   
   render() {
-    const { activeItem } = this.state
+    const { activeItem } = this.state;
 
     return (
-        <div>
+        <div style={{display: 'flex',}}>
           <div>
             <Menu secondary vertical style={styles.menu}>           
               <Menu.Item>
@@ -148,9 +148,27 @@ class LeftMenu extends Component {
                 />
                 <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
               </Menu.Item>
-              <Menu.Item>
-                <Button onClick={this.handleClick}>Logout</Button>
+              <Menu.Item style={{height: '24vh'}}>
               </Menu.Item>
+              <div style={{paddingLeft: '2vw', paddingRight: '2vw'}}>
+                <Menu.Item>
+                  <Button onClick={this.handleClick} 
+                    style={{
+                      backgroundColor: '#0d6192', 
+                      color: '#E1E6E7',
+                      display: 'inline-flex'
+                  }}>
+                    <i class="arrow left icon"></i>
+                    <p style={{fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                      fontWeight: '100', 
+                      fontSize: '2.5vh', 
+                      lineHeight: '2vh'
+                    }}>
+                      Logout
+                    </p>
+                  </Button>
+                </Menu.Item>
+              </div>
             </Menu>
           </div>
         </div>
