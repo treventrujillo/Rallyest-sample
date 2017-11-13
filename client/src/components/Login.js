@@ -32,17 +32,25 @@ class Login extends Component {
       <div style={styles.flexContainer}>
         <div style={styles.box}>
           <div style={styles.blueBox}>
-            <Header as='h1' textAlign='center'>
+            <Header 
+              textAlign='center' 
+              style={{
+                color: '#E1E6E7', 
+                fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                fontWeight: '100', 
+                fontSize: '4vh'
+              }}
+            >
               Sign in
             </Header>
           </div>
           <div>
             <Form 
               onSubmit={this.handleSubmit}
-              style={{backgroundColor: '#ffffff',}}
-              >
+              style={{backgroundColor: '#ffffff', borderRadius: '0px 0px 10px 10px',}}
+            >
               <div style={styles.formFieldBox}>
-                <div>
+                <div style={styles.formItemTop}>
                   <Form.Field>
                     <input
                       required
@@ -54,7 +62,7 @@ class Login extends Component {
                       />
                   </Form.Field>
                 </div>
-                <div>
+                <div style={styles.formItem}>
                   <Form.Field>
                     <input
                       required
@@ -67,19 +75,19 @@ class Login extends Component {
                       />
                   </Form.Field>
                 </div>
-              </div>
-              <Segment textAlign='center' basic>
-                <div>
-                  <Button circular fluid primary type='submit'>
+                <div style={styles.formButton}>
+                  <Button circular fluid primary type='submit' style={{width: '15vw', color: '', backgroundColor: '#00AADF',}}>
                     Sign in
                   </Button>
                 </div>
+              </div>
+              <Segment textAlign='center' basic>
                 <div>
                   <Link to={'Home'}>
                     Forgot Password? 
                   </Link>
-                  </div>
-                  <div>
+                </div>
+                <div>
                   <Link to={'/Tour_1'}>
                     Click HERE to Take The Tour!
                   </Link>
@@ -110,10 +118,18 @@ class Login extends Component {
     blueBox: {
       backgroundColor: '#0d6192',
       borderRadius: '10px 10px 0px 0px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: '100%',
+      minWidth: '700px',
+      height: '15vh',
     },
     formFieldBox: {
-      width: '500px',
+      width: '60%',
+      minWidth: '700px',
+      height:'40%',
+      minHeight: '200px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -122,17 +138,24 @@ class Login extends Component {
       paddingBottom: '5px',
     },
     input:{
-      width: '300px', 
+      width: '275px', 
       borderLeft: '0px', 
       borderTop: '0px', 
       borderRight: '0px', 
       borderRadius: '0px',
     },
-    button: {
-      width: '100px',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }
+    formItemTop: {
+      marginTop: '5vh',
+      marginBottom: '1vh',
+    },
+    formItem: {
+      marginTop: '1vh',
+      marginBottom: '1vh',
+    },
+    formButton: {
+      marginTop: '3vh',
+      marginBottom: '1vh',
+    },
   }
 
 

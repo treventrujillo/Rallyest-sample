@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 const NoAuthNav = () => (
   <div style={styles.menu}>
     <Menu borderless style={styles.menu}>
-      <Menu.Item name='Rallyest' borderless>
+      <Menu.Item name='Rallyest' borderless style={{paddingLeft: '75px'}}>
         <Link to={'/login'}>
           <Image 
             src={require('../../assets/images/Logo_White.png')} 
             size='small'/>
-          </Link>
+        </Link>
       </Menu.Item>
       
       <Menu.Menu position='right'>
@@ -40,7 +40,11 @@ const styles = {
   menu: {
     backgroundColor: '#0d6192',
     marginBottom: '1vh',
-    height: '10vh',
+    height: '15vh',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   itemRight: {
     marginRight: '2vw',

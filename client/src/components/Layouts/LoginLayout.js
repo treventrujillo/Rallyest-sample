@@ -12,7 +12,7 @@ const LoginLayout = ({children, ...rest}) => {
       </div>
       <div>
         <div>
-          <div style={styles.tourBox}>
+          <div style={styles.childBox}>
             {children}
           </div>
         </div>
@@ -29,18 +29,25 @@ const LoginLayout = ({children, ...rest}) => {
 const styles={
   LoginFlexContainer:{
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
   },
   header:{
-    height: '10vh',
+    height: '15vh',
+    display: 'flex',
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   footerContainer:{
     paddingBottom: '20px',
     paddingLeft: '20px',
     paddingRight: '20px',
     backgroundColor: 'white',
+    width: '90%',
   },
-  tourBox:{
+  childBox:{
     minHeight: '75vh',
     minWidth: '75vh',
     display: 'flex',
