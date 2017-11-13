@@ -114,7 +114,7 @@ class LeftMenu extends Component {
                   style={styles.icoimage} 
                   src={require('../assets/images/ICON_Assignments.png')}
                 />
-                <Link to={'/Assignments'} style={{color: '#e1e6e7'}}> Assignements</Link>
+                <Link to={'/Assignments'} style={{color: '#e1e6e7'}}> Assignments</Link>
               </Menu.Item>
 
               <Menu.Item 
