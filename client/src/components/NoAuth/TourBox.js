@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React, { Component } from 'react';
 import { Menu, Image, Segment, Icon } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
@@ -61,35 +62,6 @@ class TourBox extends Component {
               Next
             </Menu.Item>
           </Menu>
-{/* -----0px
-
-<Menu.Item name='Rallyest' borderless>  
-<Image 
-src={require('../../assets/images/Logo_White.png')} 
-size='small'/>
-</Menu.Item>
-
-<Menu.Menu >
-
-<Menu.Item borderless>
-<Link to={'/'} style={styles.menuItem} as='h1'>Product</Link>
-</Menu.Item>
-
-<Menu.Item borderless>  
-<Link to={'/'} style={styles.menuItem} as='h1'>Support</Link>
-</Menu.Item>
-
-<Menu.Item borderless>  
-<Link to={'/'} style={styles.menuItem} as='h1'>Find your team</Link>
-</Menu.Item>
-
-<Menu.Item borderless style={styles.itemRight}>  
-<Link to={'/'} style={styles.menuItem} as='h1'>Sign In</Link>
-</Menu.Item>
-
-</Menu.Menu>
-</Menu> */}
-
         </div>
       </div>
     )

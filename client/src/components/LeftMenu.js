@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'

@@ -6,16 +6,12 @@ import TourBox from '../NoAuth/TourBox';
 
 const LoginLayout = ({children, ...rest}) => {
   return (
-    <div style={styles.tourFlexContainer}>
+    <div style={styles.LoginFlexContainer}>
       <div style={styles.header}>
         <NoAuthNav/>
       </div>
       <div>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+        <div>
           <div style={styles.tourBox}>
             {children}
           </div>
@@ -31,7 +27,7 @@ const LoginLayout = ({children, ...rest}) => {
 }
 
 const styles={
-  tourFlexContainer:{
+  LoginFlexContainer:{
     display: 'flex',
     flexDirection: 'column',
   },
@@ -45,8 +41,8 @@ const styles={
     backgroundColor: 'white',
   },
   tourBox:{
-    minHeight: '600px',
-    minWidth: '600px',
+    minHeight: '75vh',
+    minWidth: '75vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
