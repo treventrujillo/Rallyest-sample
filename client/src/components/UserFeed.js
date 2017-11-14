@@ -4,14 +4,12 @@ import { verifyToken } from '../actions/auth';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import {
-   Header, 
-   Button,
+   Header,
    Feed,
    Image,
    Segment,
    Dimmer,
    Loader,
-   Card,
   } from 'semantic-ui-react';
 
 class UserFeed extends Component {

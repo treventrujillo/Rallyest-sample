@@ -1,9 +1,7 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react';
+import React from 'react';
 import NavBar from '../NavBar';
 import LeftMenu from '../LeftMenu';
-import Flash from '../Flash';
-import { Container } from 'semantic-ui-react';
 
 const DashboardLayout =({children, ...rest}) => {
   return (
@@ -29,31 +27,6 @@ const DashboardLayout =({children, ...rest}) => {
       </div>
     </div>
   );
-}
-
-const styles={
-  tourFlexContainer:{
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  header:{
-    height: '10vh',
-  },
-  footerContainer:{
-    paddingBottom: '20px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
-    backgroundColor: 'white',
-  },
-  tourBox:{
-    minHeight: '600px',
-    minWidth: '600px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderTopLeftRadius: '20px',
-    borderTopRightRadius: '20px',
-  }
 }
 
 export default DashboardLayout;

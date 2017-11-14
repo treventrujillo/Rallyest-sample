@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 
 class Page2 extends React.Component {
   state = { activeItem: 'closest' }
-  handleItemClick = (e, { name }) => 
-    this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state
@@ -35,7 +34,7 @@ class Page2 extends React.Component {
                   >
                     <Menu.Item borderless >
                       <div>
-                        Skip
+                        <Link to='/Feed'>Skip</Link>
                       </div>
                     </Menu.Item>
 
@@ -74,7 +73,7 @@ class Page2 extends React.Component {
                     </Menu.Item>
 
                     <Menu.Item borderless>
-                      Next
+                      <Link to='/Tour_3'>Next</Link>
                     </Menu.Item>
 
                   </Menu>

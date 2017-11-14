@@ -17,24 +17,24 @@ class NoAuthFooter extends Component {
         <div style={styles.menuItem}>
           <Menu text vertical>
             <Menu.Item header style={styles.header}>Using Rallyest</Menu.Item>
-            <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} />
-            <Menu.Item name='Support' active={activeItem === 'Support'} onClick={this.handleItemClick} />
+            <Link to='/'><Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} /></Link>
+            <Link to='/'><Menu.Item name='Support' active={activeItem === 'Support'} onClick={this.handleItemClick} /></Link>
           </Menu>  
         </div> 
         <div style={styles.menuItem}>
           <Menu text vertical>
             <Menu.Item header style={styles.header}>Legal</Menu.Item>
-            <Menu.Item name='Privacy' active={activeItem === 'Privacy'} onClick={this.handleItemClick} />
-            <Menu.Item name='Security' active={activeItem === 'Security'} onClick={this.handleItemClick} />
-            <Menu.Item name='Terms of service' active={activeItem === 'Terms of Service'} onClick={this.handleItemClick} />
-            <Menu.Item name='Policies' active={activeItem === 'Policies'} onClick={this.handleItemClick} />
+            <Link to='/'><Menu.Item name='Privacy' active={activeItem === 'Privacy'} onClick={this.handleItemClick} /></Link>
+            <Link to='/'><Menu.Item name='Security' active={activeItem === 'Security'} onClick={this.handleItemClick} /></Link>
+            <Link to='/'><Menu.Item name='Terms of service' active={activeItem === 'Terms of Service'} onClick={this.handleItemClick} /></Link>
+            <Link to='/'><Menu.Item name='Policies' active={activeItem === 'Policies'} onClick={this.handleItemClick} /></Link>
           </Menu>  
         </div>     
         <div style={styles.menuItem}>
           <Menu text vertical>
             <Menu.Item header style={styles.header}>Handy Links</Menu.Item>
-            <Menu.Item name='Download desktop app' active={activeItem === 'Download desktop app'} onClick={this.handleItemClick} />
-            <Menu.Item name='Download mobile app' active={activeItem === 'Download mobile app'} onClick={this.handleItemClick} />
+            <Link to='/'><Menu.Item name='Download desktop app' active={activeItem === 'Download desktop app'} onClick={this.handleItemClick} /></Link>
+            <Link to='/'><Menu.Item name='Download mobile app' active={activeItem === 'Download mobile app'} onClick={this.handleItemClick} /></Link>
           </Menu>  
         </div>
       </div>

@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react';
+import React from 'react';
 import NoAuthNav from '../NoAuth/NoAuthNav';
 import NoAuthFooter from '../NoAuth/NoAuthFooter';
 

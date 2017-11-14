@@ -35,7 +35,7 @@ class Page1 extends React.Component {
                   >
                     <Menu.Item borderless >
                       <div>
-                        Skip
+                        <Link to='/Feed'>Skip</Link>
                       </div>
                     </Menu.Item>
 
@@ -74,7 +74,7 @@ class Page1 extends React.Component {
                     </Menu.Item>
 
                     <Menu.Item borderless>
-                      Next
+                      <Link to='/Tour_2'>Next</Link>
                     </Menu.Item>
 
                   </Menu>

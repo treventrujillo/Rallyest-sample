@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Header, Segment, Form, Button, Container } from 'semantic-ui-react';
+import { Header, Segment, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
@@ -19,7 +19,7 @@ class Login extends Component {
     event.preventDefault();
     const { dispatch, history } = this.props;
     const { email, password } = this.state;
-      if(/[a-z0-9]+[_a-z0-9\.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
+      if(/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
         dispatch(handleLogin(email, password, history));
       } else {
         alert('This email is Invalid')

@@ -33,9 +33,9 @@ class Page3 extends React.Component {
                     style={{borderRadius: '0px 0px 10px 10px', width: '600px', }}  
                     widths={5}
                   >
-                    <Menu.Item borderless >
+                    <Menu.Item>
                       <div>
-                        Skip
+                        <Link to='/Feed'>Skip</Link>
                       </div>
                     </Menu.Item>
 
@@ -43,7 +43,7 @@ class Page3 extends React.Component {
                      {/* Blank Menu Item for Spacing */}
                     </Menu.Item>
 
-                    <Menu.Item borderless>
+                    <Menu.Item>
                       <div>
                         <Link to={'/Tour_1'}>
                           <Icon 
@@ -73,8 +73,8 @@ class Page3 extends React.Component {
                       {/* Blank Menu Item for Spacing */}
                     </Menu.Item>
 
-                    <Menu.Item borderless>
-                      Next
+                    <Menu.Item>
+                      <Link to='/Feed'>Go to Your Feed!</Link>
                     </Menu.Item>
 
                   </Menu>
