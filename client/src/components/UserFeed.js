@@ -38,12 +38,29 @@ class UserFeed extends Component {
     return posts.map( post =>
       <Segment>
         <Feed.Event key={post.id}>
-          <Feed.Label>
-            <Image src={require('../assets/images/teamimg1.png')} />
-          </Feed.Label>
-          <Feed.Content>
-            <p>{post.attributes.text}</p>
-          </Feed.Content>
+          <div style={{display: 'flex'}}>
+            <div style={{display:'flex', paddingLeft: '5px', paddingRight: '15px',}}>
+              <Image src={require('../assets/images/teamimg1.png')}/>
+            </div>
+
+            <div style={{display: 'flex',}}>
+              <div>
+
+                <div style={{display: 'flex',}}>
+                  <Feed.Label>
+                    USER NAME
+                  </Feed.Label>
+                </div>
+
+                <div style={{display: 'flex',}}>
+                  <Feed.Content>
+                    <p>{post.attributes.text}</p>
+                  </Feed.Content>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </Feed.Event>
       </Segment>
     );
