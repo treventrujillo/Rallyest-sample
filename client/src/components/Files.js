@@ -1,9 +1,5 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import axios from 'axios';
-import { Header, Segment, Item, Grid } from 'semantic-ui-react';
-=======
 import axios from 'axios'
 import { connect } from 'react-redux';
 
@@ -15,7 +11,6 @@ import {
    Dimmer,
    Loader,
   } from 'semantic-ui-react';
->>>>>>> async calls
 
 class Files extends Component {
   state = { files: [], labels: [] }
@@ -26,7 +21,7 @@ class Files extends Component {
     
     const parsed_files = JSON.parse(getFiles.data.res)
     const parsed_labels = JSON.parse(getLabels.data.res)
-    
+
     this.setState({
       files: parsed_files.data,
       labels: parsed_labels.data 
