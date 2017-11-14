@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
-import React, { Component } from 'react'
-import { Header, Accordion, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Header, Accordion, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Settings extends Component {
   state = { activeIndex: '' }

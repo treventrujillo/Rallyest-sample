@@ -2,9 +2,7 @@
 // Components
 import React, { Component } from 'react';
 // import ProtectedRoute from './ProtectedRoute'
-import AuthRoute from './AuthRoute';
-import FetchUser from './FetchUser';
-import { BrowserRouter as Router, Route, Link, Match, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import Flash from './Flash'
 
@@ -14,7 +12,6 @@ import LoginLayout from './Layouts/LoginLayout';
 // Pages in Switch
 import NoMatch from './NoMatch';
 import UserFeed from './UserFeed';
-import Home from './Home';
 import Files from './Files';
 import Login from './Login';
 import Photos from './Photos';
@@ -26,7 +23,6 @@ import Updates from './Updates';
 import Assignments from './Assignments';
 import Community from './Community';
 import Settings from './Settings';
-import Register from './Register';
 import Page1 from './NoAuth/Page1';
 import Page2 from './NoAuth/Page2';
 import Page3 from './NoAuth/Page3';

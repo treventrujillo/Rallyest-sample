@@ -6,12 +6,10 @@ import {
   Input,
   Image,
   Dropdown,
-  Button,
 } from 'semantic-ui-react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { handleLogout } from '../actions/auth';
-import { NavWrap } from './styles/styles';
+
 class NavBar extends React.Component {
 
   homeTeamOptions = [
@@ -40,24 +38,49 @@ class NavBar extends React.Component {
 
   render() {
     return (
+
       <div style={{ minWidth: '100%' }}>
         <Menu borderless style={{borderRadius: '0',}}>
+
           <Menu.Item position='right'>
-            <Input className='icon' icon='search' placeholder='Search...' size='huge' />
+            <Input 
+              className='icon' 
+              icon='search' 
+              placeholder='Search...' 
+              size='huge' 
+            />
           </Menu.Item>
+
           <Menu.Item>
             <Link to='/HomeTeam'>
-              <Icon className='users' size='big' />
+              <Icon 
+                className='users' 
+                size='big' 
+              />
             </Link>
           </Menu.Item>
+
           <Menu.Item>
-            <Dropdown trigger={this.announceTrigger} options={this.announceOptions} icon={null} pointing='top right' />
+            <Dropdown 
+              trigger={this.announceTrigger} 
+              options={this.announceOptions} 
+              icon={null} 
+              pointing='top right' 
+            />
           </Menu.Item>
+
           <Menu.Item>
-            <Dropdown trigger={this.homeTrigger} options={this.homeTeamOptions} icon={null} pointing='top right' />
+            <Dropdown 
+              trigger={this.homeTrigger} 
+              options={this.homeTeamOptions} 
+              icon={null} 
+              pointing='top right' 
+            />
           </Menu.Item>
+
         </Menu>
       </div>
+
     )
   }
 };

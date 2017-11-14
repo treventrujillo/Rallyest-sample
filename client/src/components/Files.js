@@ -1,13 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import axios from 'axios'
-
-import {
-   Header,
-   Segment, 
-   Item,
-   Grid,
-  } from 'semantic-ui-react';
+import axios from 'axios';
+import { Header, Segment, Item, Grid } from 'semantic-ui-react';
 
 class Files extends Component {
   state = { files: [] }
@@ -47,17 +41,25 @@ class Files extends Component {
 
   listFiles = (files) => {
     return files.map( file =>
-      <Segment key={file.id} style={{display: 'flex'}}>
+
+      <Segment 
+        key={ file.id} 
+        style={{ display: 'flex'}}
+      >
         <Item>
+
           <Item.Header>
             <span>>{file.attributes.name}</span>
           </Item.Header>
+
           <Item.Description>
             <span>{file.attributes.uri}</span>
           </Item.Description>
+
           <Item.Meta>
             <span>{file.attributes.uploadDate}</span>
           </Item.Meta>
+
         </Item>
       </Segment> 
     )
@@ -66,9 +68,18 @@ class Files extends Component {
   render() {
     const { files, labels } = this.state;
     return (
-      <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+      <div style={{
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignContent: 'center', 
+        justifyContent: 'center'
+      }}>
         
-        <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+        <div style={{
+          display: 'flex', 
+          alignContent: 'center', 
+          justifyContent: 'center'
+        }}>
           <Header as='h1' textAlign='center' style={{padding: '10px'}}>
             Files Component
           </Header>
@@ -76,14 +87,18 @@ class Files extends Component {
         
         <div style={{padding: '30px', alignContent: 'center'}}>
           <Grid centered>
+
             <Grid.Column width={8}>
               {this.listFiles(files)}
             </Grid.Column>
+
             <Grid.Column width={8}>
               {/* {this.listLabels(labels)} */}
             </Grid.Column>
+
           </Grid>
         </div>
+
       </div>
     );
   }

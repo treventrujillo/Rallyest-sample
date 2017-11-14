@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
-import React from 'react'
-import { Menu, Image } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Menu, Image } from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 
 const NoAuthNav = () => (
   <div style={styles.menu}>

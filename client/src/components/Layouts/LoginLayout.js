@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import NoAuthNav from '../NoAuth/NoAuthNav';
 import NoAuthFooter from '../NoAuth/NoAuthFooter';
-import TourBox from '../NoAuth/TourBox';
 
 const LoginLayout = ({children, ...rest}) => {
   return (
