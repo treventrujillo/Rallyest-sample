@@ -1,11 +1,12 @@
 /*jshint esversion: 6 */
 import React from 'react';
-import { Menu, Image, Icon } from 'semantic-ui-react';
+import { Menu, Image, Icon, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class Page2 extends React.Component {
   state = { activeItem: 'closest' }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) =>
+    this.setState({ activeItem: name })
 
   render() {
     const { activeItem } = this.state
@@ -20,9 +21,42 @@ class Page2 extends React.Component {
           }}>
             <div style={styles.tourBox}>
               <div style={styles.boxContainer}>
-
                 <div style={styles.blueBox}>
-                  Page 2 stuff goes here
+                  <div style={styles.imageBox}>
+
+                    <div style={styles.imageBoxItem}>
+                      <Header as='h1'
+                        style={{
+                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                          fontWeight: '100', 
+                          fontSize: '2.5vh', 
+                          lineHeight: '2vh',
+                          color: '#E1E6E7',
+                          paddingBottom: '2vh',
+                        }}>
+                          Rallyest Tour
+                      </Header>
+                    </div>
+
+                    <div style={styles.imageBoxItem}>
+                      <Image src={require('../../assets/images/group1.svg')}/>
+                    </div>
+
+                    <div style={styles.imageBoxItem}>
+                      <p style={{
+                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                          fontWeight: '100', 
+                          lineHeight: '2vh',
+                          color: '#E1E6E7',
+                          paddingTop: '2vh',
+                          textAlign: 'center',
+                        }}>
+                        Professionals, here's how you effortlessly collaborate and coordinate resources 
+                        <br/>with the home team to share information, files, and insights.
+                      </p>
+                    </div>
+
+                  </div>
                 </div>
 
                 <div>
@@ -48,21 +82,21 @@ class Page2 extends React.Component {
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{ paddingLeft:'15px', paddingRight:'15px' }}
+                            style={{ paddingLeft:'10px', paddingRight:'10px' }}
                           />
                         </Link>
                         <Link to={'/Tour_2'}>
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{paddingLeft: '15px', paddingRight: '15px'}}
+                            style={{paddingLeft: '10px', paddingRight: '10px'}}
                           />
                         </Link>
                         <Link to={'/Tour_3'}>
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{paddingLeft: '15px', paddingRight: '15px'}}
+                            style={{paddingLeft: '10px', paddingRight: '10px'}}
                           />
                         </Link>
                       </div>
@@ -116,6 +150,7 @@ const styles={
     paddingTop: '12vh',
     paddingBottom: '12vh', 
     position: 'relative',
+    
   },
   blueBox:{
     backgroundColor: '#0d6192',
@@ -125,6 +160,10 @@ const styles={
     borderBottom: '',
     top: 0,
     left: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonBar:{
     top: 0,
@@ -132,6 +171,17 @@ const styles={
     padding:0,
     margin:0,
     borderRadius: '0px 0px 10px 10px',
+  },
+  imageBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageBoxItem: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }
 

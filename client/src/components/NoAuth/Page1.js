@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import React from 'react';
-import { Menu, Image, Icon } from 'semantic-ui-react';
+import { Menu, Image, Icon, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class Page1 extends React.Component {
@@ -21,9 +21,43 @@ class Page1 extends React.Component {
           }}>
             <div style={styles.tourBox}>
               <div style={styles.boxContainer}>
-
                 <div style={styles.blueBox}>
-                  Page 1 stuff goes here
+                  <div style={styles.imageBox}>
+
+                    <div style={styles.imageBoxItem}>
+                      <Header as='h1'
+                        style={{
+                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                          fontWeight: '100', 
+                          fontSize: '2.5vh', 
+                          lineHeight: '2vh',
+                          color: '#E1E6E7',
+                          paddingBottom: '2vh',
+                        }}>
+                          Rallyest Tour
+                      </Header>
+                    </div>
+
+                    <div style={styles.imageBoxItem}>
+                      <Image src={require('../../assets/images/group2.svg')}/>
+                    </div>
+
+                    <div style={styles.imageBoxItem}>
+                      <p style={{
+                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                          fontWeight: 'lighter', 
+                          lineHeight: '2vh',
+                          color: '#E1E6E7',
+                          paddingTop: '2vh',
+                          textAlign: 'center',
+                        }}>
+                        Treatment professionals, now you can share info with the client family in a 
+                        <br/>flash. Discharge plans, goals, daily tracking, and reports are all delivered hassle-abs
+                        <br/>free via photos, video, files and
+                      </p>
+                    </div>
+
+                  </div>
                 </div>
 
                 <div>
@@ -49,21 +83,21 @@ class Page1 extends React.Component {
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{ paddingLeft:'15px', paddingRight:'15px' }}
+                            style={{ paddingLeft:'10px', paddingRight:'10px' }}
                           />
                         </Link>
                         <Link to={'/Tour_2'}>
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{paddingLeft: '15px', paddingRight: '15px'}}
+                            style={{paddingLeft: '10px', paddingRight: '10px'}}
                           />
                         </Link>
                         <Link to={'/Tour_3'}>
                           <Icon 
                             name='circle' 
                             size='tiny' 
-                            style={{paddingLeft: '15px', paddingRight: '15px'}}
+                            style={{paddingLeft: '10px', paddingRight: '10px'}}
                           />
                         </Link>
                       </div>
@@ -117,6 +151,7 @@ const styles={
     paddingTop: '12vh',
     paddingBottom: '12vh', 
     position: 'relative',
+    
   },
   blueBox:{
     backgroundColor: '#0d6192',
@@ -126,6 +161,10 @@ const styles={
     borderBottom: '',
     top: 0,
     left: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonBar:{
     top: 0,
@@ -133,6 +172,17 @@ const styles={
     padding:0,
     margin:0,
     borderRadius: '0px 0px 10px 10px',
+  },
+  imageBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  imageBoxItem: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }
 
