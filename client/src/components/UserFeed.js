@@ -54,12 +54,21 @@ class UserFeed extends Component {
     const { posts } = this.state;
     if (posts) {
       return (
-        <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
-
-          <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+        <div 
+          style={{
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignContent: 'center', 
+            justifyContent: 'center'
+          }}>
+          <div 
+            style={{
+              display: 'flex', 
+              alignContent: 'center', 
+              justifyContent: 'center'
+            }}>
             <Header as='h1' style={{paddingTop: '15px'}}>Whats New?</Header>
           </div>
-
           <div style={{padding: '30px'}}>
             <Feed>
               {this.listPosts(posts)}
