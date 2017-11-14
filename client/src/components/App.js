@@ -57,9 +57,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/'>
-            <Redirect to='/Login'/>
-          </Route>
+          <LoginLayoutRoute exact path='/' component={Login}/>
           <LoginLayoutRoute path='/login' component={Login}/>
           <LoginLayoutRoute path='/Tour_1' component={Page1}/>
           <LoginLayoutRoute path='/Tour_2' component={Page2}/>

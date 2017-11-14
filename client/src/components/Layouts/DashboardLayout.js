@@ -6,7 +6,6 @@ import AuthRoute from '../AuthRoute';
 
 const DashboardLayout =({children, ...rest}) => {
   return (
-    <AuthRoute>
      <div className="page page-dashboard">
         <div id="wrap">
           <div id="left-menu-container">
@@ -28,7 +27,6 @@ const DashboardLayout =({children, ...rest}) => {
           </div>
         </div>
       </div>
-    </AuthRoute> 
   );
 }
 
