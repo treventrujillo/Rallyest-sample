@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React, { Component, PropTypes } from 'react';
 import handleLogin from '../actions/auth';
 

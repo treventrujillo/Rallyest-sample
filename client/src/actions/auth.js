@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React from 'react';
 import axios from 'axios';
 import { setFlash } from '../actions/flash';

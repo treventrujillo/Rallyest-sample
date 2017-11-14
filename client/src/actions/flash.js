@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 export const setFlash = (message, color) => {
   return { type: 'SET_FLASH', message, color };
 };
