@@ -27,9 +27,9 @@ class Page2 extends React.Component {
                     <div style={styles.imageBoxItem}>
                       <Header as='h1'
                         style={{
-                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-                          fontWeight: '100', 
-                          fontSize: '2.5vh', 
+                          fontFamily: 'helvetica neue, helvetica, arial, sansSerif',
+                          fontWeight: '100',
+                          fontSize: '2.5vh',
                           lineHeight: '2vh',
                           color: '#E1E6E7',
                           paddingBottom: '2vh',

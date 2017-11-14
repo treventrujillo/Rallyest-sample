@@ -19,7 +19,7 @@ body{
   margin: 0px;
   background-color: #e1e6e7;
   font-family: helvetica neue, helvetica, arial, sansSerif;
-  font-weight: lighter;
+  font-weight: normal;
 }
 #wrap {
   width: 100%;
