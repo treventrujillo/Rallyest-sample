@@ -10,6 +10,8 @@ import {
    Segment,
    Dimmer,
    Loader,
+   Icon,
+   Divider,
   } from 'semantic-ui-react';
 
 class UserFeed extends Component {
@@ -37,30 +39,55 @@ class UserFeed extends Component {
   listPosts = (posts) => {
     return posts.map( post =>
       <Segment>
-        <Feed.Event key={post.id}>
-          <div style={{display: 'flex'}}>
-            <div style={{display:'flex', paddingLeft: '5px', paddingRight: '15px',}}>
-              <Image src={require('../assets/images/teamimg1.png')}/>
+        <Feed.Event key={ post.id }>
+          <div style={{ display: 'flex', }}>
+            <div style={{ width: '5%' }}>
+              <div>
+                <Image 
+                  src={require('../assets/images/teamimg1.png')} 
+                  style={{width: 'auto', height: '100%'}}/>
+              </div>
             </div>
 
-            <div style={{display: 'flex',}}>
+            <div style={{ display: 'flex', }}>
               <div>
-
-                <div style={{display: 'flex',}}>
+                <div style={{ display: 'flex', paddingBottom: '1vh',}}>
                   <Feed.Label>
-                    USER NAME
+                    //TODO: User Name Here
                   </Feed.Label>
                 </div>
 
-                <div style={{display: 'flex',}}>
+                <div style={{ display: 'flex', }}>
                   <Feed.Content>
-                    <p>{post.attributes.text}</p>
+
+                    <Feed.Date style={{fontSize: '75%', color: '#8f8f8f'}}>
+                      //TODO: Real TimeStamp Here
+                    </Feed.Date>
+
+                    <Feed.Extra text style={{paddingBottom:'1vh', color: '#333333'}}>
+                      {post.attributes.text}
+                    </Feed.Extra>
+
+                    <Feed.Meta>
+                      <Feed.Like>
+                        <div style={{ display: 'flex', }}>
+                          <div style={{ display: 'flex', paddingRight: '1vw', fontSize: '75%', color: '#8f8f8f'}}>
+                            <Icon name='like' />
+                            //TODO: Add Likes Functionality
+                          </div>
+                          <div style={{ display: 'flex', paddingRight: '1vw', fontSize: '75%', color: '#8f8f8f'}}>
+                            <Icon name='comment' />
+                            //TODO: Add Likes Functionality
+                          </div>
+                        </div>
+                      </Feed.Like>
+                    </Feed.Meta>
                   </Feed.Content>
                 </div>
-
               </div>
             </div>
           </div>
+          <Divider style={{width: '100%', color: '#8f8f8f'}}/>
         </Feed.Event>
       </Segment>
     );

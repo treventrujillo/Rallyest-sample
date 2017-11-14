@@ -3,9 +3,7 @@
 import React, { Component } from 'react';
 // import ProtectedRoute from './ProtectedRoute'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-
 import Flash from './Flash'
-
 import DashboardLayout from './Layouts/DashboardLayout';
 import LoginLayout from './Layouts/LoginLayout';
 
