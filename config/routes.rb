@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :files, only: [:index]
     resources :labels, only: [:index]
     get '/verifytoken', as: 'verify', to: 'verifytoken#verify'
+    post '/upload', to:'files#create'
   end
 
   #Do not place any routes below this one

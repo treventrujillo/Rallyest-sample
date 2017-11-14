@@ -11,7 +11,7 @@ export const handleUpload = (file, callback) => {
     return(dispatch) => {
       let data = new FormData();
       data.append(file.name, file);
-      axios.post('/api/files', data)
+      axios.post('https://rallyfy.com/api/file', data)
         .then( res => {
           dispatch(addFile(res.data));
           callback();
