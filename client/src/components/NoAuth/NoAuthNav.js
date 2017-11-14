@@ -8,8 +8,8 @@ const NoAuthNav = () => (
     <Menu borderless style={styles.menu}>
       <Menu.Item name='Rallyest' borderless style={{paddingLeft: '75px'}}>
         <Link to={'/login'}>
-          <Image 
-            src={require('../../assets/images/Logo_White.png')} 
+          <Image
+            src={require('../../assets/images/Logo_White.png')}
             size='small'/>
         </Link>
       </Menu.Item>

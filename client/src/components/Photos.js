@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 class Photos extends Component {
   state = { photos: [] }
-  
   componentDidMount() {
     // this.getPhotos();
   }

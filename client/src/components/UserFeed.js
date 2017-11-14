@@ -35,7 +35,7 @@ class UserFeed extends Component {
   // post content = post.attributes.text
 
   listPosts = (posts) => {
-    return posts.map( post => 
+    return posts.map( post =>
       <Segment>
         <Feed.Event key={post.id}>
           <Feed.Label>

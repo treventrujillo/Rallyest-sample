@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 class Page1 extends React.Component {
   state = { activeItem: 'closest' }
-  handleItemClick = (e, { name }) => 
+  handleItemClick = (e, { name }) =>
     this.setState({ activeItem: name })
 
   render() {

@@ -41,7 +41,7 @@ body{
   -webkit-box-flex:  0;
   -moz-box-flex:  0;
   -ms-box-flex:  0;
-  box-flex:  0;  
+  box-flex:  0;
 }
 #left-menu-wrap {
   position: fixed;
@@ -74,7 +74,7 @@ body{
   max-height: 70px;
   width: 100%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
 #project-one-container {

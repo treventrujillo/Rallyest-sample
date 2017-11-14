@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import {
    Header,
-   Segment, 
+   Segment,
    Item,
    Grid,
    Dimmer,
@@ -18,18 +18,17 @@ class Files extends Component {
   async componentDidMount() {
     const getFiles = await axios.get('/api/files')
     const getLabels = await axios.get('/api/labels')
-    
     const parsed_files = JSON.parse(getFiles.data.res)
     const parsed_labels = JSON.parse(getLabels.data.res)
 
     this.setState({
       files: parsed_files.data,
-      labels: parsed_labels.data 
+      labels: parsed_labels.data,
     });
   }
 
   listLabels = (labels) => {
-    return labels.map( label => 
+    return labels.map( label =>
       <Segment key={label.id} style={{display: 'flex'}}>
         <Item>
           <Item.Content>

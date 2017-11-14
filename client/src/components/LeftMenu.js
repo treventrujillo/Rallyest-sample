@@ -10,19 +10,17 @@ class LeftMenu extends Component {
   state = { activeItem: 'Rallyest' }
 // Handles the menu animationthat changes the selected item
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
   handleClick = () => {
     const { dispatch } = this.props;
     dispatch(handleLogout())
   }
-  
   render() {
     const { activeItem } = this.state;
 
     return (
         <div style={{display: 'flex',}}>
           <div>
-            <Menu secondary vertical style={styles.menu}>           
+            <Menu secondary vertical style={styles.menu}>
               <Menu.Item>
                 <Link to={'/Feed'}>
                   <Image src={require('../assets/images/Logo_White.png')}/>
