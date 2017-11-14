@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { Header } from 'semantic-ui-react';
 
 class Photos extends Component {
   state = { photos: [] }

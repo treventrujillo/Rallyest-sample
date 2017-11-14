@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
-
 import {
    Header,
    Segment,
@@ -11,6 +10,7 @@ import {
    Dimmer,
    Loader,
   } from 'semantic-ui-react';
+import FileUpload from './FileUpload';
 
 class Files extends Component {
   state = { files: [], labels: [] }
