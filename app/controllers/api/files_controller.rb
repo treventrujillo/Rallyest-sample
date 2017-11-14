@@ -4,9 +4,6 @@ class Api::FilesController < Api::RallybaseController
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
       :verify_ssl => false 
     )
-
-    parsed_response = JSON.parse(response.body)
-
-    render json: { res: parsed_response }
+    render json: { res: response }
   end
 end

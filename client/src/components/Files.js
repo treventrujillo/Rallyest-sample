@@ -1,45 +1,52 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import axios from 'axios';
 import { Header, Segment, Item, Grid } from 'semantic-ui-react';
+=======
+import axios from 'axios'
+import { connect } from 'react-redux';
+
+import {
+   Header,
+   Segment, 
+   Item,
+   Grid,
+   Dimmer,
+   Loader,
+  } from 'semantic-ui-react';
+>>>>>>> async calls
 
 class Files extends Component {
-  state = { files: [] }
+  state = { files: [], labels: [] }
 
-  componentDidMount() {
-    this.getFiles();
+  async componentDidMount() {
+    const getFiles = await axios.get('/api/files')
+    const getLabels = await axios.get('/api/labels')
+    
+    const parsed_files = JSON.parse(getFiles.data.res)
+    const parsed_labels = JSON.parse(getLabels.data.res)
+    
+    this.setState({
+      files: parsed_files.data,
+      labels: parsed_labels.data 
+    });
   }
 
-  getLabels = () => {
-    axios.get('/api/labels')
-      .then(res => {
-        const { data } = res;
-        this.setState({ labels: data.res })
-      });
+  listLabels = (labels) => {
+    return labels.map( label => 
+      <Segment key={label.id} style={{display: 'flex'}}>
+        <Item>
+          <Item.Content>
+            {label.attributes.name}
+          </Item.Content>
+        </Item>
+      </Segment>
+    )
   }
-
-  getFiles = () => {
-    axios.get('/api/files')
-      .then(res => {
-        debugger
-        const { data } = res;
-        this.setState({ files: data.res })
-      });
-  }
-
-  // listLabels = (labels) => {
-  //   return labels.map( label => 
-  //     <Segment key={label.id} style={{display: 'flex'}}>
-  //       <Item>
-  //         <Item.Content>
-  //           {label.attributes.name}
-  //         </Item.Content>
-  //       </Item>
-  //     </Segment>
-  //   )
-  // }
 
   listFiles = (files) => {
+
     return files.map( file =>
 
       <Segment 
@@ -49,7 +56,7 @@ class Files extends Component {
         <Item>
 
           <Item.Header>
-            <span>>{file.attributes.name}</span>
+            <span>{file.attributes.name}</span>
           </Item.Header>
 
           <Item.Description>
@@ -62,11 +69,13 @@ class Files extends Component {
 
         </Item>
       </Segment> 
-    )
+    );
   }
+  
 
   render() {
     const { files, labels } = this.state;
+<<<<<<< HEAD
     return (
       <div style={{
         display: 'flex', 
@@ -80,11 +89,17 @@ class Files extends Component {
           alignContent: 'center', 
           justifyContent: 'center'
         }}>
+=======
+      return (
+        <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+          
+        <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
+>>>>>>> async calls
           <Header as='h1' textAlign='center' style={{padding: '10px'}}>
             Files Component
           </Header>
         </div>
-        
+          
         <div style={{padding: '30px', alignContent: 'center'}}>
           <Grid centered>
 
@@ -93,7 +108,7 @@ class Files extends Component {
             </Grid.Column>
 
             <Grid.Column width={8}>
-              {/* {this.listLabels(labels)} */}
+              {this.listLabels(labels)}
             </Grid.Column>
 
           </Grid>
@@ -101,7 +116,7 @@ class Files extends Component {
 
       </div>
     );
-  }
+  } 
 }
 
-export default Files; 
+export default connect()(Files); 
