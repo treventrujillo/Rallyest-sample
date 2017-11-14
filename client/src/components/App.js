@@ -15,7 +15,7 @@ import LoginLayout from './Layouts/LoginLayout';
 import NoMatch from './NoMatch';
 import UserFeed from './UserFeed';
 import Home from './Home';
-import UserFiles from './UserFiles';
+import Files from './Files';
 import Login from './Login';
 import Photos from './Photos';
 import Letters from './Letters';
@@ -68,8 +68,8 @@ class App extends Component {
           <LoginLayoutRoute path='/Tour_1' component={Page1}/>
           <LoginLayoutRoute path='/Tour_2' component={Page2}/>
           <LoginLayoutRoute path='/Tour_3' component={Page3}/>
-          <DashboardRoute exact path='/UserFeed' component={UserFeed} />
-          <DashboardRoute path='/UserFiles' component={UserFiles} />
+          <DashboardRoute exact path='/Feed' component={UserFeed} />
+          <DashboardRoute path='/Files' component={Files} />
           <DashboardRoute path='/Photos' component={Photos} />
           <DashboardRoute path='/Letters' component={Letters} />
           <DashboardRoute path='/Goals' component={Goals} />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Header } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 class Photos extends Component {
   state = { photos: [] }

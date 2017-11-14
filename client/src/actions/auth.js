@@ -46,7 +46,7 @@ export const handleLogin = (email, password, history) => {
 export const verifyToken = (history) => {
   return dispatch => {
     
-    axios.get('/verifytoken')
+    axios.get('/api/verifytoken')
       .then(res => {
         if ( res.data.authenticated === true ) {
           return;
