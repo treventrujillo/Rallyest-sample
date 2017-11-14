@@ -70,26 +70,10 @@ class Files extends Component {
 
   render() {
     const { files, labels } = this.state;
-<<<<<<< HEAD
-    return (
-      <div style={{
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignContent: 'center', 
-        justifyContent: 'center'
-      }}>
-        
-        <div style={{
-          display: 'flex', 
-          alignContent: 'center', 
-          justifyContent: 'center'
-        }}>
-=======
       return (
         <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
           
         <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
->>>>>>> async calls
           <Header as='h1' textAlign='center' style={{padding: '10px'}}>
             Files Component
           </Header>
