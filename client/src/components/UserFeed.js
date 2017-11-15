@@ -29,6 +29,9 @@ class UserFeed extends Component {
         this.setState({ posts: posts.included }
       )}
     )
+    .catch(res => {
+      console.log(res)
+    })
   }
 
 

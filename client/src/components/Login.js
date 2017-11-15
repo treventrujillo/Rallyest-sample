@@ -5,11 +5,17 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
 import { Link } from 'react-router-dom';
+import { verifyToken } from '../actions/auth';
 
 
 
 class Login extends Component {
   state = { email: '', password: '' };
+
+  componentDidMount() {
+    this.props.dispatch(verifyToken())
+  }
+  
 
   handleChange = event => {
     const { id, value } = event.target;

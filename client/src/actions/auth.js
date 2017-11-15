@@ -15,6 +15,7 @@ const logout = () => {
 export const handleLogout = () => {
 
   return dispatch => {
+    axios.delete('/api/logins/1')
     delete sessionStorage.token
     dispatch(setFlash('Logged out successfully!', 'green'))
     window.location = '/'
@@ -33,34 +34,19 @@ export const handleLogin = (email, password, history) => {
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
         dispatch(setFlash('Login Successful!', 'green'))
-        history.push('/feed');
+        window.location = '/Feed'
       })
       .catch(res => {
         const { response: data } = res;
-        dispatch(setHeaders(data.headers));
         dispatch(setFlash('Invalid email/password', 'red'));
       });
     }
   }
 
 /* Verifies access token */
-export const verifyToken = (history) => {
-  return dispatch => {
-    
+export const verifyToken = () => {
+  return dispatch => { 
     axios.get('/api/verifytoken')
-      .then(res => {
-        if ( res.data.authenticated === true ) {
-          return;
-        } else {
-          dispatch(setFlash('Please login to continue', 'red'));
-          history.push('/')
-        }
-      })
-      // .catch(res => {
-      //   const { response, headers } = res;
-      //   const messages = response.request.statusText + ", " + response.request.status
-      //   dispatch(setFlash(messages, 'red'))
-      //   dispatch(setHeaders(headers))
-      // });
+      .then(res => dispatch({ type: 'AUTHENTICATED', authenticated: res.data.authenticated }) );
   }
 }

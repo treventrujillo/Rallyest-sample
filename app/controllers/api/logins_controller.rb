@@ -1,5 +1,4 @@
 class Api::LoginsController < ApplicationController
-  before_action :set_user, only: [:destroy]
 
   def create
     puts 'Calling Rally API...'
@@ -32,6 +31,12 @@ class Api::LoginsController < ApplicationController
         render json: { res: response }
         raise "Unauthorized"
       end
+  end
+
+  def destroy
+    session.delete(:access_token)
+    session.delete(:refresh_token)
+    puts "Session destroyed"
   end
 
 end

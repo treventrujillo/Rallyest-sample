@@ -1,6 +1,6 @@
 class Api::RallybaseController < ApplicationController
 
-  def verify 
+  def verify
     if session[:access_token] && session[:refresh_token]
       render json: { authenticated: true }
     else
