@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index]
     resources :files, only: [:index]
     resources :labels, only: [:index]
-    post '/upload', to:'files#create'
+    resources :photos, only: [:index]
+    post '/upload', to: 'files#create'
     get '/verifytoken', to: 'rallybase#verify'
   end
 
