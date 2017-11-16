@@ -10,12 +10,9 @@ class Api::FilesController < Api::RallybaseController
   def create
     binding.pry
     puts 'Calling Rally API...'
-<<<<<<< HEAD
-=======
     name = params["name"]
     uri = params["uri"]
 
->>>>>>> file upload react side functional?
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 
