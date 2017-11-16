@@ -7,8 +7,7 @@ import {
    Segment,
    Item,
    Grid,
-   Dimmer,
-   Loader,
+   Image,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 
@@ -43,23 +42,29 @@ class Files extends Component {
 
     return files.map( file =>
 
-      <Segment 
-        key={ file.id} 
-        style={{ display: 'flex'}}
-      >
-        <Item>
+      <Segment>
+        <Item
+          key={file.id}
+          style={{ display: 'flex', height: '15vh' }}
+        >
 
-          <Item.Header>
-            <span>{file.attributes.name}</span>
-          </Item.Header>
+          <div style={{ width: '5%', margin: '10px' }}>
+            <div>
+              <Image
+                src={require('../assets/images/teamimg1.png')}
+                style={{ width: 'auto', height: '100%' }} />
+            </div>
+          </div>
 
-          <Item.Description>
-            <span>{file.attributes.uri}</span>
-          </Item.Description>
+          <div style={{display:'flex'}}>
+            <Item.Header style={{fontSize:'125%', fontWeight: 'bold', paddingBottom: '1vh'}}>
+              <span>{file.attributes.name}</span>
+            </Item.Header>
 
-          <Item.Meta>
-            <span>{file.attributes.uploadDate}</span>
-          </Item.Meta>
+            <Item.Meta>
+              <span>{file.attributes.uploadDate}</span>
+            </Item.Meta>
+          </div>
 
         </Item>
       </Segment> 
@@ -70,14 +75,14 @@ class Files extends Component {
   render() {
     const { files, labels } = this.state;
       return (
-        <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
           
         <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
           <Header as='h1' textAlign='center' style={{padding: '10px'}}>
             Files Component
           </Header>
         </div>
-          
+            
         <div style={{padding: '30px', alignContent: 'center'}}>
           <Grid centered>
 
@@ -91,7 +96,6 @@ class Files extends Component {
 
           </Grid>
         </div>
-
       </div>
     );
   } 
