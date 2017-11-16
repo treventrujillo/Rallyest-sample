@@ -9,7 +9,7 @@ class Api::FilesController < Api::RallybaseController
 
   def create
     puts 'Calling Rally API...'
-    f = params["ph"];
+    param_1 = 
     puts f
 
     request = RestClient::Request.new(

@@ -14,7 +14,7 @@ handleUploading = (files) => {
 
     axios.post('api/upload', theFile)
         .then(res => {
-            
+            debugger
         })
 }
 
