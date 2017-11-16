@@ -27,7 +27,7 @@ class Login extends Component {
     const { email, password } = this.state;
       if(/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
         dispatch(handleLogin(email, password, history));
-        debugger
+
       } else {
         alert('This email is Invalid')
       }

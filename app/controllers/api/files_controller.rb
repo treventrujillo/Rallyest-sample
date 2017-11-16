@@ -10,21 +10,27 @@ class Api::FilesController < Api::RallybaseController
   def create
     binding.pry
     puts 'Calling Rally API...'
+<<<<<<< HEAD
+=======
+    name = params["name"]
+    uri = params["uri"]
+
+>>>>>>> file upload react side functional?
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 
-      :payload => '{"param_1": "1"}',
-      :headers => {:Authorization => "Bearer #{session[:access_token]}"},
+      :payload => {:data => {:attributes => {:name => 'name', :uri => 'uri'}}},
+      :headers => {:content_type => 'application/x-www-form-urlencoded', :accept =>'application/json'},
       :verify_ssl => false
-    ).execute do |response, request, result|
-      case response.code     
-      when 400
-        alert ('this doesnt work')
+    )
+    response = request.execute {|response| $results = response}
+    case response.code
       when 200
+        puts "Good"
+        render json: { res: response}
+      when 401
         render json: { res: response }
-      else
-        fail "Invalid response #{response.to_str} received."
+        raise "Unauthorized"
       end
     end
-  end
 end
