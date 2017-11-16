@@ -45,25 +45,38 @@ class Files extends Component {
       <Segment>
         <Item
           key={file.id}
-          style={{ display: 'flex', height: '15vh' }}
+          style={{ display: 'flex', height: '15vh', alignItems: 'center' }}
         >
-
-          <div style={{ width: '5%', margin: '10px' }}>
-            <div>
-              <Image
-                src={require('../assets/images/teamimg1.png')}
-                style={{ width: 'auto', height: '100%' }} />
-            </div>
-          </div>
-
           <div style={{display:'flex'}}>
-            <Item.Header style={{fontSize:'125%', fontWeight: 'bold', paddingBottom: '1vh'}}>
-              <span>{file.attributes.name}</span>
-            </Item.Header>
+            <div style={{ width: '5%', margin: '15px', marginRight: '3vw' }}>
+              <div>
+                <Item.Image
+                  src={require('../assets/images/adobefile.svg')}
+                  style={{ width: 'auto', height: '100%' }} />
+              </div>
+            </div>
 
-            <Item.Meta>
-              <span>{file.attributes.uploadDate}</span>
-            </Item.Meta>
+            <div style={{display:'flex'}}>
+              <Item.Content style={{width:'100%', alignSelf: 'center'}}>
+                <Item.Header style={{fontSize:'125%', fontWeight: 'bold', paddingBottom: '1vh'}}>
+                  <span>{file.attributes.name}</span>
+                </Item.Header>
+
+                <Item.Meta>
+                  <span>{file.attributes.uploadDate}</span>
+                </Item.Meta>
+                
+              
+              </Item.Content>
+            </div>
+            <div style={{ width: '5%'}}>
+              <div>
+                <Item.Image
+                  src={require('../assets/images/icon-more.svg')}
+                  style={{ width: 'auto', height: '100%' }}
+                  floated='right' />
+              </div>
+            </div>
           </div>
 
         </Item>
@@ -82,6 +95,8 @@ class Files extends Component {
             Files Component
           </Header>
         </div>
+
+        <FileUpload />
             
         <div style={{padding: '30px', alignContent: 'center'}}>
           <Grid centered>

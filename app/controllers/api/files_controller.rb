@@ -8,10 +8,8 @@ class Api::FilesController < Api::RallybaseController
   end
 
   def create
+    binding.pry
     puts 'Calling Rally API...'
-    file = {
-      file_type
-    }
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 

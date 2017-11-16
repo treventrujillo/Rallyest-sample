@@ -9,10 +9,8 @@ class FileUpload extends Component {
   //state = { files: [] }
  
 handleUploading = (files) => {
-    debugger
-    var theFile = files[0]
 
-    axios.post('api/upload', theFile)
+    axios.post('api/upload', {files})
         .then(res => {
             debugger
         })
@@ -21,7 +19,7 @@ handleUploading = (files) => {
   render() {
     return (
       <Dropzone
-        // accept="image/jpeg, image/png"
+        accept="image/jpeg,image/jpg,image/tiff,image/gif"
         onDrop={this.handleUploading}>
       </Dropzone>
     );
