@@ -19,15 +19,6 @@ class FileUpload extends Component {
   
   //state = { files: [] }
  
-<<<<<<< HEAD
-handleUploading = (files) => {
-
-    axios.post('api/upload', {files})
-        .then(res => {
-            debugger
-        })
-}
-=======
 // handleUploading = (files) => {
 //     axios.post('api/upload', {files})
 //         .then(res => {
@@ -35,18 +26,12 @@ handleUploading = (files) => {
 //           debugger
 //         })
 // }
->>>>>>> file upload react side functional?
 
   render() {
     return (
       <Dropzone
-<<<<<<< HEAD
-        accept="image/jpeg,image/jpg,image/tiff,image/gif"
-        onDrop={this.handleUploading}>
-=======
         // accept="image/jpeg, image/png"
         onDrop={this.onDrop}>
->>>>>>> file upload react side functional?
       </Dropzone>
     );
     }
