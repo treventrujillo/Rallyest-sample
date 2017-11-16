@@ -9,9 +9,9 @@ class Api::FilesController < Api::RallybaseController
 
   def create
     puts 'Calling Rally API...'
-    param_1 = 
-    puts f
-
+    file = {
+      file_type
+    }
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 
