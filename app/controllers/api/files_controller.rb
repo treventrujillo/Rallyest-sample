@@ -8,18 +8,17 @@ class Api::FilesController < Api::RallybaseController
   end
 
   def create
-    binding.pry
     puts 'Calling Rally API...'
-    name = params["name"]
-    uri = params["uri"]
 
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 
-      :payload => {:data => {:attributes => {:name => 'name', :uri => 'uri'}}},
-      :headers => {:content_type => 'application/x-www-form-urlencoded', :accept =>'application/json'},
-      :verify_ssl => false
+      :payload => {:file => params['1'].tempfile, :name => params['1'].original_filename, :fileType => 'image/jpeg', 
+      :size => '8160', :ownerUserId => '90002', :ownerGroupId => '47018', :isPublished => '1' },
+      :verify_ssl => false,
+      :headers => {:Authorization => "Bearer #{session[:access_token]}"}
     )
+
     response = request.execute {|response| $results = response}
     case response.code
       when 200

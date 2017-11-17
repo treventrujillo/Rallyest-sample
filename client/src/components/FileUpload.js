@@ -11,34 +11,21 @@ class FileUpload extends Component {
   toggleUploading = () => {
     this.setState({ fileUploading: !this.state.fileUploading })
   }
-  onDrop = (files) => {
-    this.toggleUploading();
-    this.props.dispatch(handleUpload(files[0], this.toggleUploading));
-  }
-
   
-  //state = { files: [] }
- 
-// handleUploading = (files) => {
-//     axios.post('api/upload', {files})
-//         .then(res => {
-//           const { data: files } = res;
-//           debugger
-//         })
-// }
+  onDrop = (files) => {
+    const { dispatch } = this.props;
+    this.toggleUploading();
+    dispatch(handleUpload(files[0], this.toggleUploading));
+  }
 
   render() {
     return (
       <Dropzone
-        // accept="image/jpeg, image/png"
+        accept="image/jpeg, image/png"
         onDrop={this.onDrop}>
       </Dropzone>
     );
-    }
+  }
 }
 
-const mapStateToProps = (state) => {
-    return { files: state.files };
-  }
-
-export default connect(mapStateToProps)(FileUpload);
+export default connect()(FileUpload);
