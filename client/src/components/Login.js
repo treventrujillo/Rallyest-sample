@@ -23,6 +23,7 @@ class Login extends Component {
   }
   handleSubmit = event => {
     event.preventDefault();
+    debugger
     const { dispatch, history } = this.props;
     const { email, password } = this.state;
       if(/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
