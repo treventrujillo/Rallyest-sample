@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { handleUpload } from '../actions/files';
@@ -11,7 +10,7 @@ class FileUpload extends Component {
   toggleUploading = () => {
     this.setState({ fileUploading: !this.state.fileUploading })
   }
-  
+
   onDrop = (files) => {
     const { dispatch } = this.props;
     this.toggleUploading();
@@ -20,10 +19,15 @@ class FileUpload extends Component {
 
   render() {
     return (
-      <Dropzone
-        accept="image/jpeg, image/png"
-        onDrop={this.onDrop}>
-      </Dropzone>
+      <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh'}}>
+        <Dropzone
+          className="dropzone"
+          accept="image/jpeg, image/png"
+          onDrop={this.onDrop}
+          style={{width: '100%', minHeight: '20vh', }}
+          >
+        </Dropzone>
+      </div>
     );
   }
 }

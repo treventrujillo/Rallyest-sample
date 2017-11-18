@@ -44,11 +44,12 @@ class UserFeed extends Component {
       <Segment>
         <Feed.Event key={ post.id }>
           <div style={{ display: 'flex', }}>
-            <div style={{ width: '5%' }}>
+            <div>
               <div>
-                <Image 
-                  src={require('../assets/images/teamimg1.png')} 
-                  style={{width: 'auto', height: '100%'}}/>
+                <Image
+                  src={require('../assets/images/teamimg1.png')}
+                  style={{ paddingRight: '15px', }}
+                  />
               </div>
             </div>
 
@@ -74,11 +75,11 @@ class UserFeed extends Component {
                     <Feed.Meta>
                       <Feed.Like>
                         <div style={{ display: 'flex', }}>
-                          <div style={{ display: 'flex', paddingRight: '1vw', fontSize: '75%', color: '#8f8f8f'}}>
+                          <div style={styles.Likes_comments}>
                             <Icon name='like' />
                             //TODO: Add Likes Functionality
                           </div>
-                          <div style={{ display: 'flex', paddingRight: '1vw', fontSize: '75%', color: '#8f8f8f'}}>
+                          <div style={styles.Likes_comments}>
                             <Icon name='comment' />
                             //TODO: Add Likes Functionality
                           </div>
@@ -113,7 +114,6 @@ class UserFeed extends Component {
               alignContent: 'center', 
               justifyContent: 'center'
             }}>
-            <Header as='h1' style={{paddingTop: '15px'}}>Whats New?</Header>
           </div>
           <div style={{padding: '30px'}}>
             <Feed>
@@ -131,6 +131,15 @@ class UserFeed extends Component {
         </Segment>
       );
     }
+  }
+}
+
+const styles = {
+  Likes_comments: {
+    display: 'flex', 
+    paddingRight: '1vw', 
+    fontSize: '75%', 
+    color: '#8f8f8f',
   }
 }
 

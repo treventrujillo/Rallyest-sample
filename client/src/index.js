@@ -23,16 +23,13 @@ body{
   width: 100%;
   height: auto;
   display: flex;
-  /*display: -ms-flexbox;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
-  -ms-flex-direction: row;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -ms-box-orient: horizontal;
-  box-orient: horizontal;*/
+}
+.dropzone {
+  minWidth: 50px;
+  height : 20px;
+  background-color: white;
+  padding: 10px;
+  border : 2px dashed black;
 }
 #left-menu-container {
   width: 15%;
@@ -85,7 +82,6 @@ body{
   width: 100%;
 }
 `
-
 
 ReactDOM.render(
   <Provider store={store}>

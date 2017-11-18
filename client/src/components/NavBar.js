@@ -40,7 +40,19 @@ class NavBar extends React.Component {
     return (
 
       <div style={{ minWidth: '100%' }}>
-        <Menu borderless style={{borderRadius: '0',}}>
+        <Menu borderless style={{borderRadius: '0', paddingLeft: '10px'}}>
+
+          <Menu.Item>
+            <Link to='#'>
+              ?
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item>
+            <Link to='#'>
+              ?
+            </Link>
+          </Menu.Item>
 
           <Menu.Item position='right'>
             <Input 

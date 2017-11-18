@@ -39,14 +39,13 @@ class Files extends Component {
   }
 
   listFiles = (files) => {
-
     return files.map( file =>
-
       <Segment>
         <Item
           key={file.id}
           style={{ display: 'flex', height: '15vh', alignItems: 'center' }}
         >
+
           <div style={{display:'flex'}}>
             <div style={{ width: '5%', margin: '15px', marginRight: '3vw' }}>
               <div>
@@ -65,8 +64,7 @@ class Files extends Component {
                 <Item.Meta>
                   <span>{file.attributes.uploadDate}</span>
                 </Item.Meta>
-                
-              
+
               </Item.Content>
             </div>
             <div style={{ width: '5%'}}>
@@ -88,32 +86,42 @@ class Files extends Component {
   render() {
     const { files, labels } = this.state;
       return (
-      <div style={{display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
-          
-        <div style={{display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
-          <Header as='h1' textAlign='center' style={{padding: '10px'}}>
-            Files Component
-          </Header>
-        </div>
+      <div style={styles.page_container}>
+        <div >
+          <div>
+            <Grid centered>
+              <Grid.Column width={8}>
+              
+                <div style={{width: '100%', backgroundColor: 'white', height: '25vh', alignContent: 'center', justifyContent: 'center', marginBottom: '4%' }}>
+                  <div style={{ alignContent: 'center', justifyContent: 'center'}}>
+                    <FileUpload/>
+                  </div>
+                </div>
 
-        <FileUpload />
-            
-        <div style={{padding: '30px', alignContent: 'center'}}>
-          <Grid centered>
-
-            <Grid.Column width={8}>
-              {this.listFiles(files)}
-            </Grid.Column>
-
-            <Grid.Column width={8}>
-              {this.listLabels(labels)}
-            </Grid.Column>
-
-          </Grid>
+                <div>
+                  {this.listFiles(files)}
+                </div>
+              
+              </Grid.Column>
+              <Grid.Column width={8}>
+                {this.listLabels(labels)}
+              </Grid.Column>
+            </Grid>
+          </div>
         </div>
       </div>
     );
   } 
 }
 
-export default connect()(Files); 
+const styles = {
+  page_container: {
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignContent: 'center', 
+    justifyContent: 'center',
+    padding: '3vh',
+  }
+}
+
+export default connect()(Files);

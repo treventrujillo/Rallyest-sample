@@ -5,7 +5,7 @@ import axios from 'axios';
 import {
    Header,
    Grid,
-   Segment, 
+   Segment,
    Card,
    Image,
   } from 'semantic-ui-react';
@@ -15,7 +15,7 @@ class Photos extends Component {
 
   async componentDidMount() {
     const photos = await axios.get('/api/photos')
-    
+
     const parsed_photos = JSON.parse(photos.data.res)
 
     this.setState({
@@ -24,8 +24,8 @@ class Photos extends Component {
   }
 
   listPhotos = (photos) => {
-    return photos.map(photo => 
-      <Card key={photo.id}>  
+    return photos.map(photo =>
+      <Card key={photo.id}>
         <p>{photo.attributes.file.name}</p>
         <p>URI: {photo.attributes.file.uri}</p>
         <Image src={photo.attributes.file.uri} />
