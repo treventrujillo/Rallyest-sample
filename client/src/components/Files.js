@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import axios from 'axios'
+import { setHeaders } from '../actions/headers';
 import { connect } from 'react-redux';
 import {
    Header,
@@ -8,6 +9,7 @@ import {
    Item,
    Grid,
    Image,
+   Button,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 
@@ -35,7 +37,18 @@ class Files extends Component {
           </Item.Content>
         </Item>
       </Segment>
-    )
+    );
+  }
+
+  deleteFile = (id) => {
+    const { files } = this.state;
+    axios.delete(`/api/files/${id}`)
+      .then(res => {
+        this.props.dispatch(setHeaders(res.headers))
+        this.setState({
+          files: files.filter( file => file.id !== id )          
+        });
+      });
   }
 
   listFiles = (files) => {
@@ -65,6 +78,11 @@ class Files extends Component {
                   <span>{file.attributes.uploadDate}</span>
                 </Item.Meta>
 
+                <Button onClick={ () => this.deleteFile(file.id)}>
+                  Delete
+                </Button>
+                
+              
               </Item.Content>
             </div>
             <div style={{ width: '5%'}}>
