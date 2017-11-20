@@ -126,24 +126,33 @@ class Files extends Component {
         dispatch(setFlash('Label Failed', 'red'))
       });
   }
+
+  removeLabel = (id, label) => {
+    const { dispatch } = this.props;
+    axios.post('/api/removelabel', { id, label })
+  }
   
   editModal = (file) => (
     <Modal trigger={<Button>Show Modal</Button>}>
-      <Modal.Header>Edit Post</Modal.Header>
       <Modal.Content>
-        {this.state.labels.map(label =>
-          <Segment key={label.id} style={{ display: 'flex' }}>
-            <Item>
-              <Item.Content>
-                {label.attributes.name}
-                <Button onClick={() => this.addLabel(file.id, label)}>
-                  Add Label
-                </Button>
-              </Item.Content>
-            </Item>
-          </Segment>
-        )}
-      </Modal.Content>
+        <Modal.Header>Edit Post</Modal.Header>
+          <Header>All Tags</Header>
+          {this.state.labels.map(label =>
+            <Segment key={label.id} style={{ display: 'flex' }}>
+              <Item>
+                <Item.Content>
+                  {label.attributes.name}
+                  <Button onClick={() => this.addLabel(file.id, label)}>
+                    Add Label
+                  </Button>
+                  <Button onClick={() => this.removeLabel(file.id, label)}>
+                    Remove Label
+                  </Button>
+                </Item.Content>
+              </Item>
+            </Segment>
+          )}
+        </Modal.Content>
     </Modal>
   );
 

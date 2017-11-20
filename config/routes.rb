@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index]
     resources :files, only: [:index, :destroy]
     post '/addlabel', to: 'files#add_label'
+    post '/removelabel', to: 'files#remove_label'
     resources :labels, only: [:index]
     resources :photos, only: [:index]
     post '/upload', to: 'files#create'
