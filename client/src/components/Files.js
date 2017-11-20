@@ -92,7 +92,17 @@ class Files extends Component {
             <Grid centered>
               <Grid.Column width={8}>
               
-                <div style={{width: '100%', backgroundColor: 'white', height: '25vh', alignContent: 'center', justifyContent: 'center', marginBottom: '4%' }}>
+                <div 
+                  style={{width: '100%', 
+                          backgroundColor: 'white', 
+                          height: '25vh', 
+                          alignContent: 'center', 
+                          justifyContent: 'center', 
+                          marginBottom: '4%', 
+                          borderRadius: '5px' 
+
+                          }}
+                >
                   <div style={{ alignContent: 'center', justifyContent: 'center'}}>
                     <FileUpload/>
                   </div>

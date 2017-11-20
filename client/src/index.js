@@ -27,9 +27,13 @@ body{
 .dropzone {
   minWidth: 50px;
   height : 20px;
-  background-color: white;
+  background-color: #E1E6E7;
   padding: 10px;
   border : 2px dashed black;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #00AADF;
 }
 #left-menu-container {
   width: 15%;
