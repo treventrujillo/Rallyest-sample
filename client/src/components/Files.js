@@ -1,8 +1,10 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import axios from 'axios'
+import { setHeaders } from '../actions/headers';
 import { connect } from 'react-redux';
 import {
+<<<<<<< HEAD
     Modal,
     Header,
     Segment,
@@ -11,8 +13,20 @@ import {
     Image,
     Button,
     Input,
+=======
+   Header,
+   Segment,
+   Item,
+   Grid,
+   Image,
+   Button,
+   Modal,
+   Loader,
+   Dimmer,
+>>>>>>> d14b98b5283246f6120b6c51c19398cb4a8fcd2d
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
+import { setFlash } from '../actions/flash';
 import upload from '../assets/images/upload.svg';
 
 class Files extends Component {
@@ -31,15 +45,34 @@ class Files extends Component {
   }
 
   listLabels = (labels) => {
-    return labels.map( label =>
-      <Segment key={label.id} style={{display: 'flex'}}>
-        <Item>
-          <Item.Content>
-            {label.attributes.name}
-          </Item.Content>
-        </Item>
-      </Segment>
-    )
+    if (labels) {
+      return labels.map( label =>
+        <Segment key={label.id} style={{display: 'flex'}}>
+          <Item>
+            <Item.Content>
+              {label.attributes.name}
+            </Item.Content>
+          </Item>
+        </Segment>
+      );
+    } else {
+      return (
+        <Dimmer active>
+          <Loader />
+        </Dimmer>
+      );
+    }
+  }
+
+  deleteFile = (id) => {
+    const { files } = this.state;
+    axios.delete(`/api/files/${id}`)
+      .then(res => {
+        this.props.dispatch(setHeaders(res.headers))
+        this.setState({
+          files: files.filter( file => file.id !== id )          
+        });
+      });
   }
 
   listFiles = (files) => {
@@ -69,6 +102,12 @@ class Files extends Component {
                   <span>{file.attributes.uploadDate}</span>
                 </Item.Meta>
 
+                <Button onClick={ () => this.deleteFile(file.id)}>
+                  Delete
+                </Button>
+                
+                {this.editModal(file)}
+              
               </Item.Content>
             </div>
             <div style={{ width: '5%'}}>
@@ -85,7 +124,39 @@ class Files extends Component {
       </Segment> 
     );
   }
+
+  addLabel = (id, label) => {
+    const { dispatch } = this.props;
+    axios.post('/api/addlabel', { id, label })
+      .then(res => {
+        console.log(res)
+        dispatch(setFlash('Label Added to File', 'green'))
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Label Failed', 'red'))
+      });
+  }
   
+  editModal = (file) => (
+    <Modal trigger={<Button>Show Modal</Button>}>
+      <Modal.Header>Edit Post</Modal.Header>
+      <Modal.Content>
+        {this.state.labels.map(label =>
+          <Segment key={label.id} style={{ display: 'flex' }}>
+            <Item>
+              <Item.Content>
+                {label.attributes.name}
+                <Button onClick={() => this.addLabel(file.id, label)}>
+                  Add Label
+                </Button>
+              </Item.Content>
+            </Item>
+          </Segment>
+        )}
+      </Modal.Content>
+    </Modal>
+  );
 
   render() {
     const { files, labels } = this.state;
