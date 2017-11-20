@@ -13,6 +13,7 @@ import {
    Modal,
    Loader,
    Dimmer,
+   Input,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import { setFlash } from '../actions/flash';
@@ -130,6 +131,14 @@ class Files extends Component {
   removeLabel = (id, label) => {
     const { dispatch } = this.props;
     axios.post('/api/removelabel', { id, label })
+      .then(res => {
+        console.log(res)
+        dispatch(setFlash('Label Removed', 'green'))
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Label Not Removed', 'red'))
+      });
   }
   
   editModal = (file) => (
