@@ -31,9 +31,9 @@ export const handleLogin = (email, password, history) => {
         const { data: user, headers } = res;
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('refresh_token', res.data.refresh_token)
+        dispatch(setFlash('Login Successful!', 'green'))
         dispatch(login(user));
         dispatch(setHeaders(res.headers));
-        dispatch(setFlash('Login Successful!', 'green'))
         window.location = '/Feed'
       })
       .catch(res => {
