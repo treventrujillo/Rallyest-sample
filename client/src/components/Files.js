@@ -12,6 +12,7 @@ import {
     Button,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
+import upload from '../assets/images/upload.svg';
 
 class Files extends Component {
   state = { files: [], labels: [] }
@@ -112,10 +113,18 @@ class Files extends Component {
                       <Modal 
                         trigger={
                         <div style={{ 
-                          display: 'flex', 
                           width: '100%', 
-                          height: '21vh', borderRadius: '5px', border: '1px solid blue'}}> Show Modal</div>}>
-                      
+                          height: '21vh', 
+                          borderRadius: '5px', 
+                          border: '1px solid #00AADF',
+                          backgroundColor: '#F6F6F6',
+                          backgroundImage: `url(${upload})`,
+                          backgroundRepeat  : 'no-repeat',
+                          backgroundPosition: 'center',
+                        }}>
+                          
+                        </div>
+                      }>
                       
                       <Modal.Header>Select a Photo</Modal.Header>
                         <Modal.Content image>
