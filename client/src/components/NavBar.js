@@ -32,7 +32,7 @@ class NavBar extends React.Component {
 
   announceTrigger = (
     <span>
-      <Image src={require('../assets/images/announcement_icon.png')} alt='Announcements' />
+      <Image src={require('../assets/images/selected.svg')} alt='Announcements' />
     </span>
   )
 
@@ -44,22 +44,19 @@ class NavBar extends React.Component {
 
           <Menu.Item>
             <Link to='#'>
-              ?
+              <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
             </Link>
           </Menu.Item>
 
           <Menu.Item>
             <Link to='#'>
-              ?
+              <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
             </Link>
           </Menu.Item>
 
           <Menu.Item position='right'>
             <Link to='/HomeTeam'>
-              <Icon 
-                className='users' 
-                size='big' 
-              />
+              <Image src={require('../assets/images/team.svg')} alt='Team' />
             </Link>
           </Menu.Item>
 
