@@ -24,7 +24,6 @@ class FileUpload extends Component {
           className="dropzone"
           accept="image/jpeg, image/png"
           onDrop={this.onDrop}
-          style={{width: '100%', minHeight: '20vh', }}
           >
         </Dropzone>
       </div>

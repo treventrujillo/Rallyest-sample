@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
 import {
-   Header,
-   Segment,
-   Item,
-   Grid,
-   Image,
+    Modal,
+    Header,
+    Segment,
+    Item,
+    Grid,
+    Image,
+    Button,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 
@@ -100,11 +102,32 @@ class Files extends Component {
                           justifyContent: 'center', 
                           marginBottom: '4%', 
                           borderRadius: '5px' 
-
-                          }}
+                  }}
                 >
+                
                   <div style={{ alignContent: 'center', justifyContent: 'center'}}>
-                    <FileUpload/>
+                  
+                    <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh',}}>
+                      
+                      <Modal 
+                        trigger={
+                        <div style={{ 
+                          display: 'flex', 
+                          width: '100%', 
+                          height: '21vh', borderRadius: '5px', border: '1px solid blue'}}> Show Modal</div>}>
+                      
+                      
+                      <Modal.Header>Select a Photo</Modal.Header>
+                        <Modal.Content image>
+                          <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+                          <Modal.Description>
+                            <Header>Default Profile Image</Header>
+                            <p>We've found the following gravatar image associated with your e-mail address.</p>
+                            <p>Is it okay to use this photo?</p>
+                          </Modal.Description>
+                        </Modal.Content>
+                      </Modal>
+                    </div>
                   </div>
                 </div>
 

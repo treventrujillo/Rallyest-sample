@@ -55,15 +55,6 @@ class NavBar extends React.Component {
           </Menu.Item>
 
           <Menu.Item position='right'>
-            <Input 
-              className='icon' 
-              icon='search' 
-              placeholder='Search...' 
-              size='huge' 
-            />
-          </Menu.Item>
-
-          <Menu.Item>
             <Link to='/HomeTeam'>
               <Icon 
                 className='users' 
