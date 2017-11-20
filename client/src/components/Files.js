@@ -10,6 +10,9 @@ import {
    Grid,
    Image,
    Button,
+   Modal,
+   Loader,
+   Dimmer,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 
@@ -29,15 +32,23 @@ class Files extends Component {
   }
 
   listLabels = (labels) => {
-    return labels.map( label =>
-      <Segment key={label.id} style={{display: 'flex'}}>
-        <Item>
-          <Item.Content>
-            {label.attributes.name}
-          </Item.Content>
-        </Item>
-      </Segment>
-    );
+    if (labels) {
+      return labels.map( label =>
+        <Segment key={label.id} style={{display: 'flex'}}>
+          <Item>
+            <Item.Content>
+              {label.attributes.name}
+            </Item.Content>
+          </Item>
+        </Segment>
+      );
+    } else {
+      return (
+        <Dimmer active>
+          <Loader />
+        </Dimmer>
+      );
+    }
   }
 
   deleteFile = (id) => {
@@ -82,6 +93,7 @@ class Files extends Component {
                   Delete
                 </Button>
                 
+                {this.editModal(file)}
               
               </Item.Content>
             </div>
@@ -99,7 +111,39 @@ class Files extends Component {
       </Segment> 
     );
   }
+
+  addLabel = (id, label) => {
+    const { dispatch } = this.props;
+    axios.post('/api/addlabel', { id, label })
+      .then(res => {
+        console.log(res)
+        dispatch(setFlash('Label Added to File', 'green'))
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Label Failed', 'red'))
+      });
+  }
   
+  editModal = (file) => (
+    <Modal trigger={<Button>Show Modal</Button>}>
+      <Modal.Header>Edit Post</Modal.Header>
+      <Modal.Content>
+        {this.state.labels.map(label =>
+          <Segment key={label.id} style={{ display: 'flex' }}>
+            <Item>
+              <Item.Content>
+                {label.attributes.name}
+                <Button onClick={() => this.addLabel(file.id, label)}>
+                  Add Label
+                </Button>
+              </Item.Content>
+            </Item>
+          </Segment>
+        )}
+      </Modal.Content>
+    </Modal>
+  );
 
   render() {
     const { files, labels } = this.state;
