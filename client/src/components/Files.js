@@ -10,6 +10,7 @@ import {
     Grid,
     Image,
     Button,
+    Input,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import upload from '../assets/images/upload.svg';
@@ -127,13 +128,22 @@ class Files extends Component {
                         </div>
                       }>
                       
-                      <Modal.Header>Select a Photo</Modal.Header>
-                        <Modal.Content image>
-                          <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+                      <Modal.Header>Post a File </Modal.Header>
+                        <Modal.Content>
                           <Modal.Description>
-                            <Header>Default Profile Image</Header>
-                            <p>We've found the following gravatar image associated with your e-mail address.</p>
-                            <p>Is it okay to use this photo?</p>
+                            <div>
+                              <p>File Name<FileUpload /></p>
+                            </div>
+                            <div>
+                              <p>Labels</p><Button>medical - forms</Button><Button>release - forms</Button>
+                            </div>
+                            <div style={{ }}>
+                              <Input transparent placeholder='File Description' />
+                            </div>
+                            <div>
+                              <Button floated='left'>Cancel</Button>
+                              <Button type='submit' floated='right'>Post</Button>
+                            </div>
                           </Modal.Description>
                         </Modal.Content>
                       </Modal>
