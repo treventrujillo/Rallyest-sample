@@ -96,13 +96,14 @@ class Files extends Component {
               <Grid.Column width={8}>
               
                 <div 
-                  style={{width: '100%', 
-                          backgroundColor: 'white', 
-                          height: '25vh', 
-                          alignContent: 'center', 
-                          justifyContent: 'center', 
-                          marginBottom: '4%', 
-                          borderRadius: '5px' 
+                  style={{
+                    width: '100%', 
+                    backgroundColor: 'white', 
+                    height: '25vh', 
+                    alignContent: 'center', 
+                    justifyContent: 'center', 
+                    marginBottom: '4%', 
+                    borderRadius: '5px' 
                   }}
                 >
                 
