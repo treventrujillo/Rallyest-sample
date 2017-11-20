@@ -4,16 +4,6 @@ import axios from 'axios'
 import { setHeaders } from '../actions/headers';
 import { connect } from 'react-redux';
 import {
-<<<<<<< HEAD
-    Modal,
-    Header,
-    Segment,
-    Item,
-    Grid,
-    Image,
-    Button,
-    Input,
-=======
    Header,
    Segment,
    Item,
@@ -23,7 +13,6 @@ import {
    Modal,
    Loader,
    Dimmer,
->>>>>>> d14b98b5283246f6120b6c51c19398cb4a8fcd2d
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import { setFlash } from '../actions/flash';
