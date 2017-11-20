@@ -15,6 +15,7 @@ import {
    Dimmer,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
+import upload from '../assets/images/upload.svg';
 
 class Files extends Component {
   state = { files: [], labels: [] }
@@ -154,9 +155,49 @@ class Files extends Component {
             <Grid centered>
               <Grid.Column width={8}>
               
-                <div style={{width: '100%', backgroundColor: 'white', height: '25vh', alignContent: 'center', justifyContent: 'center', marginBottom: '4%' }}>
+                <div 
+                  style={{
+                    width: '100%', 
+                    backgroundColor: 'white', 
+                    height: '25vh', 
+                    alignContent: 'center', 
+                    justifyContent: 'center', 
+                    marginBottom: '4%', 
+                    borderRadius: '5px' 
+                  }}
+                >
+                
                   <div style={{ alignContent: 'center', justifyContent: 'center'}}>
-                    <FileUpload/>
+                  
+                    <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh',}}>
+                      
+                      <Modal 
+                        trigger={
+                        <div style={{ 
+                          width: '100%', 
+                          height: '21vh', 
+                          borderRadius: '5px', 
+                          border: '1px solid #00AADF',
+                          backgroundColor: '#F6F6F6',
+                          backgroundImage: `url(${upload})`,
+                          backgroundRepeat  : 'no-repeat',
+                          backgroundPosition: 'center',
+                        }}>
+                          
+                        </div>
+                      }>
+                      
+                      <Modal.Header>Select a Photo</Modal.Header>
+                        <Modal.Content image>
+                          <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+                          <Modal.Description>
+                            <Header>Default Profile Image</Header>
+                            <p>We've found the following gravatar image associated with your e-mail address.</p>
+                            <p>Is it okay to use this photo?</p>
+                          </Modal.Description>
+                        </Modal.Content>
+                      </Modal>
+                    </div>
                   </div>
                 </div>
 

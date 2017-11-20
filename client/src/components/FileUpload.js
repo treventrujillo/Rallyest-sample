@@ -19,12 +19,11 @@ class FileUpload extends Component {
 
   render() {
     return (
-      <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh'}}>
+      <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh', }}>
         <Dropzone
           className="dropzone"
           accept="image/jpeg, image/png"
           onDrop={this.onDrop}
-          style={{width: '100%', minHeight: '20vh', }}
           >
         </Dropzone>
       </div>
