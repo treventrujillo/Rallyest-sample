@@ -15,6 +15,7 @@ import {
    Dimmer,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
+import { setFlash } from '../actions/flash';
 import upload from '../assets/images/upload.svg';
 
 class Files extends Component {
