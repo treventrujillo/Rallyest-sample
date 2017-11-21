@@ -1,8 +1,7 @@
 class Api::FilesController < Api::RallybaseController
   def index
-    
 
-    request = RestClient::Request.execute(method: :get, :url => 'https://rallyfy.com/api/file?schema',
+    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/file?schema',
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
       :verify_ssl => false 
     )
