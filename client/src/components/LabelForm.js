@@ -9,7 +9,7 @@ import { Form, Modal, Button } from 'semantic-ui-react';
 class LabelForm extends Component {
   state = { name: '', open: false }
 
-  onChange = (e) => {
+  handleChange = (e) => {
     this.setState({ name: e.target.value })
   }
 
