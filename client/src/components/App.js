@@ -49,13 +49,14 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            flexFlow: 'column',
           }}>
 
-          <div style={{alignSelf: 'flex-start',}}>
+          <div>
             <Flash />
           </div>
 
-          <div style={{alignSelf: 'flex-end',}}>
+          <div>
             <Component {...matchProps} />
           </div>
 
