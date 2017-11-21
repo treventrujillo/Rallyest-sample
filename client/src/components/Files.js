@@ -14,13 +14,21 @@ import {
    Loader,
    Dimmer,
    Input,
+   Form,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import { setFlash } from '../actions/flash';
+import LabelForm from './LabelForm';
 import upload from '../assets/images/upload.svg';
 
 class Files extends Component {
-  state = { files: [], labels: [] }
+  state = {
+      files: [], 
+      labels: [],
+      name: '',
+    }
+    
+  // Fetches data from api, parses, and sets state
 
   async componentDidMount() {
     const getFiles = await axios.get('/api/files')
@@ -33,45 +41,17 @@ class Files extends Component {
       labels: parsed_labels.data,
     });
   }
-
-  listLabels = (labels) => {
-    if (labels) {
-      return labels.map( label =>
-        <Segment key={label.id} style={{display: 'flex'}}>
-          <Item>
-            <Item.Content>
-              {label.attributes.name}
-            </Item.Content>
-          </Item>
-        </Segment>
-      );
-    } else {
-      return (
-        <Dimmer active>
-          <Loader />
-        </Dimmer>
-      );
-    }
-  }
-
-  deleteFile = (id) => {
-    const { files } = this.state;
-    axios.delete(`/api/files/${id}`)
-      .then(res => {
-        this.props.dispatch(setHeaders(res.headers))
-        this.setState({
-          files: files.filter( file => file.id !== id )          
-        });
-      });
-  }
-
+  
+  
+  // List all files
+  
   listFiles = (files) => {
     return files.map( file =>
       <Segment>
         <Item
           key={file.id}
           style={{ display: 'flex', height: '15vh', alignItems: 'center' }}
-        >
+          >
 
           <div style={{display:'flex'}}>
             <div style={{ width: '5%', margin: '15px', marginRight: '3vw' }}>
@@ -115,6 +95,42 @@ class Files extends Component {
     );
   }
 
+  // Delete file
+  
+  deleteFile = (id) => {
+    const { files } = this.state;
+    axios.delete(`/api/files/${id}`)
+    .then(res => {
+      this.props.dispatch(setHeaders(res.headers))
+      this.setState({
+        files: files.filter( file => file.id !== id )          
+      });
+    });
+  }
+  // List all labels
+  
+  listLabels = (labels) => {
+    if (labels) {
+      return labels.map( label =>
+          <Segment key={label.id} style={{display: 'flex'}}>
+            <Item>
+              <Item.Content>
+                {label.attributes.name}
+              </Item.Content>
+            </Item>
+          </Segment>
+        );
+      } else {
+        return (
+          <Dimmer active>
+            <Loader />
+          </Dimmer>
+        );
+      }
+    }
+
+  // Add and Remove label relationship with file
+
   addLabel = (id, label) => {
     const { dispatch } = this.props;
     axios.post('/api/addlabel', { id, label })
@@ -140,6 +156,42 @@ class Files extends Component {
         dispatch(setFlash('Label Not Removed', 'red'))
       });
   }
+
+  // Label Form Functions
+
+  labelForm = () => (
+    <Modal trigger={<Button>Create Label</Button>}>
+      <Modal.Content>
+        <Modal.Header>Create a Label</Modal.Header>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <Form.Label>Label Name</Form.Label>
+            <Form.Input placeholder="Enter name here..." onChange={this.handleChange} value={this.state.name} />
+          </Form.Field>
+          <Form.Button type='submit'>Submit</Form.Button>
+        </Form>
+      </Modal.Content>
+    </Modal>
+  );
+
+  onChange = (e) => {
+    this.setState({ name: e.target.value })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { name } = this.state;
+    axios.post('api/labels', name)
+      .then(res => {
+        debugger
+      })
+  }
+
+  deleteLabel = () => {
+
+  }
+
+  // Edit file post modal
   
   editModal = (file) => (
     <Modal trigger={<Button>Show Modal</Button>}>
@@ -164,6 +216,7 @@ class Files extends Component {
         </Modal.Content>
     </Modal>
   );
+
 
   render() {
     const { files, labels } = this.state;
@@ -235,6 +288,8 @@ class Files extends Component {
               
               </Grid.Column>
               <Grid.Column width={8}>
+                {this.labelForm()}
+                <Button onClick={() => this.deleteLabel()}>Delete Label</Button>
                 {this.listLabels(labels)}
               </Grid.Column>
             </Grid>

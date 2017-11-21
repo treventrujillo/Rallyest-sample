@@ -6,4 +6,12 @@ class Api::LabelsController < Api::RallybaseController
     )
     render json: { res: response }
   end
+
+  def create
+    binding.pry
+  end
+
+  def destroy
+
+  end
 end

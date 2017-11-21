@@ -3,12 +3,17 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :logins, only: [:create, :destroy]
+    
     resources :posts, only: [:index]
+
     resources :files, only: [:index, :destroy]
     post '/addlabel', to: 'files#add_label'
     post '/removelabel', to: 'files#remove_label'
-    resources :labels, only: [:index]
+
+    resources :labels, only: [:index, :create, :destroy]
+
     resources :photos, only: [:index]
+    
     post '/upload', to: 'files#create'
     get '/verifytoken', to: 'rallybase#verify'
   end
