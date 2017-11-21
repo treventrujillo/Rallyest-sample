@@ -15,8 +15,6 @@ class Login extends Component {
   componentDidMount() {
     this.props.dispatch(verifyToken())
   }
-  
-
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });

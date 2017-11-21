@@ -44,21 +44,21 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
       <LoginLayout>
-        <div>
-          <div style = {style.flash}>
-          <Flash />
+        <div style = {style.flash}>
+          <Flash style={{display: 'flex', display: '-webkit-box' }}/>
           </div>
           <Component {...matchProps} />
-        </div>
       </LoginLayout>
     )} />
+   
 )};
 const style= {
   flash: {
-    position: "absolute",
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
+    borderRadius: '0px 0px 0px 0px',
+    flexWrap: 'wrap',
+    margin: 0,
+    padding: 0,
+    // minWidth: '700px',
   },
 }
 
