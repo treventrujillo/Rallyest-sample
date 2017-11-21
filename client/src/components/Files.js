@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { setHeaders } from '../actions/headers';
+import { Redirect, Route } from 'react-router';
 import { connect } from 'react-redux';
 import {
    Header,
@@ -26,6 +27,7 @@ class Files extends Component {
       files: [], 
       labels: [],
       name: '',
+      open: false,
     }
     
   // Fetches data from api, parses, and sets state
@@ -159,60 +161,6 @@ class Files extends Component {
       });
   }
 
-  // Label Form Functions
-
-  labelForm = () => {
-
-    return (
-      <Modal trigger={<Button>Create Label</Button>}>
-        <Modal.Content>
-          <Modal.Header>Create a Label</Modal.Header>
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Field>
-              <Form.Input placeholder="Enter name here..." onChange={this.handleChange} value={this.state.name} />
-              </Form.Field>
-            <Form.Button type='submit'>Submit</Form.Button>
-          </Form>
-        </Modal.Content>
-      </Modal>
-    );
-  }
-
-  handleChange = (e) => {
-    this.setState({ name: e.target.value })
-  }
-  
-  handleSubmit = (e) => {
-    const { dispatch } = this.props;
-    e.preventDefault();
-    const { name } = this.state;
-    axios.post('api/labels', { name })
-      .then(res => {
-        dispatch(setHeaders(res.headers))
-        dispatch(setFlash('Label successfully created', 'green'))
-      })
-      .catch(res => {
-        dispatch(setFlash('Label failed to create', 'red'))
-      });
-    this.resetName();
-  }
-
-  deleteLabel = (id) => {
-    const { labels } = this.state;
-    const { dispatch } = this.props;
-    axios.delete(`/api/labels/${id}`)
-      .then(res => {
-        dispatch(setFlash('Label deleted', 'green'))
-      })
-      .catch(res => { 
-        console.log(res)
-        dispatch(setFlash('Label failed to delete', 'red'))
-      });
-  }
-
-  resetName = () => {
-    this.setState({ name: '' })
-  }
 
   // Edit file post modal
   
@@ -311,7 +259,7 @@ class Files extends Component {
               
               </Grid.Column>
               <Grid.Column width={8}>
-                {this.labelForm()}
+                <LabelForm />
         
                 {this.listLabels(labels)}
               </Grid.Column>
