@@ -32,7 +32,9 @@ const DashboardRoute = ({component: Component, ...rest}) => {
     <Route {...rest} render={matchProps => (
       <DashboardLayout>
         <div>
+          <div>
           <Flash />
+          </div>
           <Component {...matchProps} />
         </div>
       </DashboardLayout>
@@ -42,13 +44,24 @@ const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
       <LoginLayout>
-        <div>
+        <div style = {style.flash}>
           <Flash />
+          </div>
           <Component {...matchProps} />
-        </div>
       </LoginLayout>
     )} />
+   
 )};
+const style= {
+  flash: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+}
 
 /*   App   */ 
 class App extends Component {

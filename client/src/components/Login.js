@@ -15,14 +15,13 @@ class Login extends Component {
   componentDidMount() {
     this.props.dispatch(verifyToken())
   }
-  
-
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });
   }
   handleSubmit = event => {
     event.preventDefault();
+    debugger
     const { dispatch, history } = this.props;
     const { email, password } = this.state;
       if(/[a-z0-9]+[_a-z0-9.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/.test(email)) {
