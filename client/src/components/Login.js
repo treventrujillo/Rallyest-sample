@@ -1,7 +1,6 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
-import { Header, Segment, Form } from 'semantic-ui-react';
-import { Button } from 'react-bootstrap';
+import { Header, Segment, Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { handleLogin } from '../actions/auth';
@@ -83,7 +82,7 @@ class Login extends Component {
                   </Form.Field>
                 </div>
                 <div style={styles.formButton}>
-                  <Button >
+                  <Button circular fluid primary type='submit' style={{width: '15vw', color: '', backgroundColor: '#00AADF',}}>
                     Sign in
                   </Button>
                 </div>
