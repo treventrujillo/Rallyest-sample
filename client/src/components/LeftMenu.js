@@ -36,7 +36,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Files.png')}
+                  src={require('../assets/images/icon-files.svg')}
                   />
                 <Link to={'/Files'} style={{color: '#e1e6e7'}}> Files</Link>
               </Menu.Item>
@@ -48,7 +48,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Photos.png')}
+                  src={require('../assets/images/icon-photos.svg')}
                   />
                 <Link to={'/Photos'} style={{color: '#e1e6e7'}}> Photos</Link>
               </Menu.Item>
@@ -60,7 +60,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Letters.png')}
+                  src={require('../assets/images/icon-letters.svg')}
                   />
                 <Link to={'/Letters'} style={{color: '#e1e6e7'}}> Letters</Link>
               </Menu.Item>
@@ -84,7 +84,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Library.png')}
+                  src={require('../assets/images/icon-library.svg')}
                   /> 
                 <Link to={'/Courses'} style={{color: '#e1e6e7'}}> Courses</Link>
               </Menu.Item>
@@ -96,7 +96,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Announcements.png')}
+                  src={require('../assets/images/selected2.svg')}
                   /> 
                 <Link to={'/Announcements'} style={{color: '#e1e6e7'}}> Announcements</Link>
               </Menu.Item>
@@ -108,7 +108,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Updates.png')}
+                  src={require('../assets/images/icon-updates.svg')}
                   />
                 <Link to={'/Updates'} style={{color: '#e1e6e7'}}> Updates</Link>
               </Menu.Item>
@@ -144,7 +144,7 @@ class LeftMenu extends Component {
                 >
                 <Image 
                   style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Settings.png')}
+                  src={require('../assets/images/icon-settings.svg')}
                   />
                 <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
               </Menu.Item>
