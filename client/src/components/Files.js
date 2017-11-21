@@ -47,9 +47,8 @@ class Files extends Component {
   
   listFiles = (files) => {
     return files.map( file =>
-      <Segment>
+      <Segment key={file.id}>
         <Item
-          key={file.id}
           style={{ display: 'flex', height: '15vh', alignItems: 'center' }}
           >
 
@@ -116,6 +115,9 @@ class Files extends Component {
             <Item>
               <Item.Content>
                 {label.attributes.name}
+                <Button onClick={() => this.deleteLabel(label.id)}>
+                  Delete Label
+                </Button>
               </Item.Content>
             </Item>
           </Segment>
@@ -159,36 +161,57 @@ class Files extends Component {
 
   // Label Form Functions
 
-  labelForm = () => (
-    <Modal trigger={<Button>Create Label</Button>}>
-      <Modal.Content>
-        <Modal.Header>Create a Label</Modal.Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <Form.Label>Label Name</Form.Label>
-            <Form.Input placeholder="Enter name here..." onChange={this.handleChange} value={this.state.name} />
-          </Form.Field>
-          <Form.Button type='submit'>Submit</Form.Button>
-        </Form>
-      </Modal.Content>
-    </Modal>
-  );
+  labelForm = () => {
 
-  onChange = (e) => {
+    return (
+      <Modal trigger={<Button>Create Label</Button>}>
+        <Modal.Content>
+          <Modal.Header>Create a Label</Modal.Header>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <Form.Input placeholder="Enter name here..." onChange={this.handleChange} value={this.state.name} />
+              </Form.Field>
+            <Form.Button type='submit'>Submit</Form.Button>
+          </Form>
+        </Modal.Content>
+      </Modal>
+    );
+  }
+
+  handleChange = (e) => {
     this.setState({ name: e.target.value })
   }
-
+  
   handleSubmit = (e) => {
+    const { dispatch } = this.props;
     e.preventDefault();
     const { name } = this.state;
-    axios.post('api/labels', name)
+    axios.post('api/labels', { name })
       .then(res => {
-        debugger
+        dispatch(setHeaders(res.headers))
+        dispatch(setFlash('Label successfully created', 'green'))
       })
+      .catch(res => {
+        dispatch(setFlash('Label failed to create', 'red'))
+      });
+    this.resetName();
   }
 
-  deleteLabel = () => {
+  deleteLabel = (id) => {
+    const { labels } = this.state;
+    const { dispatch } = this.props;
+    axios.delete(`/api/labels/${id}`)
+      .then(res => {
+        dispatch(setFlash('Label deleted', 'green'))
+      })
+      .catch(res => { 
+        console.log(res)
+        dispatch(setFlash('Label failed to delete', 'red'))
+      });
+  }
 
+  resetName = () => {
+    this.setState({ name: '' })
   }
 
   // Edit file post modal
@@ -289,7 +312,7 @@ class Files extends Component {
               </Grid.Column>
               <Grid.Column width={8}>
                 {this.labelForm()}
-                <Button onClick={() => this.deleteLabel()}>Delete Label</Button>
+        
                 {this.listLabels(labels)}
               </Grid.Column>
             </Grid>
