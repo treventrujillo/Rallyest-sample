@@ -108,6 +108,22 @@ class Files extends Component {
       });
     });
   }
+  
+  // Delete label
+
+  deleteLabel = (id) => {
+    const { labels } = this.state;
+    const { dispatch } = this.props;
+    axios.delete(`/api/labels/${id}`)
+      .then(res => {
+        dispatch(setFlash('Label deleted', 'green'))
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Label failed to delete', 'red'))
+      });
+  }
+  
   // List all labels
   
   listLabels = (labels) => {

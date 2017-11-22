@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { verifyToken } from '../actions/auth';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import PostForm from './PostForm';
 import {
    Header,
    Feed,
@@ -12,6 +13,7 @@ import {
    Loader,
    Icon,
    Divider,
+   Button,
   } from 'semantic-ui-react';
 
 class UserFeed extends Component {
@@ -116,6 +118,7 @@ class UserFeed extends Component {
             }}>
           </div>
           <div style={{padding: '30px'}}>
+            <PostForm />
             <Feed>
               {this.listPosts(posts)}
             </Feed>

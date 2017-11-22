@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :logins, only: [:create, :destroy]
     
-    resources :posts, only: [:index]
+    resources :posts, only: [:index, :create, :destroy]
 
     resources :files, only: [:index, :destroy]
     post '/addlabel', to: 'files#add_label'
