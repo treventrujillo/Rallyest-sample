@@ -12,9 +12,10 @@ class FileUpload extends Component {
   }
 
   onDrop = (files) => {
+    debugger
     const { dispatch } = this.props;
     this.toggleUploading();
-    dispatch(handleUpload(files[0], this.toggleUploading));
+    dispatch(handleUpload(files, this.toggleUploading));
   }
 
   render() {

@@ -36,15 +36,14 @@ class UserFeed extends Component {
     })
   }
 
-
   // Post List values:
   // post id = post.id
   // post content = post.attributes.text
 
   listPosts = (posts) => {
     return posts.map( post =>
-      <Segment>
-        <Feed.Event key={ post.id }>
+      <Segment key={post.id}>
+        <Feed.Event>
           <div style={{ display: 'flex', }}>
             <div>
               <div>

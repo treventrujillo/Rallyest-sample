@@ -15,7 +15,7 @@ const DashboardLayout =({children, ...rest}) => {
               </div>
             </div>
           </div>
-          <div class="test">
+          <div className="test">
             <div id="hero">
               <div id="hero-overlay">
                 <NavBar/>

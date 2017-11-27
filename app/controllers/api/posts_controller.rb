@@ -1,11 +1,19 @@
 class Api::PostsController < Api::RallybaseController
   def index
-    response = RestClient::Request.execute(method: :get, :url => 'https://rallyfy.com/api/post',
+    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post',
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
       :verify_ssl => false 
     )
     
-    render json: { res: response }
+    response = request.execute {|response| results = response}
+
+    case response.code
+      when 200
+        puts "Good"
+        render json: { res: response }
+      when 401 || 500
+        render json: { res: response }
+      end
   end
 
   def create

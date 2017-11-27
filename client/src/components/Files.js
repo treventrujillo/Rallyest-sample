@@ -117,6 +117,7 @@ class Files extends Component {
     axios.delete(`/api/labels/${id}`)
       .then(res => {
         dispatch(setFlash('Label deleted', 'green'))
+        this.setState({ labels: labels.filter( label => label.id !== id )})
       })
       .catch(res => {
         console.log(res)
