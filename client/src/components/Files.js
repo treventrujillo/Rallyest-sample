@@ -5,20 +5,6 @@ import { setHeaders } from '../actions/headers';
 import { Redirect, Route } from 'react-router';
 import { connect } from 'react-redux';
 import {
-<<<<<<< HEAD
-  Accordion,
-  Header,
-  Segment,
-  Item,
-  Grid,
-  Image,
-  Button,
-  Modal,
-  Loader,
-  Dimmer,
-  Input,
-  Form,
-=======
    Header,
    Segment,
    Item,
@@ -33,7 +19,6 @@ import {
    Divider,
    TextArea,
    Icon
->>>>>>> 14b2d298496576d5c18e8b9068c37fb7aa5109b3
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import FileAccordion from './FileAccordion';
