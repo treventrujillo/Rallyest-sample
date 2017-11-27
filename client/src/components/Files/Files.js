@@ -226,10 +226,9 @@ class Files extends Component {
           <div>
             <Grid centered>
               <Grid.Column width={8}>
-                <FileAccordion />
                   
-                  <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>
-                      
+                  <div style={{marginBottom: '15px',}}>                  
+                    <FileAccordion /> 
                   </div>
 
                 <div>

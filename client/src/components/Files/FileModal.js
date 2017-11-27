@@ -27,8 +27,9 @@ class FileModal extends Component {
           <div
           style={{
             width: '100%', 
-            height: '21vh', 
-            borderRadius: '5px', 
+            height: '21vh',
+            maxHeight: '180px',
+            borderRadius: '5px',
             border: '1px solid #00AADF',
             backgroundColor: '#F6F6F6',
           }}
