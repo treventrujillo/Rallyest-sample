@@ -226,17 +226,30 @@ class Files extends Component {
                       
                       <Modal 
                         trigger={
-                        <div style={{ 
-                          width: '100%', 
-                          height: '21vh', 
-                          borderRadius: '5px', 
-                          border: '1px solid #00AADF',
-                          backgroundColor: '#F6F6F6',
-                          backgroundImage: `url(${upload})`,
-                          backgroundRepeat  : 'no-repeat',
-                          backgroundPosition: 'center',
-                        }}>
+                        <div 
+                          style={{
+                            width: '100%', 
+                            height: '21vh', 
+                            borderRadius: '5px', 
+                            border: '1px solid #00AADF',
+                            backgroundColor: '#F6F6F6',
+                          }}
+                        >
+                          <div style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center'}}>
+
+                            <div style={{ padding: '10px',}}>
+                              <Image src={upload}/>
+                            </div>
+
+                            <div style={{ color: '#8f8f8f', fontSize: '180%', fontWeight: '100', padding: '3px 10px 3px 10px',}}> 
+                              Upload Files
+                            </div>
+
+                            <div style={{ color: '#8f8f8f', fontSize: '70%', fontWeight: '100', padding: '10px',}}>
+                              Drag and Drop files here to upload
+                            </div>
                           
+                          </div>
                         </div>
                       }>
                       
