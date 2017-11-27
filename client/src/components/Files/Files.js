@@ -83,12 +83,12 @@ class Files extends Component {
               <span style={{color: '#8f8f8f'}}>{file.attributes.uploadDate}</span>
             </div>
           
-            <div>
+            {/* <div>
               <Button onClick={ () => this.deleteFile(file.id)}>
                 Delete
               </Button>
               {this.editModal(file)}
-            </div>
+            </div> */}
           
           </div>
 
