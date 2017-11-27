@@ -18,7 +18,8 @@ import {
    Form,
    Divider,
    TextArea,
-   Icon
+   Icon,
+   Dropdown,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import FileAccordion from './FileAccordion';
@@ -32,8 +33,8 @@ class Files extends Component {
       labels: [],
       name: '',
       open: false,
-    }
-    
+  }
+
   // Fetches data from api, parses, and sets state
 
   async componentDidMount() {
@@ -47,8 +48,18 @@ class Files extends Component {
       labels: parsed_labels.data,
     });
   }
-  
-  
+
+  homeTeamOptions = [
+    { key: 1, text: 'Edit File Tags', value: 1 },
+    { key: 2, text: 'Delete File', value: 2 },
+  ]
+
+  homeTrigger = (
+    <span>
+      <Image src={require('../../assets/images/icon-more.svg')} />
+    </span>
+  )
+
   // List all files
 
   listFiles = (files) => {
@@ -84,8 +95,13 @@ class Files extends Component {
           <div style={{ display: 'flex',  width: '10%', justifyContent: 'flex-end' }}>
             <div style={{padding: '5px',}}>
             
-              <Image
-                src={require('../../assets/images/icon-more.svg')}/>
+            <Dropdown 
+              trigger={this.homeTrigger} 
+              options={this.homeTeamOptions} 
+              icon={null} 
+              pointing='top right' 
+            />
+
             </div>
           </div>
         </div>
@@ -145,7 +161,7 @@ class Files extends Component {
           </Dimmer>
         );
       }
-    }
+  }
 
   // Add and Remove label relationship with file
 
@@ -174,7 +190,6 @@ class Files extends Component {
         dispatch(setFlash('Label Not Removed', 'red'))
       });
   }
-
 
   // Edit file post modal
   
