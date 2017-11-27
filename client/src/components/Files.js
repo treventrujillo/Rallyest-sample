@@ -246,7 +246,7 @@ class Files extends Component {
                         </div>
                       }>
                       
-                      <Modal.Header>Post a File </Modal.Header>
+                       <Modal.Header>Post a File </Modal.Header>
                         <Modal.Content>
                           <Modal.Description>
                             <div>
@@ -264,7 +264,7 @@ class Files extends Component {
                             </div>
                           </Modal.Description>
                         </Modal.Content>
-                      </Modal>
+                      </Modal> 
                     </div>
                   </div>
                 </div>
