@@ -16,6 +16,9 @@ import {
    Dimmer,
    Input,
    Form,
+   Divider,
+   TextArea,
+   Icon
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import { setFlash } from '../actions/flash';
@@ -231,7 +234,7 @@ class Files extends Component {
                   
                     <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh',}}>
                       
-                      <Modal 
+                      <Modal size='small'
                         trigger={
                         <div style={{ 
                           width: '100%', 
@@ -253,15 +256,33 @@ class Files extends Component {
                             <div>
                               <p>File Name<FileUpload /></p>
                             </div>
+                            <Divider />
                             <div>
-                              <p>Labels</p><Button>medical - forms</Button><Button>release - forms</Button>
+                              <p>Labels</p>
+                              <Button>medical - forms</Button>
+                              <Button>release - forms</Button>
                             </div>
-                            <div style={{ }}>
-                              <Input transparent placeholder='File Description' />
+                            <Divider />
+                            <div>
+                              <Form>
+                                 <TextArea autoHeight placeholder='File Description' 
+                                  style={{ minHeight: 100, border: 'none' }}/>
+                              </Form>
+                            </div>
+                            <Divider />
+                            <div>
+                              <p><Icon name='file text outline' />Files</p>
+                              <p><Icon name='smile' />Feeling</p>
                             </div>
                             <div>
-                              <Button floated='left'>Cancel</Button>
-                              <Button type='submit' floated='right'>Post</Button>
+                              <p floated='right'>Visible to 4 team members</p>
+                            </div>
+                            <Divider />
+                            <div style={{ padding: '30px' }}>
+                              <Button circular floated='left' 
+                               style={{ width: '10vw', color: '', backgroundColor: '#00AADF', }}>Cancel</Button>
+                              <Button circular type='submit' floated='right' 
+                               style={{ width: '10vw', color: '', backgroundColor: '#00AADF', }}>Post</Button>
                             </div>
                           </Modal.Description>
                         </Modal.Content>
