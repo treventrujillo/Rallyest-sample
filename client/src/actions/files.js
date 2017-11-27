@@ -6,6 +6,7 @@ export const handleUpload = (file, callback) => {
   return(dispatch) => {
     let data = new FormData(file);
     data.append(1, file);
+    debugger
     axios.post('/api/upload', data)
       .then( res => {
         dispatch(setFlash('File Uploaded Successfully!', 'success'));

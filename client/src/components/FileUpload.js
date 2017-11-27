@@ -15,7 +15,7 @@ class FileUpload extends Component {
     debugger
     const { dispatch } = this.props;
     this.toggleUploading();
-    dispatch(handleUpload(files, this.toggleUploading));
+    dispatch(handleUpload(files[0], this.toggleUploading));
   }
 
   render() {
