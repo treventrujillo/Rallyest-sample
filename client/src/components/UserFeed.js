@@ -4,6 +4,7 @@ import { verifyToken } from '../actions/auth';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import PostForm from './PostForm';
+import PostEdit from './PostEdit';
 import {
    Header,
    Feed,
@@ -35,15 +36,16 @@ class UserFeed extends Component {
       console.log(res)
     })
   }
-
+  
   // Post List values:
   // post id = post.id
   // post content = post.attributes.text
-
+  
   listPosts = (posts) => {
     return posts.map( post =>
       <Segment key={post.id}>
         <Feed.Event>
+        <PostEdit />
           <div style={{ display: 'flex', }}>
             <div>
               <div>
@@ -98,6 +100,10 @@ class UserFeed extends Component {
     );
   }
 
+  setEditPosts = (editPosts) => {
+    this.setState({ editPosts });
+  }
+
   render() {
     const { posts } = this.state;
     if (posts) {
@@ -134,6 +140,10 @@ class UserFeed extends Component {
       );
     }
   }
+}
+
+const mapStateToProps = state => {
+  return { post: state.post };
 }
 
 const styles = {
