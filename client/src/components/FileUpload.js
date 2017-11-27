@@ -24,7 +24,7 @@ class FileUpload extends Component {
         <Dropzone
           className="dropzone"
           accept="image/jpeg, image/png"
-          onDrop={() => this.onDrop}
+          onDrop={this.onDrop}
           >
         </Dropzone>
       </div>
