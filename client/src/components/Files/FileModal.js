@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Accordion, Form, Modal, Button, Input } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
-import upload from '../assets/images/upload.svg';
+import upload from '../../assets/images/upload.svg';
 
 class FileModal extends Component {
   

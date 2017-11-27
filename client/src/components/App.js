@@ -10,8 +10,7 @@ import LoginLayout from './Layouts/LoginLayout';
 // Pages in Switch
 import NoMatch from './NoMatch';
 import UserFeed from './UserFeed';
-import Files from './Files';
-import FileUpload from './FileUpload';
+import Files from './Files/Files';
 import Login from './Login';
 import Photos from './Photos';
 import Letters from './Letters';
@@ -90,7 +89,6 @@ class App extends Component {
           <LoginLayoutRoute path='/Tour_3' component={Page3}/>
           <DashboardRoute exact path='/Feed' component={UserFeed} />
           <DashboardRoute path='/Files' component={Files} />
-          <DashboardRoute path='/FileUpload' component={FileUpload} />
           <DashboardRoute path='/Photos' component={Photos} />
           <DashboardRoute path='/Letters' component={Letters} />
           <DashboardRoute path='/Goals' component={Goals} />

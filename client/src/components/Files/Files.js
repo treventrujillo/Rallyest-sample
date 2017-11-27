@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import React, { Component } from 'react';
 import axios from 'axios'
-import { setHeaders } from '../actions/headers';
+import { setHeaders } from '../../actions/headers';
 import { Redirect, Route } from 'react-router';
 import { connect } from 'react-redux';
 import {
@@ -22,9 +22,9 @@ import {
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
 import FileAccordion from './FileAccordion';
-import { setFlash } from '../actions/flash';
+import { setFlash } from '../../actions/flash';
 import LabelForm from './LabelForm';
-import upload from '../assets/images/upload.svg';
+import upload from '../../assets/images/upload.svg';
 
 class Files extends Component {
   state = {
@@ -58,7 +58,7 @@ class Files extends Component {
 
           <div style={{ display: 'flex', width: '10%', justifyContent: 'center'}}>
             <div style={{ alignSelf: 'center', justifyContent: 'center', paddingRight: '10px'}}>
-              <Image src={require('../assets/images/adobefile.svg')}/>
+              <Image src={require('../../assets/images/adobefile.svg')}/>
             </div>
           </div>
 
@@ -85,7 +85,7 @@ class Files extends Component {
             <div style={{padding: '5px',}}>
             
               <Image
-                src={require('../assets/images/icon-more.svg')}/>
+                src={require('../../assets/images/icon-more.svg')}/>
             </div>
           </div>
         </div>

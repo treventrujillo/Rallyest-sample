@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
-import { handleUpload } from '../actions/files';
+import { handleUpload } from '../../actions/files';
 import { connect } from 'react-redux';
 
 class FileUpload extends Component {

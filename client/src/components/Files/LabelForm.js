@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { setHeaders } from '../actions/headers';
-import { setFlash } from '../actions/flash';
+import { setHeaders } from '../../actions/headers';
+import { setFlash } from '../../actions/flash';
 
 import { Form, Modal, Button } from 'semantic-ui-react';
 
