@@ -51,7 +51,7 @@ class PostForm extends Component {
         </Modal.Content>
       </Modal>
     );
+    }
   }
-}
-
+    
 export default connect()(PostForm);

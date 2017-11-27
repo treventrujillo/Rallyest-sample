@@ -5,19 +5,21 @@ import { setHeaders } from '../actions/headers';
 import { Redirect, Route } from 'react-router';
 import { connect } from 'react-redux';
 import {
-   Header,
-   Segment,
-   Item,
-   Grid,
-   Image,
-   Button,
-   Modal,
-   Loader,
-   Dimmer,
-   Input,
-   Form,
+  Accordion,
+  Header,
+  Segment,
+  Item,
+  Grid,
+  Image,
+  Button,
+  Modal,
+  Loader,
+  Dimmer,
+  Input,
+  Form,
   } from 'semantic-ui-react';
 import FileUpload from './FileUpload';
+import FileAccordion from './FileAccordion';
 import { setFlash } from '../actions/flash';
 import LabelForm from './LabelForm';
 import upload from '../assets/images/upload.svg';
@@ -213,61 +215,11 @@ class Files extends Component {
           <div>
             <Grid centered>
               <Grid.Column width={8}>
-              
-                <div 
-                  style={{
-                    width: '100%', 
-                    backgroundColor: 'white', 
-                    height: '25vh', 
-                    alignContent: 'center', 
-                    justifyContent: 'center', 
-                    marginBottom: '4%', 
-                    borderRadius: '5px' 
-                  }}
-                >
-                
-                  <div style={{ alignContent: 'center', justifyContent: 'center'}}>
+                <FileAccordion />
                   
-                    <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh',}}>
+                  <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>
                       
-                      <Modal 
-                        trigger={
-                        <div style={{ 
-                          width: '100%', 
-                          height: '21vh', 
-                          borderRadius: '5px', 
-                          border: '1px solid #00AADF',
-                          backgroundColor: '#F6F6F6',
-                          backgroundImage: `url(${upload})`,
-                          backgroundRepeat  : 'no-repeat',
-                          backgroundPosition: 'center',
-                        }}>
-                          
-                        </div>
-                      }>
-                      
-                      <Modal.Header>Post a File </Modal.Header>
-                        <Modal.Content>
-                          <Modal.Description>
-                            <div>
-                              <p>File Name<FileUpload /></p>
-                            </div>
-                            <div>
-                              <p>Labels</p><Button>medical - forms</Button><Button>release - forms</Button>
-                            </div>
-                            <div style={{ }}>
-                              <Input transparent placeholder='File Description' />
-                            </div>
-                            <div>
-                              <Button floated='left'>Cancel</Button>
-                              <Button type='submit' floated='right'>Post</Button>
-                            </div>
-                          </Modal.Description>
-                        </Modal.Content>
-                      </Modal>
-                    </div>
                   </div>
-                </div>
 
                 <div>
                   {this.listFiles(files)}
