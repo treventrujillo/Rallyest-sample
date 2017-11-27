@@ -158,7 +158,7 @@ class LeftMenu extends Component {
                 color: '#E1E6E7',
                 display: 'inline-flex'
               }}>
-              <i class="arrow left icon"></i>
+              <i className="arrow left icon"></i>
               <p style={{fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
                 fontWeight: '100', 
                 fontSize: '17px', 

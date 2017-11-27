@@ -1,15 +1,11 @@
+# gem http source
 source 'https://rubygems.org'
+
+# ruby version
 ruby '2.4.2'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
@@ -23,6 +19,7 @@ gem 'http-cookie', '~> 1.0.3'
 gem 'rest-client', '~> 2.0.2'
 
 group :development, :test do
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'pry'
 end
 

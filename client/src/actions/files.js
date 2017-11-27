@@ -2,7 +2,6 @@ import { setFlash } from './flash';
 import axios from 'axios';
 
 export const handleUpload = (file, callback) => {
-  debugger
   return(dispatch) => {
     let data = new FormData(file);
     data.append(1, file);

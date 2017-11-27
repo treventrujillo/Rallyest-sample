@@ -57,7 +57,7 @@ class Api::LabelsController < Api::RallybaseController
       :accept => 'application/json',
       :verify_ssl => false
     )
-
+    
     response = request.execute {|response| $results = response}
     case response.code
       when 200
