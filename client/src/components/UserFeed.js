@@ -6,19 +6,21 @@ import axios from 'axios';
 import PostForm from './PostForm';
 import PostEdit from './PostEdit';
 import {
-   Header,
-   Feed,
-   Image,
-   Segment,
-   Dimmer,
-   Loader,
-   Icon,
-   Divider,
-   Button,
+  Header,
+  Feed,
+  Image,
+  Segment,
+  Dimmer,
+  Loader,
+  Icon,
+  Divider,
+  Button,
   } from 'semantic-ui-react';
+import { setHeaders } from '../actions/headers';
+import { setFlash } from '../actions/flash';
 
 class UserFeed extends Component {
-  state = { posts: [] }
+  state = { posts: [], editPost: null }
 
   componentDidMount() {
     this.getPosts();
@@ -36,16 +38,52 @@ class UserFeed extends Component {
       console.log(res)
     })
   }
+
+  // potential func that wont let you edit other users posts
+  // setUsers = (user) => {
+    //   const users = this.state.users.map(u => {
+      //     if(user.id === u.id)
+      //       return user
+      //     return u
+      //   })
+      //   this.setState({users, editPost: null})
+      // }
   
+  postDestroy = (id) => {
+    const {dispatch} = this.props;
+    axios.delete('/api/posts')
+      .then(res => {
+        this.setState({ posts: res.data })
+        dispatch(setHeaders(res.headers))
+      })
+      .catch(res => {
+        dispatch(setFlash('Error deleting post', 'red'))
+        dispatch(setHeaders(res.headers))
+      })
+  }
+
+  setEditPost = (editPost) => {
+    this.setState({ editPost });
+  }
+
+  destoryPostButton(id) {
+    // if (this.props.post.id !== id)
+      // return(
+        // <Icon button color='red' name='remove circle' onClick={() => this.postDestroy(id)} />
+    // )
+  }
+
   // Post List values:
   // post id = post.id
   // post content = post.attributes.text
   
-  listPosts = (posts) => {
-    return posts.map( post =>
+  listPosts = (id) => {
+    return this.state.posts.map( post =>
       <Segment key={post.id}>
         <Feed.Event>
-        <PostEdit />
+        <Icon button color='red' name='edit' onClick={() => this.setEditPost(post)} />
+        {/* {this.destoryPostButton(id)} */}
+        <Icon button color='red' name='remove circle' onClick={() => this.postDestroy(id)} />
           <div style={{ display: 'flex', }}>
             <div>
               <div>
@@ -100,12 +138,9 @@ class UserFeed extends Component {
     );
   }
 
-  setEditPosts = (editPosts) => {
-    this.setState({ editPosts });
-  }
 
   render() {
-    const { posts } = this.state;
+    const { posts, editPost } = this.state;
     if (posts) {
       return (
         <div 
@@ -126,6 +161,10 @@ class UserFeed extends Component {
             <PostForm />
             <Feed>
               {this.listPosts(posts)}
+              <PostEdit
+                editPost={editPost}
+                setEditPost={this.editPost}
+              />
             </Feed>
           </div>
         </div>
@@ -155,4 +194,4 @@ const styles = {
   }
 }
 
-export default connect()(UserFeed);
+export default connect(mapStateToProps)(UserFeed);

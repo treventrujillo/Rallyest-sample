@@ -13,6 +13,9 @@ class PostEdit extends Component {
     .then(res => {
       this.props.setPosts(res.data)
     })
+    .catch(res => {
+      dispatch(setFlash('Error editing post', 'red'))
+    })
   }
 
   handleChange = (e) => {
@@ -22,24 +25,27 @@ class PostEdit extends Component {
   }
 
   render() {
-    const { post } = this.state.editPost
-    return(
-      <Modal
-      closeIcon={<Button onClick={() => this.setState({ editPost: null })} floated='right' compact tiny>X</Button>}
-      trigger={
-        <Icon floated='right' name='edit' />} >
-        <Modal.Header>Edit Post</Modal.Header>
-        <Modal.Content>
-          <Form>
-            <Form.Field>
-              <label>Edit Post</label>
-              <input value={post} id='post' onChange={this.handleChange} autoFocus />
-            </Form.Field>
-            <Button editPost>Submit</Button>
-          </Form>
-        </Modal.Content>
-      </Modal>
-    )
+    if(this.state.editPost) {
+      const { post, id } = this.state.editPost
+      return(
+        <Modal
+        closeIcon={<Button onClick={() => this.setState({ editPost: null })} floated='right' compact tiny>X</Button>}
+        open={ this.props.editPost ? true : false }
+        >
+          <Modal.Header>Edit Post</Modal.Header>
+          <Modal.Content>
+            <Form onSubmit={() => this.editPost(id) }>
+              <Form.Field>
+                <label>Edit Post</label>
+                <input value={post} id='post' onChange={this.handleChange} autoFocus />
+              </Form.Field>
+              <Button editPost>Submit</Button>
+            </Form>
+          </Modal.Content>
+        </Modal>
+      )
+    } else
+      return null
   }
 }
 
