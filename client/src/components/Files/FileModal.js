@@ -31,16 +31,33 @@ class FileModal extends Component {
     return (
       <Modal size='small'
         trigger={
-          <div style={{
-            width: '100%',
-            height: '21vh',
-            borderRadius: '5px',
-            border: '1px solid #00AADF',
-            backgroundColor: '#F6F6F6',
-            backgroundImage: `url(${upload})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-          }}>
+          <div
+            style={{
+              width: '100%', 
+              height: '21vh', 
+              borderRadius: '5px', 
+              border: '1px solid #00AADF',
+              backgroundColor: '#F6F6F6',
+              overflow: 'hidden',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'center',}}>
+              <div style={{ display: 'flex', flexDirection: 'column', }}>
+
+                <div style={{ padding: '15px 0px 10px 0px', alignSelf: 'center'}}>
+                  <Image src={upload}/>
+                </div>
+
+                <div style={{ color: '#8f8f8f', fontSize: '180%', fontWeight: '100', padding: '3px 10px 3px 10px', alignSelf: 'center'}}> 
+                  Upload Files
+                </div>
+
+                <div style={{ color: '#8f8f8f', fontSize: '70%', fontWeight: '100', padding: '10px', alignSelf: 'center'}}>
+                  Drag and Drop files here to upload
+                </div>
+
+              </div>
+            </div>
           </div>
         }>
         <Modal.Header>Post a File </Modal.Header>
