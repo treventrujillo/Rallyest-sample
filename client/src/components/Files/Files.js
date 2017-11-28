@@ -232,7 +232,7 @@ class Files extends Component {
               
               </Grid.Column>
               <Grid.Column width={8}>
-                <LabelForm />
+         
                 <Segment  style={{display: 'flex', justifyContent: 'flex-start', }}>
                   <div>
                     <p style={{
@@ -240,9 +240,11 @@ class Files extends Component {
                       fontWeight: '100', 
                       fontSize: '17px', 
                       paddingRight: '10px',
+                      color: '#00AADF',
                     }}
                     >
                       Tags
+                      <LabelForm/>
                     </p>
                   </div>
                   <Button.Group style={{flexWrap: 'wrap',}}>
