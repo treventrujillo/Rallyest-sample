@@ -7,7 +7,9 @@ import {
   Header, 
   Modal, 
   Search, 
-  Divider 
+  Divider,
+  Icon,
+  List, 
 } from 'semantic-ui-react';
 
 export default class VisibleToModal extends Component {
@@ -46,10 +48,10 @@ export default class VisibleToModal extends Component {
           </Button>
         }>
           <Modal.Header 
-            style={{ backgroundColor: '#0d6192' }}
+            style={{ backgroundColor: '#0d6192', color: '#ffffff' }}
           >
             Visibility
-           <Search onFocus
+           <Search fluid placeholder='Search'
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={this.handleSearchChange}
@@ -60,19 +62,54 @@ export default class VisibleToModal extends Component {
           </Modal.Header>
           <Modal.Content>
             <Modal.Description>
-              <Header>Level 1</Header>
+              <Header style={{ color: '#0d6192' }}>Level 1</Header>
                <Divider style={{ backgroundColor: '#0d6192' }}/>
-                <p>Cindy</p>
-                <p>Bob</p>
-                <p>Angelina</p>
-              <Header>Level 2</Header>
+               <List>
+                 <List.Item as='a'>
+                  <Icon name='check circle' style={{ color: '#00AADF'}}/>
+                   <List.Description>
+                     Cindy
+                   </List.Description>
+                   <List.Description>
+                     Bob
+                   </List.Description>
+                   <List.Description>
+                     Angelina
+                   </List.Description>
+                 </List.Item>
+               </List>
+              <Header style={{ color: '#0d6192' }}>Level 2</Header>
                <Divider style={{ backgroundColor: '#0d6192' }}/>
-                <p>John</p>
-                <p>Paul</p>
-              <Header>Parents</Header>
-               <Divider style={{ backgroundColor: '#0d6192' }}/>
-                <p>Erin</p>
-                <p>Aaron</p>
+               <List>
+                 <List.Item as='a'>
+                  <Icon name='check circle' style={{ color: '#00AADF' }}/>
+                   <List.Description>
+                     Cindy
+                   </List.Description>
+                   <List.Description>
+                     Bob
+                   </List.Description>
+                   <List.Description>
+                     Angelina
+                   </List.Description>
+                 </List.Item>
+               </List>
+               <Header style={{ color: '#0d6192' }}>Parents</Header>
+                 <Divider style={{ backgroundColor: '#0d6192' }}/>
+                   <List>
+                    <List.Item as='a'>
+                     <Icon name='check circle' style={{ color: '#00AADF' }}/>
+                      <List.Description>
+                        Cindy
+                      </List.Description>
+                      <List.Description>
+                        Bob
+                      </List.Description>
+                      <List.Description>
+                        Angelina
+                      </List.Description>
+                    </List.Item>
+                  </List>
             </Modal.Description>
           </Modal.Content>
         </Modal>
