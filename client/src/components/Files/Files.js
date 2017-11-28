@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { setHeaders } from '../../actions/headers';
 import { Redirect, Route } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
    Header,
@@ -143,16 +144,10 @@ class Files extends Component {
   listLabels = (labels) => {
     if (labels) {
       return labels.map( label =>
-          <Segment key={label.id} style={{display: 'flex'}}>
-            <Item>
-              <Item.Content>
-                {label.attributes.name}
-                <Button onClick={() => this.deleteLabel(label.id)}>
-                  Delete Label
-                </Button>
-              </Item.Content>
-            </Item>
-          </Segment>
+        <Button key={label.id} style={{color: '#E1E6E7', padding: '5px 7px 3px 7px', backgroundColor: '#00AADF', borderRadius: '25px', margin: '3px'}} >
+          {label.attributes.name}
+          <Icon button color='#E1E6E7' name='remove circle' style={{paddingLeft: '10px'}} onClick={() => this.deleteLabel(label.id)}/>
+        </Button>
         );
       } else {
         return (
@@ -238,8 +233,22 @@ class Files extends Component {
               </Grid.Column>
               <Grid.Column width={8}>
                 <LabelForm />
-        
-                {this.listLabels(labels)}
+                <Segment  style={{display: 'flex', justifyContent: 'flex-start', }}>
+                  <div>
+                    <p style={{
+                      fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                      fontWeight: '100', 
+                      fontSize: '17px', 
+                      paddingRight: '10px',
+                    }}
+                    >
+                      Tags
+                    </p>
+                  </div>
+                  <Button.Group style={{flexWrap: 'wrap',}}>
+                    {this.listLabels(labels)}
+                  </Button.Group>
+                </Segment>
               </Grid.Column>
             </Grid>
           </div>
