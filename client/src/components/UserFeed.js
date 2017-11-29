@@ -5,7 +5,11 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import PostForm from './PostForm';
 import PostEdit from './PostEdit';
+import PostComment from './PostComment';
+import PostLikes from './PostLikes';
 import {
+  Accordion,
+  Modal,
   Header,
   Feed,
   Image,
@@ -15,7 +19,7 @@ import {
   Icon,
   Divider,
   Button,
-  } from 'semantic-ui-react';
+} from 'semantic-ui-react';
 import { setHeaders } from '../actions/headers';
 import { setFlash } from '../actions/flash';
 
@@ -48,7 +52,29 @@ class UserFeed extends Component {
       //   })
       //   this.setState({users, editPost: null})
       // }
-  
+
+  areYouSure = (id) => {
+    return(
+      <Modal
+        closeIcon={<Button onClick={() => this.setState()}>No</Button>}
+        trigger={
+        <Icon button color='black' name='remove circle' />}
+      >
+        <Modal.Header>
+          Delete post?
+        </Modal.Header>
+        <Modal.Content>
+          <Button onClick={() => this.postDestroy(id)}>Yes</Button>
+          <Button onClick={() => this.toggleOpen()}>No</Button>
+        </Modal.Content>
+      </Modal>
+    )
+  }
+
+  toggleOpen = () => {
+    this.setState({ open: !this.state.open });
+  }
+
   postDestroy = (id) => {
     const {dispatch} = this.props;
     axios.delete('/api/posts')
@@ -66,6 +92,10 @@ class UserFeed extends Component {
     this.setState({ editPost });
   }
 
+  setDestroyPost = (areYouSure) => {
+    this.setState({ areYouSure })
+  }
+
   destoryPostButton(id) {
     // if (this.props.post.id !== id)
       // return(
@@ -81,9 +111,6 @@ class UserFeed extends Component {
     return this.state.posts.map( post =>
       <Segment key={post.id}>
         <Feed.Event>
-        <Icon button color='red' name='edit' onClick={() => this.setEditPost(post)} />
-        {/* {this.destoryPostButton(id)} */}
-        <Icon button color='red' name='remove circle' onClick={() => this.postDestroy(id)} />
           <div style={{ display: 'flex', }}>
             <div>
               <div>
@@ -117,13 +144,13 @@ class UserFeed extends Component {
                       <Feed.Like>
                         <div style={{ display: 'flex', }}>
                           <div style={styles.Likes_comments}>
-                            <Icon name='like' />
-                            //TODO: Add Likes Functionality
+                            <PostComment />
                           </div>
                           <div style={styles.Likes_comments}>
-                            <Icon name='comment' />
-                            //TODO: Add Likes Functionality
+                            <PostLikes />
                           </div>
+                          <Icon button color='black' name='edit' onClick={() => this.setEditPost(post)} />
+                          {this.areYouSure(id)}
                         </div>
                       </Feed.Like>
                     </Feed.Meta>
