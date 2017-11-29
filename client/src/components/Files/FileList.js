@@ -57,6 +57,10 @@ class FileList extends Component {
               </Button>
             </div>
 
+            <div>
+              <EditModal file={file} />
+            </div>
+
           </div>
 
           <div style={{ display: 'flex', width: '10%', justifyContent: 'flex-end' }}>

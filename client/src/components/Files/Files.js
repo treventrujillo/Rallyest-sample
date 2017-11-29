@@ -213,10 +213,10 @@ class Files extends Component {
               <Grid.Column width={8}>
                   
                   <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>  
-                    <FileList />
+                    <FileAccordion /> 
                   </div>
                   <div style={{marginBottom: '15px',}}>                  
-                    <FileAccordion /> 
+                    <FileList />
                   </div>
               
               </Grid.Column>
@@ -235,7 +235,6 @@ class Files extends Component {
                     }}
                     >
                       Tags
-                      <LabelForm/>
                     </p>
                   </div>
                   <Button.Group style={{flexWrap: 'wrap',}}>
