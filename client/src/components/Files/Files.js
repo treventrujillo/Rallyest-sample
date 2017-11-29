@@ -7,6 +7,9 @@ import { connect } from 'react-redux';
 
 import FileUpload from './FileUpload';
 import FileAccordion from './FileAccordion';
+import LabelList from './LabelList';
+import LabelForm from './LabelForm';
+import FileList from './FileList';
 
 import { setHeaders } from '../../actions/headers';
 import { setFlash } from '../../actions/flash';
@@ -15,94 +18,24 @@ import upload from '../../assets/images/upload.svg';
 import {
   Header,
   Segment,
-    Item,
-    Grid,
-    Image,
-    Button,
-    Modal,
-    Loader,
-    Dimmer,
-    Input,
-    Form,
-    Divider,
-    TextArea,
-    Icon
+  Item,
+  Grid,
+  Image,
+  Button,
+  Modal,
+  Loader,
+  Dimmer,
+  Input,
+  Form,
+  Divider,
+  TextArea,
+  Icon
 } from 'semantic-ui-react';
 
 class Files extends Component {
   state = {
-      files: [], 
-      labels: [],
       name: '',
       open: false,
-    }
-    
-  // Fetches data from api, parses, and sets state
-
-  async componentDidMount() {
-    const getFiles = await axios.get('/api/files')
-    const getLabels = await axios.get('/api/labels')
-    const parsed_files = JSON.parse(getFiles.data.res)
-    const parsed_labels = JSON.parse(getLabels.data.res)
-
-    this.setState({
-      files: parsed_files.data,
-      labels: parsed_labels.data,
-    });
-  }
-  
-  // Delete file
-  
-  deleteFile = (id) => {
-    const { files } = this.state;
-    axios.delete(`/api/files/${id}`)
-    .then(res => {
-      this.props.dispatch(setHeaders(res.headers))
-      this.setState({
-        files: files.filter( file => file.id !== id )          
-      });
-    });
-  }
-  
-  // Delete label
-
-  deleteLabel = (id) => {
-    const { labels } = this.state;
-    const { dispatch } = this.props;
-    axios.delete(`/api/labels/${id}`)
-      .then(res => {
-        dispatch(setFlash('Label deleted', 'green'))
-        this.setState({ labels: labels.filter( label => label.id !== id )})
-      })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Label failed to delete', 'red'))
-      });
-  }
-  
-  // List all labels
-  
-  listLabels = (labels) => {
-    if (labels) {
-      return labels.map( label =>
-          <Segment key={label.id} style={{display: 'flex'}}>
-            <Item>
-              <Item.Content>
-                {label.attributes.name}
-                <Button onClick={() => this.deleteLabel(label.id)}>
-                  Delete Label
-                </Button>
-              </Item.Content>
-            </Item>
-          </Segment>
-        );
-      } else {
-        return (
-          <Dimmer active>
-            <Loader />
-          </Dimmer>
-        );
-      }
     }
 
   // Add and Remove label relationship with file
@@ -171,19 +104,14 @@ class Files extends Component {
               <Grid.Column width={8}>
                 <FileAccordion />
                   
-                  <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>
-                      
+                  <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>  
+                    <FileList />
                   </div>
-
-                <div>
-                  {listFiles(files, labels)}
-                </div>
               
               </Grid.Column>
               <Grid.Column width={8}>
                 <LabelForm />
-        
-                {listLabels(labels)}
+                <LabelList />
               </Grid.Column>
             </Grid>
           </div>
