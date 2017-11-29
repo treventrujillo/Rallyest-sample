@@ -131,15 +131,12 @@ class UserFeed extends Component {
 
                 <div style={{ display: 'flex', }}>
                   <Feed.Content>
-
                     <Feed.Date style={{fontSize: '75%', color: '#8f8f8f'}}>
                       //TODO: Real TimeStamp Here
                     </Feed.Date>
-
                     <Feed.Extra text style={{paddingBottom:'1vh', color: '#333333'}}>
                       {post.attributes.text}
                     </Feed.Extra>
-
                     <Feed.Meta>
                       <Feed.Like>
                         <div style={{ display: 'flex', }}>

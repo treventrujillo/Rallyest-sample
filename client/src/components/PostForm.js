@@ -8,17 +8,23 @@ class PostForm extends Component {
   state = { open: false, message: '', activeIndex: 1 }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    const { dispatch } = this.props;
-    const { message } = this.state;
-    axios.post('/api/posts', { message })
-      .then(res => {
-        dispatch(setFlash('Post Successfully Created!', 'green'))
-      })
-      .catch(res => {
-        dispatch(setFlash('Post failed to create', 'red'))
-      });
-    this.resetForm();
+    if (this.state.message === ' ') {
+        e.preventDefault();
+        const { dispatch } = this.props;
+        const { message } = this.state;
+        axios.post('/api/posts', { message })
+          .then(res => {
+            dispatch(setFlash('Post Successfully Created!', 'green'))
+          })
+          .catch(res => {
+            dispatch(setFlash('Post failed to create', 'red'))
+          });
+        this.resetForm();
+        }
+    else
+      return(
+        this.props.dispatch(setFlash('Post failed to create', 'red'))
+      )
   }
 
   handleClick = (e, titleProps) => {

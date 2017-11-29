@@ -9,18 +9,23 @@ class PostEdit extends Component {
   state = { editPost: { ...this.props.post } }
 
   editPost = (e) => {
-    e.preventDefault();
-    const { dispatch } = this.props;
-    const { message } = this.state;
-    axios.post('/api/posts', { message })
-    .then(res => {
-      // this.props.setPosts(res.data)
-      dispatch(setHeaders(res.headers))      
-    })
-    .catch(res => {
-      dispatch(setFlash('Error editing post', 'red'))
-      dispatch(setHeaders(res.headers))      
-    })
+    if (this.props.message === ' ') {
+      e.preventDefault();
+      const { dispatch } = this.props;
+      const { message } = this.state;
+      axios.post('/api/posts', { message })
+        .then(res => {
+          // this.props.setPosts(res.data)
+          dispatch(setHeaders(res.headers))      
+        })
+        .catch(res => {
+          dispatch(setFlash('Failed to edit post', 'red'))
+          dispatch(setHeaders(res.headers))      
+        })
+      }
+    else
+      return null
+        // this.props.dispatch(setFlash('Failed to edit post', 'red'))
   }
 
   // editPost(id) {
@@ -68,7 +73,12 @@ class PostEdit extends Component {
             <Form onSubmit={() => this.editPost(id) }>
               <Form.Field>
                 <label>Edit Post</label>
-                <input value={this.state.message} id='message' onChange={this.handleChange} autoFocus />
+                <Form.Input 
+                  value={this.state.message} 
+                  id='message' 
+                  onChange={this.handleChange}
+                  placeholder={this.state.message}
+                  autoFocus />
               </Form.Field>
               <Button editPost>Submit</Button>
             </Form>

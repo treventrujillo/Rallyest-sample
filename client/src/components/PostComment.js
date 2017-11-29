@@ -32,10 +32,13 @@ class PostComment extends Component {
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 0}>
           <Form>
-            <Form.Input 
-              placeholder="Tell them how you really feel" 
-              value={this.state.comment}
-            />
+            <Form.Field>
+              <Form.Input 
+                placeholder="Tell em how you feel" 
+                value={this.state.comment}
+              />
+              <Form.Button type='submit' tiny>></Form.Button>
+            </Form.Field>
           </Form>
         </Accordion.Content>
       </Accordion>
