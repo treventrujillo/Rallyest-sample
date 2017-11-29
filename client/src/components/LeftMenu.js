@@ -22,132 +22,107 @@ class LeftMenu extends Component {
         <div>
 
           <div style={{ height: '93vh', overflow: 'hidden'}}>
-            <Menu secondary vertical>
-             <Menu.Item>
-                <Link to={'/Feed'}>
+            <Menu secondary vertical >
+              <Link to={'/Feed'}>
+                <Menu.Item>
                   <Image src={require('../assets/images/Logo_White.png')}/>
-                </Link>
-              </Menu.Item>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Files' 
-                active={activeItem === 'Files'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-files.svg')}
-                  />
-                <Link to={'/Files'} style={{color: '#e1e6e7'}}> Files</Link>
-              </Menu.Item>
+              <Link to={'/Files'}> 
+                <Menu.Item active={activeItem === 'Files'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        src={require('../assets/images/icon-files.svg')}
+                        />
+                    </div>
+                    <div style={styles.textBox}>
+                      Files
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Photos' 
-                active={activeItem === 'Photos'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-photos.svg')}
-                  />
-                <Link to={'/Photos'} style={{color: '#e1e6e7'}}> Photos</Link>
-              </Menu.Item>
+              <Link to={'/Photos'}> 
+                <Menu.Item active={activeItem === 'Photos'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        style={styles.icoimage} 
+                        src={require('../assets/images/icon-photos.svg')}
+                        />
+                    </div>
+                    <div style={styles.textBox}>
+                      Photos
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Letters' 
-                active={activeItem === 'Letters'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-letters.svg')}
-                  />
-                <Link to={'/Letters'} style={{color: '#e1e6e7'}}> Letters</Link>
-              </Menu.Item>
+              <Link to={'/Letters'} >
+                <Menu.Item active={activeItem === 'Letters'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        style={styles.icoimage} 
+                        src={require('../assets/images/icon-letters.svg')}
+                        />
+                    </div>
+                    <div style={styles.textBox}>
+                      Letters
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Goals' 
-                active={activeItem === 'Goals'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Goals.png')}
-                  />
-                <Link to={'/Goals'} style={{color: '#e1e6e7'}}> Goals</Link>
-              </Menu.Item>
+              <Link to={'/Updates'}  >  
+                <Menu.Item active={activeItem === 'Updates'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        style={styles.icoimage} 
+                        src={require('../assets/images/icon-updates.svg')}
+                        />
+                    </div>
+                    <div style={styles.textBox}>
+                      Updates
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Courses' 
-                active={activeItem === 'Courses'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-library.svg')}
-                  /> 
-                <Link to={'/Courses'} style={{color: '#e1e6e7'}}> Courses</Link>
-              </Menu.Item>
+              <Link to={'/Courses'}>  
+                <Menu.Item active={activeItem === 'Courses'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        style={styles.icoimage} 
+                        src={require('../assets/images/icon-library.svg')}
+                        /> 
+                    </div>
+                    <div style={styles.textBox}>
+                      Courses
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
 
-              <Menu.Item 
-                name='Announcements' 
-                active={activeItem === 'Announcements'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/selected2.svg')}
-                  /> 
-                <Link to={'/Announcements'} style={{color: '#e1e6e7'}}> Announcements</Link>
-              </Menu.Item>
-
-              <Menu.Item 
-                name='Updates' 
-                active={activeItem === 'Updates'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-updates.svg')}
-                  />
-                <Link to={'/Updates'} style={{color: '#e1e6e7'}}> Updates</Link>
-              </Menu.Item>
-
-              <Menu.Item 
-                name='Assignments' 
-                active={activeItem === 'Assignments'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Assignments.png')}
-                  />
-                <Link to={'/Assignments'} style={{color: '#e1e6e7'}}> Assignments</Link>
-              </Menu.Item>
-
-              <Menu.Item 
-                name='Community' 
-                active={activeItem === 'Community'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/ICON_Community.png')}
-                  />
-                <Link to={'/Community'} style={{color: '#e1e6e7'}}> Community</Link>
-              </Menu.Item>
-
-              <Menu.Item 
-                name='Settings' 
-                active={activeItem === 'Settings'} 
-                onClick={this.handleItemClick}
-                >
-                <Image 
-                  style={styles.icoimage} 
-                  src={require('../assets/images/icon-settings.svg')}
-                  />
-                <Link to={'/Settings'} style={{color: '#e1e6e7'}}> Settings</Link>
-              </Menu.Item>
+              <Link to={'/Settings'}>  
+                <Menu.Item active={activeItem === 'Settings'} onClick={this.handleItemClick}>
+                  <div style={styles.iconBox}>
+                    <div style={styles.icoimage}>
+                      <Image 
+                        style={styles.icoimage} 
+                        src={require('../assets/images/icon-settings.svg')}
+                        />
+                    </div>
+                    <div style={styles.textBox}>
+                      Settings
+                    </div>
+                  </div>
+                </Menu.Item>
+              </Link>
             </Menu>
           </div>
           
@@ -159,11 +134,14 @@ class LeftMenu extends Component {
                 display: 'inline-flex'
               }}>
               <i className="arrow left icon"></i>
-              <p style={{fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-                fontWeight: '100', 
-                fontSize: '17px', 
-                lineHeight: '17px',
-              }}>
+              <p 
+                style={{
+                  fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+                  fontWeight: '100', 
+                  fontSize: '17px', 
+                  lineHeight: '17px',
+                }}
+              >
                 Logout
               </p>
             </Button>
@@ -179,10 +157,27 @@ const styles = {
   menu: {
     backgroundColor: '#0d6192',
     minHeight: '100vh',
+    fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+    fontWeight: '100', 
+    fontSize: '17px', 
+    lineHeight: '17px',
   }, 
   icoimage: {
     display: 'inline-flex',
-    margin: '0px 10px 0px 15px',
+    width: '50px',
+    justifyContent: 'center',
+  },
+  iconBox: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  textBox: {
+    display: 'inline-flex',
+    fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
+    fontWeight: '100', 
+    fontSize: '17px', 
+    lineHeight: '17px',
+    color: '#E1E6E7',
   },
 }
 

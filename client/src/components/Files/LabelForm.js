@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Icon} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setHeaders } from '../../actions/headers';
 import { setFlash } from '../../actions/flash';
@@ -45,7 +46,7 @@ class LabelForm extends Component {
   render() {
     const { open } = this.state;
     return (
-      <Modal trigger={<Button onClick={() => this.toggleOpen()}>Create Label</Button>} open={open}>
+      <Modal trigger={<Icon name='add circle' style={{ paddingLeft: '5px', color: '#E1E6E7', }} onClick={() => this.toggleOpen()}/>} open={open}>
         <Modal.Content>
           <Modal.Header>Create a Label</Modal.Header>
           <Form onSubmit={this.handleSubmit}>

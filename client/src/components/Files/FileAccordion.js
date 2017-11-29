@@ -24,6 +24,7 @@ class FileAccordion extends Component {
   render() {
     const { activeIndex } = this.state
     return(
+      <div >
         <Accordion>
           <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
             <Icon name='dropdown' />
@@ -33,6 +34,7 @@ class FileAccordion extends Component {
             <FileModal />
           </Accordion.Content>
         </Accordion>
+      </div>
     )
   }
 }
