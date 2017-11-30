@@ -56,12 +56,6 @@ class FileList extends Component {
               <span style={{ color: '#8f8f8f' }}>{file.attributes.uploadDate}</span>
             </div>
 
-            <div>
-              <Button onClick={() => this.handleFileDelete(file.id)}>
-                Delete
-              </Button>
-            </div>
-
           </div>
 
           <div style={{ display: 'flex', width: '10%', justifyContent: 'flex-end' }}>
