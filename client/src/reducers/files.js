@@ -8,6 +8,8 @@ const files = (
   state = {
     isFetching: false,
     files: [],
+    open: false, 
+    fileId: ''
   }, 
   action,
 ) => {
@@ -22,7 +24,7 @@ const files = (
          lastUpdated: action.receivedAt 
         }
     case DELETE_FILE_SUCCESS:
-      return { files: state.files.filter(file => file.id !== action.id )}
+      return { ...state, files: state.files.filter(file => file.id !== action.id )}
     default:
       return state;
   }

@@ -4,7 +4,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import EditModal from './EditModal';
-import { getFiles, deleteFile } from '../../actions/files';
+import FileDropdown from './FileDropdown';
+import { getFiles } from '../../actions/files';
 
 import {
   Segment,
@@ -24,9 +25,14 @@ class FileList extends Component {
     const { dispatch } = this.props;
     dispatch(getFiles())
   }
-  
-  handleFileDelete = (id) => {
-    this.props.dispatch(deleteFile(id))
+
+  handleFileOption = (value, id) => {
+    switch (value) {
+      case 1:
+        return this.handleFileDelete(id)
+      default:
+        return;
+    }
   }
 
   listFiles = (files) => {
@@ -56,21 +62,12 @@ class FileList extends Component {
               </Button>
             </div>
 
-            <div>
-              <EditModal file={file} />
-            </div>
-
           </div>
 
           <div style={{ display: 'flex', width: '10%', justifyContent: 'flex-end' }}>
             <div style={{ padding: '5px', }}>
 
-              <Dropdown
-                trigger={this.homeTrigger}
-                options={this.homeTeamOptions}
-                icon={null}
-                pointing='top right'
-              />
+              <FileDropdown file={file} />
 
             </div>
           </div>

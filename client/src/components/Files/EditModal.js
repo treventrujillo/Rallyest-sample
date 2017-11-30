@@ -11,6 +11,7 @@ import {
   Segment,
   Item,
   Header,
+  Dropdown,
 } from 'semantic-ui-react';
 
 class EditModal extends Component {
@@ -45,7 +46,7 @@ class EditModal extends Component {
     const { file, labels } = this.props;
     return (
       <div>
-        <Modal trigger={<Button>Edit Post</Button>}>
+        <Modal trigger={<Dropdown.Item>Edit Post</Dropdown.Item>}>
           <Modal.Content>
             <Modal.Header>Edit Post</Modal.Header>
             {labels.labels.map(label => 
