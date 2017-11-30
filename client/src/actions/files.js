@@ -17,6 +17,38 @@ const receiveFiles = (json) => {
   }
 }
 
+export const getFiles = () => {
+  return (dispatch) => {
+    dispatch(requestFiles())
+    return axios.get('/api/files')
+      .then(res => JSON.parse(res.data.res), error => console.log(error))
+      .then(json => dispatch(receiveFiles(json)))
+  }
+}
+
+export const DELETE_FILE_REQUEST = 'DELETE_FILE_REQUEST'
+const requestFileDelete = () => {
+  return {
+    type: DELETE_FILE_REQUEST
+  }
+}
+
+export const DELETE_FILE_SUCCESS = 'DELETE_FILE_SUCCESS'
+const deleteFileSuccess = (id) => {
+  return {
+    type: DELETE_FILE_SUCCESS,
+    id: id
+  }
+}
+
+export const deleteFile = (id) => {
+  return (dispatch) => {
+    dispatch(requestFileDelete())
+    return axios.delete(`/api/files/${id}`)
+      .then(res => dispatch(deleteFileSuccess(id)), error => console.log(error))
+  }
+}
+
 export const handleUpload = (file, callback) => {
   return(dispatch) => {
     let data = new FormData(file);
@@ -31,14 +63,5 @@ export const handleUpload = (file, callback) => {
       .catch( res => {
         dispatch(setFlash('Error uploading files', 'error'))
     });
-  }
-}
-
-export const getFiles = () => {
-  return (dispatch) => {
-    dispatch(requestFiles())
-    return axios.get('/api/files')
-      .then(res => JSON.parse(res.data.res), error => console.log(error))
-      .then(json => dispatch(receiveFiles(json)))
   }
 }

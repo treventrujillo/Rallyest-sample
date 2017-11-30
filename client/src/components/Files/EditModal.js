@@ -29,9 +29,17 @@ class EditModal extends Component {
   }
 
   addLabel = (id, label) => {
-
+    const { dispatch } = this.props;
+    axios.post('/api/addlabel', { id, label })
+      .then(res => {
+        console.log(res)
+        dispatch(setFlash('Label Added', 'green'))
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Label not added', 'red'))
+      });
   }
-  
 
   render () {
     const { file, labels } = this.props;
@@ -63,7 +71,7 @@ class EditModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { files: state.files, labels: state.labels}
+  return { labels: state.labels }
 }
 
 export default connect(mapStateToProps)(EditModal);

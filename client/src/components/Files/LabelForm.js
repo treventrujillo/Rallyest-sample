@@ -36,7 +36,6 @@ class LabelForm extends Component {
     })
   }
 
-
   toggleOpen = () => {
     this.setState({
       open: !this.state.open

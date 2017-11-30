@@ -19,15 +19,15 @@ class FileList extends Component {
     const { dispatch } = this.props;
     dispatch(getFiles())
   }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getFiles())
+  }
   
-  deleteFile = (id) => {
-    const { files } = this.state;
+  handleFileDelete = (id) => {
     axios.delete(`/api/files/${id}`)
-      .then(res => {
-        this.setState({
-          files: files.filter(file => file.id !== id)
-        });
-      });
+      .then(res => console.log(res));
   }
 
   listFiles = (files) => {
@@ -52,7 +52,7 @@ class FileList extends Component {
             </div>
 
             <div>
-              <Button onClick={() => this.deleteFile(file.id)}>
+              <Button onClick={() => this.handleFileDelete(file.id)}>
                 Delete
               </Button>
             </div>

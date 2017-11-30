@@ -60,7 +60,6 @@ class LabeList extends Component {
       </Segment>
     );
   }
-  
 
   render () {
     const { labels } = this.props;
@@ -71,7 +70,6 @@ class LabeList extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   return { labels: state.labels }
