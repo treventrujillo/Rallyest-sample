@@ -26,13 +26,6 @@ export const getFiles = () => {
   }
 }
 
-export const DELETE_FILE_REQUEST = 'DELETE_FILE_REQUEST'
-const requestFileDelete = () => {
-  return {
-    type: DELETE_FILE_REQUEST
-  }
-}
-
 export const DELETE_FILE_SUCCESS = 'DELETE_FILE_SUCCESS'
 const deleteFileSuccess = (id) => {
   return {
@@ -43,7 +36,6 @@ const deleteFileSuccess = (id) => {
 
 export const deleteFile = (id) => {
   return (dispatch) => {
-    dispatch(requestFileDelete())
     return axios.delete(`/api/files/${id}`)
       .then(res => dispatch(deleteFileSuccess(id)), error => console.log(error))
   }

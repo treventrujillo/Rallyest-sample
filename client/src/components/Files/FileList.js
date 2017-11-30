@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 import EditModal from './EditModal';
-import { getFiles } from '../../actions/files';
+import { getFiles, deleteFile } from '../../actions/files';
 
 import {
   Segment,
@@ -26,8 +26,7 @@ class FileList extends Component {
   }
   
   handleFileDelete = (id) => {
-    axios.delete(`/api/files/${id}`)
-      .then(res => console.log(res));
+    this.props.dispatch(deleteFile(id))
   }
 
   listFiles = (files) => {

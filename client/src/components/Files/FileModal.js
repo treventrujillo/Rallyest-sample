@@ -21,6 +21,7 @@ import {
 
 class FileModal extends Component {
   state = { open: false }
+  
   toggleOpen = () => {
     this.setState({
       open: !this.state.open
