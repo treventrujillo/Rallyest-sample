@@ -10,7 +10,14 @@ import {
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { fileButtons } from './NavButtons';
+
 class NavBar extends React.Component {
+
+  componentWillMount() {
+    this.buttons();
+  }
+  
 
   homeTeamOptions = [
     { key: 1, text: 'Hometeam1', value: 1 },
@@ -36,13 +43,27 @@ class NavBar extends React.Component {
     </span>
   )
 
+  buttons = () => {
+    let component;
+    this.props.route.props.children.map(child => component = child )
+      // grabs current route's pathname and compares it in switch
+      switch (component.props.location.pathname) {
+        case "/Files":
+          return;
+        case "/UserFeed":
+          return;
+        default:
+          return;
+      }
+  }
+
   render() {
     return (
 
       <div style={{ minWidth: '100%' }}>
         <Menu borderless style={{ borderRadius: '0', paddingLeft: '10px' }}>
 
-          <Menu.Item>
+          <Menu.Item onClick={() => this.buttons()}>
             <Link to='#'>
               <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
             </Link>

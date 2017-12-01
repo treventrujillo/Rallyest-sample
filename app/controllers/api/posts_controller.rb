@@ -6,7 +6,7 @@ class Api::PostsController < Api::RallybaseController
     )
     
     response = request.execute {|response| results = response}
-
+    
     case response.code
       when 200
         puts "Good"

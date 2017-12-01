@@ -88,7 +88,7 @@ class App extends Component {
           <LoginLayoutRoute path='/Tour_2' component={Page2}/>
           <LoginLayoutRoute path='/Tour_3' component={Page3}/>
           <DashboardRoute exact path='/Feed' component={UserFeed} />
-          <DashboardRoute path='/Files' component={Files} />
+          <DashboardRoute path='/Files' component={Files}/>
           <DashboardRoute path='/Photos' component={Photos} />
           <DashboardRoute path='/Letters' component={Letters} />
           <DashboardRoute path='/Goals' component={Goals} />
