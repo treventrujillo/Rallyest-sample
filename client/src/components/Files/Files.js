@@ -81,9 +81,11 @@ class Files extends Component {
                       color: '#00AADF',
                     }}
                     >
+                      <div style={{display: 'inline-flex'}}>
                       Tags
+                        <LabelForm />
+                      </div>
                     </p>
-                    <LabelForm />
                   </div>
                   <Button.Group style={{flexWrap: 'wrap',}}>
                     <LabelList />
