@@ -10,7 +10,7 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
-class LabeList extends Component {
+class labelList extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getLabels())
@@ -81,4 +81,4 @@ const mapStateToProps = (state) => {
   return { labels: state.labels }
 }
 
-export default connect(mapStateToProps)(LabeList);
+export default connect(mapStateToProps)(labelList);
