@@ -7,6 +7,7 @@ import {
   Segment,
   Item,
   Button,
+  Icon,
 } from 'semantic-ui-react';
 
 class LabeList extends Component {
@@ -44,16 +45,25 @@ class LabeList extends Component {
 
   listLabels = (labels) => {
     return labels.labels.map(label =>
-      <Segment key={label.id} style={{ display: 'flex' }}>
-        <Item>
-          <Item.Content>
-            {label.attributes.name}
-            <Button onClick={() => this.deleteLabel(label.id)}>
-              Delete Label
-            </Button>
-          </Item.Content>
-        </Item>
-      </Segment>
+      <Button 
+        key={label.id} 
+        style={{
+          color: '#E1E6E7', 
+          padding: '5px 7px 3px 7px', 
+          backgroundColor: '#00AADF', 
+          borderRadius: '25px', 
+          margin: '3px'
+        }} 
+      >		
+        {label.attributes.name}		
+        <Icon 
+          button 
+          color='#E1E6E7' 
+          name='remove circle' 
+          style={{paddingLeft: '10px'}} 
+          onClick={() => this.deleteLabel(label.id)}
+        />
+      </Button>
     );
   }
 
