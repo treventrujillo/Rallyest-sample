@@ -56,17 +56,31 @@ class UserFeed extends Component {
   areYouSure = (id) => {
     return(
       <Modal
-        closeIcon={<Button onClick={() => this.setState()}>No</Button>}
-        trigger={
-        <Icon button color='black' name='remove circle' />}
+        closeIcon={
+            <Button
+              size={'large'}
+              style={{backgroundColor: 'white'}} 
+              onClick={() => this.setState({ editPost: null })} 
+              floated='right'
+            >
+              <Icon button color='black' name='close'/>
+            </Button>
+        }
+        trigger={ <Icon button color='black' name='remove circle'/>}
+        size={'mini'}
       >
         <Modal.Header>
-          Delete post?
+          Remove Post
         </Modal.Header>
+        
         <Modal.Content>
-          <Button onClick={() => this.postDestroy(id)}>Yes</Button>
-          <Button onClick={() => this.toggleOpen()}>No</Button>
+          <p>Are you sure you would like to delete this post?</p>
         </Modal.Content>
+
+        <Modal.Actions>
+          <Button negative onClick={() => this.postDestroy(id)}>I'm sure, Delete!</Button>
+        </Modal.Actions>
+      
       </Modal>
     )
   }
@@ -146,8 +160,10 @@ class UserFeed extends Component {
                           <div style={styles.Likes_comments}>
                             <PostLikes />
                           </div>
-                          <Icon button color='black' name='edit' onClick={() => this.setEditPost(post)} />
-                          {this.areYouSure(id)}
+                          <div>
+                            <Icon button color='black' name='edit' onClick={() => this.setEditPost(post)} />
+                            {this.areYouSure(id)}
+                          </div>
                         </div>
                       </Feed.Like>
                     </Feed.Meta>
@@ -211,7 +227,7 @@ const mapStateToProps = state => {
 
 const styles = {
   Likes_comments: {
-    display: 'flex', 
+    display: 'inline-flex', 
     paddingRight: '1vw', 
     fontSize: '75%', 
     color: '#8f8f8f',
