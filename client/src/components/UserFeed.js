@@ -56,31 +56,27 @@ class UserFeed extends Component {
   areYouSure = (id) => {
     return(
       <Modal
-        closeIcon={
-            <Button
-              size={'large'}
-              style={{backgroundColor: 'white'}} 
-              onClick={() => this.setState({ editPost: null })} 
-              floated='right'
-            >
-              <Icon button color='black' name='close'/>
-            </Button>
+        trigger={ 
+          <Icon 
+            button 
+            color='black' 
+            name='remove circle'
+          />
         }
-        trigger={ <Icon button color='black' name='remove circle'/>}
+        closeIcon
         size={'mini'}
       >
         <Modal.Header>
           Remove Post
         </Modal.Header>
-        
         <Modal.Content>
           <p>Are you sure you would like to delete this post?</p>
         </Modal.Content>
-
         <Modal.Actions>
-          <Button negative onClick={() => this.postDestroy(id)}>I'm sure, Delete!</Button>
+          <Button negative onClick={() => this.postDestroy(id)}>
+            I'm sure, Delete!
+          </Button>
         </Modal.Actions>
-      
       </Modal>
     )
   }
@@ -148,8 +144,10 @@ class UserFeed extends Component {
                     <Feed.Date style={{fontSize: '75%', color: '#8f8f8f'}}>
                       //TODO: Real TimeStamp Here
                     </Feed.Date>
-                    <Feed.Extra text style={{paddingBottom:'1vh', color: '#333333'}}>
-                      {post.attributes.text}
+                    <Feed.Extra 
+                      text 
+                      style={{ paddingBottom:'1vh', color: '#333333' }}>
+                      { post.attributes.text }
                     </Feed.Extra>
                     <Feed.Meta>
                       <Feed.Like>
@@ -161,7 +159,12 @@ class UserFeed extends Component {
                             <PostLikes />
                           </div>
                           <div>
-                            <Icon button color='black' name='edit' onClick={() => this.setEditPost(post)} />
+                            <Icon 
+                              button 
+                              color='black' 
+                              name='edit' 
+                              onClick={() => this.setEditPost(post)} 
+                            />
                             {this.areYouSure(id)}
                           </div>
                         </div>

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import { connect } from 'react-redux';
-
 import { setFlash } from '../../actions/flash';
 import { getLabels } from '../../actions/labels';
-
 import {
   Segment,
   Item,
@@ -13,12 +10,11 @@ import {
 } from 'semantic-ui-react';
 
 class LabeList extends Component {
-
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getLabels())
   }
-  
+
   deleteLabel = (id) => {
     const { labels } = this.state;
     const { dispatch } = this.props;
