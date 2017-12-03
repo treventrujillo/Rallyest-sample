@@ -12,7 +12,7 @@ import NoMatch from './NoMatch';
 import UserFeed from './UserFeed';
 import Files from './Files/Files';
 import Login from './Login';
-import Photos from './Photos';
+import Photos from './Photos/Photos';
 import Letters from './Letters';
 import Goals from './Goals';
 import Courses from './Courses';
