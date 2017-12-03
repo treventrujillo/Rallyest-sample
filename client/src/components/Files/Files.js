@@ -64,6 +64,7 @@ class Files extends Component {
                   <div style={{ alignContent: 'center', justifyContent: 'center', padding: '1vh',}}>  
                     <FileAccordion /> 
                   </div>
+                  
                   <div style={{marginBottom: '15px',}}>                  
                     <FileList />
                   </div>
@@ -75,13 +76,13 @@ class Files extends Component {
                   <div>
                     <p style={{
                       fontFamily: 'helvetica neue, helvetica, arial, sansSerif', 
-                      fontWeight: '100', 
+                      fontWeight: '200', 
                       fontSize: '17px', 
                       paddingRight: '10px',
                       color: '#00AADF',
                     }}
                     >
-                      <div style={{display: 'inline-flex'}}>
+                      <div style={{display: 'inline-flex' }}>
                       Tags
                         <LabelForm />
                       </div>

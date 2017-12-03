@@ -45,7 +45,7 @@ class LabelForm extends Component {
   render() {
     const { open } = this.state;
     return (
-      <Modal trigger={<Icon name='add circle' style={{ paddingLeft: '5px', color: '#E1E6E7', }} onClick={() => this.toggleOpen()}/>} open={open}>
+      <Modal trigger={<Icon name='add circle' style={{ paddingLeft: '5px', color: '#8f8f8f', }} onClick={() => this.toggleOpen()}/>} open={open}>
         <Modal.Content>
           <Modal.Header>Create a Label</Modal.Header>
           <Form onSubmit={this.handleSubmit}>

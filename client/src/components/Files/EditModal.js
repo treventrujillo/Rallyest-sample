@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import { connect } from 'react-redux';
-
 import { setFlash } from '../../actions/flash';
-
 import {
   Modal,
   Button,
@@ -12,6 +9,8 @@ import {
   Item,
   Header,
   Dropdown,
+  Divider,
+  Icon,
 } from 'semantic-ui-react';
 
 class EditModal extends Component {
@@ -46,23 +45,87 @@ class EditModal extends Component {
     const { file, labels } = this.props;
     return (
       <div>
-        <Modal trigger={<Dropdown.Item>Edit Post</Dropdown.Item>}>
+        <Modal trigger={<Dropdown.Item>Edit Post</Dropdown.Item>}
+          closeIcon
+          size={'mini'}
+        >
+          <Modal.Header>
+            <Icon name='tag' />
+            Add/Remove Tags from File
+          </Modal.Header>
           <Modal.Content>
-            <Modal.Header>Edit Post</Modal.Header>
             {labels.labels.map(label => 
-              <Segment key={label.id} style={{ display: 'flex' }}>
-                <Item>
-                  <Item.Content>
-                    {label.attributes.name}
-                    <Button onClick={() => this.addLabel(file.id, label)}>
-                      Add Label
+              <div style= {{ display: 'flex', flexDirection: 'column'}}>
+                <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center',}}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      color: '#E1E6E7', 
+                      padding: '5px 7px 5px 7px', 
+                      backgroundColor: '#00AADF', 
+                      borderRadius: '25px', 
+                      margin: '3px',
+                      flexWrap: 'wrap',
+                      minWidth: '80px',
+                      alignContent: 'center',
+                      justifyContent: 'center'
+                    }} 
+                    >
+                    <div style={{marginRight: '10px'}}>
+                      <Icon name='tag' />
+                      {label.attributes.name}
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex',flexDirection: 'row', alignContent: 'center', justifyContent: 'center'}}>
+                  <div>
+                    <Button 
+                      basic 
+                      color='green'
+                      onClick={() => this.addLabel(file.id, label)}
+                      style={{
+                        display: 'flex',
+                        padding: '5px 7px 5px 7px', 
+                        borderRadius: '25px', 
+                        margin: '2px',
+                        padding: '5px 7px 5px 7px', 
+                        alignContent: 'center',
+                        justifyContent: 'center'
+                      }}>
+                      <Icon.Group size='large'>
+                        <Icon name='tags' />
+                        <Icon corner name='add' />
+                      </Icon.Group>
                     </Button>
-                    <Button onClick={() => this.removeLabel(file.id, label)}>
-                      Remove Label
+                  </div>
+                  
+                  <div>
+                    <Button
+                      basic 
+                      color='red' 
+                      onClick={() => this.removeLabel(file.id, label)}
+                      style={{
+                      display: 'flex',
+                      padding: '5px 7px 5px 7px',
+                      borderRadius: '25px', 
+                      margin: '2px',
+                      padding: '5px 7px 5px 7px', 
+                      alignContent: 'center',
+                      justifyContent: 'center'
+                    }} >
+                      <Icon.Group size='large'>
+                        <Icon name='tags' />
+                        <Icon corner name='minus' />
+                      </Icon.Group>
                     </Button>
-                  </Item.Content>
-                </Item>
-              </Segment>
+                  </div>
+                </div>
+                <div>
+
+                <Divider/>
+                </div>
+              </div>
             )}
           </Modal.Content>
         </Modal>

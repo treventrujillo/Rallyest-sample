@@ -4,7 +4,7 @@ import EditModal from './EditModal';
 import { deleteFile } from '../../actions/files';
 import { connect } from 'react-redux';
 
-import { Dropdown, Image } from 'semantic-ui-react';
+import { Dropdown, Image, Icon } from 'semantic-ui-react';
 
 class FileDropdown extends Component {
 
@@ -15,12 +15,17 @@ class FileDropdown extends Component {
   render() {
     const { file } = this.props;
     return (
-      <Dropdown trigger={this.homeTrigger} icon={null} closeOnChange pointing='top-right'>
+      <Dropdown trigger={this.homeTrigger} icon={null} closeOnChange>
         <Dropdown.Menu>
-          <EditModal file={file} />
+          
+          <Dropdown.Item>
+            <EditModal file={file} />
+          </Dropdown.Item>
+
           <Dropdown.Item onClick={() => this.handleFileDelete(file.id)}>
             Delete 
           </Dropdown.Item>
+        
         </Dropdown.Menu>
       </Dropdown>
     );
@@ -28,7 +33,7 @@ class FileDropdown extends Component {
 
   homeTrigger = (
     <span>
-      <Image src={require('../../assets/images/icon-more.svg')} />
+      <Icon style={{color: '#8f8f8f'}} size='large' link name='ellipsis horizontal'/>
     </span>
   )
 }
