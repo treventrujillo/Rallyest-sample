@@ -19,7 +19,6 @@ class Api::FilesController < Api::RallybaseController
 
   def create
     puts 'Calling Rally API...'
-    binding.pry
     request = RestClient::Request.new(
       :method => :post, 
       :url => 'https://rallyfy.com/api/file', 
