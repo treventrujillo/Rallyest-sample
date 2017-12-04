@@ -86,6 +86,7 @@ class FileModal extends Component {
         trigger={
           <Button
             onClick={this.toggleModal}
+            style={{padding: '0px', width: '100%'}}
           >
             <div
               style={{
