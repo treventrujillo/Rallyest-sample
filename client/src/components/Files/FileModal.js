@@ -128,8 +128,18 @@ class FileModal extends Component {
             <Divider />
             <div>
               <p>Labels</p>
-              <Button>medical - forms</Button>
-              <Button>release - forms</Button>
+              <Button 
+                circular
+                style={{ color: '#ffffff', backgroundColor: '#00AADF' }}
+              >
+                medical - forms
+              </Button>
+              <Button
+                basic color='blue' circular
+                style={{ color: '#0d6192', backgroundColor: 'transparent' }}
+              >
+                release - forms
+              </Button>
             </div>
             <Divider />
             <div>
@@ -147,7 +157,8 @@ class FileModal extends Component {
             <Divider />
             <div>
               <p>
-                <Icon name='file text outline' />Files<Icon name='smile' />Feeling
+                <Icon color='blue' name='file text outline' />Files
+                <Icon color='yellow' name='smile' />Feeling
                 <VisibleToModal />
               </p>
             </div>
@@ -156,13 +167,22 @@ class FileModal extends Component {
             </div>
             <Divider />
             <div style={{ padding: '30px' }}>
-              <Button onClick={() => this.setState({modalVisible: false})} floated='left'>Cancel</Button>
               <Button 
-              circular 
-              type='submit' 
-              floated='right'
-              onClick={this.handleSubmit}
-              style={{ width: '10vw', color: '', backgroundColor: '#00AADF', }}>Post</Button>
+                onClick={() => this.setState({ modalVisible: false })} 
+                circular basic='blue' floated='left'
+                style={{ width: '18vw' }}
+              >
+               Cancel
+              </Button>
+              <Button 
+                circular 
+                type='submit' 
+                floated='right'
+                onClick={this.handleSubmit}
+                style={{ width: '18vw', color: '', backgroundColor: '#00AADF', color: '#ffffff' }}
+              >
+               Post
+              </Button>
             </div>
           </Modal.Description>
         </Modal.Content>
