@@ -1,4 +1,5 @@
 class Api::PostsController < Api::RallybaseController
+
   def index
     request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post',
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
@@ -50,6 +51,29 @@ class Api::PostsController < Api::RallybaseController
     when 401 || 500
       puts "Bad"
       render json: { res: response }
+    end
+  end
+
+  def destroy
+    puts "Calling rally API..."
+
+    id = params[:id]
+
+    request = RestClient::Request.new(
+      :method => :delete,
+      :url => "https://rallyfy.com/api/posts/#{id}",
+      :headers => {:Authorization => "Bearer #{session[:access_tokens]}"},
+      :verify_ssl => false
+    )
+
+    response = request.execute {|response| $results = response }
+    case response.code
+      when 200
+        puts "Good"
+        render json: {res: response}
+      when 401 || 500
+        puts "Bad"
+        render json: { res: response }
     end
   end
 end

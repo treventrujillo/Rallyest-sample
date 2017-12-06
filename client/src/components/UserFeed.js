@@ -7,7 +7,9 @@ import PostForm from './PostForm';
 import PostEdit from './PostEdit';
 import PostComment from './PostComment';
 import PostLikes from './PostLikes';
+import {getPosts} from '../actions/posts';
 import {
+  Form,
   Accordion,
   Modal,
   Header,
@@ -26,22 +28,35 @@ import { setFlash } from '../actions/flash';
 class UserFeed extends Component {
   state = { posts: [], editPost: null }
 
-  componentDidMount() {
-    this.getPosts();
+
+  // TODO FIX REDUX STUFF
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch(getPosts())
   }
 
-  getPosts = () => {
-    axios.get('/api/posts')
-      .then(res => {
-        const { data } = res;
-        const posts = JSON.parse(res.data.res)
-        this.setState({ posts: posts.included }
-      )}
-    )
-    .catch(res => {
-      console.log(res)
-    })
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getPosts())
   }
+
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(getPosts());
+  }
+  
+  // getPosts = () => {
+  //   axios.get('/api/posts')
+  //     .then(res => {
+  //       const { data } = res;
+  //       const posts = JSON.parse(res.data.res)
+  //       this.setState({ posts: posts.included }
+  //     )}
+  //   )
+  //   .catch(res => {
+  //     console.log(res)
+  //   })
+  // }
 
   // potential func that wont let you edit other users posts
   // setUsers = (user) => {
@@ -53,7 +68,7 @@ class UserFeed extends Component {
       //   this.setState({users, editPost: null})
       // }
 
-  areYouSure = (id) => {
+  areYouSure = (id, post) => {
     return(
       <Modal
         trigger={ 
@@ -71,6 +86,10 @@ class UserFeed extends Component {
         </Modal.Header>
         <Modal.Content>
           <p>Are you sure you would like to delete this post?</p>
+          {/* <Form>
+            <Form.Input
+              value={post.attributes.text} />
+          </Form> */}
         </Modal.Content>
         <Modal.Actions>
           <Button negative onClick={() => this.postDestroy(id)}>
@@ -86,15 +105,16 @@ class UserFeed extends Component {
   }
 
   postDestroy = (id) => {
+    // const { post } = this.state;
     const {dispatch} = this.props;
-    axios.delete('/api/posts')
+    axios.delete(`/api/posts/${id}`)
       .then(res => {
-        this.setState({ posts: res.data })
-        dispatch(setHeaders(res.headers))
+        dispatch(setFlash('Post deleted', 'green'))
+        // this.setState({ posts: post.filter(post => post.id !== id) })
       })
       .catch(res => {
-        dispatch(setFlash('Error deleting post', 'red'))
-        dispatch(setHeaders(res.headers))
+        console.log(res)
+        dispatch(setFlash('Failed to delete post', 'red'))
       })
   }
 
@@ -104,6 +124,7 @@ class UserFeed extends Component {
 
   setDestroyPost = (areYouSure) => {
     this.setState({ areYouSure })
+    
   }
 
   destoryPostButton(id) {
@@ -163,9 +184,9 @@ class UserFeed extends Component {
                               button 
                               color='black' 
                               name='edit' 
-                              onClick={() => this.setEditPost(post)} 
+                              onClick={() => this.setEditPost(id, post.attributes.text)} 
                             />
-                            {this.areYouSure(id)}
+                            {this.areYouSure(id, post)}
                           </div>
                         </div>
                       </Feed.Like>

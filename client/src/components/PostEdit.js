@@ -13,9 +13,9 @@ class PostEdit extends Component {
       e.preventDefault();
       const { dispatch } = this.props;
       const { message } = this.state;
-      axios.post('/api/posts', { message })
+      axios.post(`/api/posts/`, { message })
         .then(res => {
-          // this.props.setPosts(res.data)
+          this.props.setPosts(res.data)
           dispatch(setHeaders(res.headers))      
         })
         .catch(res => {
@@ -25,7 +25,6 @@ class PostEdit extends Component {
       }
     else
       return null
-        // this.props.dispatch(setFlash('Failed to edit post', 'red'))
   }
 
   // editPost(id) {
@@ -52,9 +51,9 @@ class PostEdit extends Component {
     this.setState({ message: e.target.value })
   }
 
-  render() {
-    if(this.state.editPost) {
-      const { post, id, message } = this.state.editPost
+  render(post) {
+    if(this.props.editPost) {
+      const { post, id, text } = this.props.editPost
       return(
         <Modal
           closeIcon={
@@ -74,10 +73,10 @@ class PostEdit extends Component {
               <Form.Field>
                 <label>Edit Post</label>
                 <Form.Input 
-                  value={this.state.message} 
+                  value={text} 
                   id='message' 
                   onChange={this.handleChange}
-                  placeholder={this.state.message}
+                  // placeholder={post.attributes.text}
                   autoFocus />
               </Form.Field>
               <Button editPost>Submit</Button>
