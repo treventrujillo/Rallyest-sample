@@ -18,7 +18,6 @@ class LabelList extends Component {
 
   deleteLabel = (id) => {
     const { dispatch, labels } = this.props;
-    debugger
     axios.delete(`/api/labels/${id}`)
       .then(res => {
         dispatch(setFlash('Label deleted', 'green'))
