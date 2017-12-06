@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+
 import { Accordion, Form, Icon } from 'semantic-ui-react';
+
 import FileModal from './FileModal';
 
 class FileAccordion extends Component {
@@ -39,4 +43,4 @@ class FileAccordion extends Component {
   }
 }
 
-export default FileAccordion;
+export default connect()(FileAccordion);

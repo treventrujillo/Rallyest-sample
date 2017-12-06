@@ -1,5 +1,9 @@
 /*jshint esversion: 6 */
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import {
   Menu,
   Icon,
@@ -7,10 +11,8 @@ import {
   Image,
   Dropdown,
 } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-import { fileButtons } from './NavButtons';
+import { fileButtons, feedButtons } from './NavButtons';
 
 class NavBar extends React.Component {
 
@@ -18,7 +20,6 @@ class NavBar extends React.Component {
     this.buttons();
   }
   
-
   homeTeamOptions = [
     { key: 1, text: 'Hometeam1', value: 1 },
     { key: 2, text: 'Hometeam2', value: 2 },
@@ -49,9 +50,9 @@ class NavBar extends React.Component {
       // grabs current route's pathname and compares it in switch
       switch (component.props.location.pathname) {
         case "/Files":
-          return;
-        case "/UserFeed":
-          return;
+          return fileButtons();
+        case "/Feed":
+          return feedButtons();
         default:
           return;
       }
@@ -63,17 +64,7 @@ class NavBar extends React.Component {
       <div style={{ minWidth: '100%' }}>
         <Menu borderless style={{ borderRadius: '0', paddingLeft: '10px' }}>
 
-          <Menu.Item onClick={() => this.buttons()}>
-            <Link to='#'>
-              <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
-            </Link>
-          </Menu.Item>
-
-          <Menu.Item>
-            <Link to='#'>
-              <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
-            </Link>
-          </Menu.Item>
+          {this.buttons()}
 
           <Menu.Item position='right'>
             <Link to='/HomeTeam'>

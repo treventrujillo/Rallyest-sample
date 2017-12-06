@@ -9,7 +9,8 @@ const files = (
     isFetching: false,
     files: [],
     open: false, 
-    fileId: ''
+    fileId: '',
+    active: null,
   }, 
   action,
 ) => {
