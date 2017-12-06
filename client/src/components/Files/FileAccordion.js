@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { Accordion, Form, Icon } from 'semantic-ui-react';
+import { Accordion, Form, Icon, Menu, Image } from 'semantic-ui-react';
 
 import FileModal from './FileModal';
 
 class FileAccordion extends Component {
-  state = { activeIndex: 1 }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps
@@ -26,15 +25,13 @@ class FileAccordion extends Component {
   }
 
   render() {
-    const { activeIndex } = this.state
+    const { files } = this.props;
     return(
       <div >
         <Accordion>
-          <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-            <Icon name='dropdown' />
-            Add File
+          <Accordion.Title active={files.active === 0} index={0}>
           </Accordion.Title>
-          <Accordion.Content active={activeIndex === 0}>
+          <Accordion.Content active={files.active === 0}>
             <FileModal />
           </Accordion.Content>
         </Accordion>
@@ -43,4 +40,8 @@ class FileAccordion extends Component {
   }
 }
 
-export default connect()(FileAccordion);
+const mapStateToProps = (state) => {
+  return { files: state.files }
+}
+
+export default connect(mapStateToProps)(FileAccordion);

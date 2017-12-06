@@ -2,6 +2,8 @@ import {
   LOAD_FILES_REQUEST,
   LOAD_FILES_SUCCESS,
   DELETE_FILE_SUCCESS,
+  TOGGLE_ACCORDION_ON,
+  TOGGLE_ACCORDION_OFF,
 } from '../actions/files';
 
 const files = (
@@ -10,7 +12,7 @@ const files = (
     files: [],
     open: false, 
     fileId: '',
-    active: null,
+    active: 1,
   }, 
   action,
 ) => {
@@ -26,6 +28,10 @@ const files = (
         }
     case DELETE_FILE_SUCCESS:
       return { ...state, files: state.files.filter(file => file.id !== action.id )}
+    case TOGGLE_ACCORDION_ON:
+      return { ...state, active: action.active }
+    case TOGGLE_ACCORDION_OFF:
+      return { ...state, active: action.active }
     default:
       return state;
   }

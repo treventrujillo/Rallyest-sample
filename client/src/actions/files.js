@@ -51,3 +51,19 @@ export const handleUpload = (file, metadata) => {
       .then(res => console.log(data))
   }
 }
+
+export const TOGGLE_ACCORDION_ON = 'TOGGLE_ACCORDION_ON'
+export const toggleAccordionOn = () => {
+  return {
+    type: TOGGLE_ACCORDION_ON,
+    active: 0
+  }
+}
+
+export const TOGGLE_ACCORDION_OFF = 'TOGGLE_ACCORDION_OFF'
+export const toggleAccordionOff = () => {
+  return {
+    type: TOGGLE_ACCORDION_OFF,
+    active: 1
+  }
+}

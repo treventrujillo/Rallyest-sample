@@ -12,7 +12,7 @@ import {
   Dropdown,
 } from 'semantic-ui-react';
 
-import { fileButtons, feedButtons } from './NavButtons';
+import { feedButtons, fileButtons } from './NavButtons';
 
 class NavBar extends React.Component {
 
