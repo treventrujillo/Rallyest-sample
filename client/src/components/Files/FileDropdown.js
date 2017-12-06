@@ -22,8 +22,21 @@ class FileDropdown extends Component {
             <EditModal file={file} />
           </Dropdown.Item>
 
-          <Dropdown.Item onClick={() => this.handleFileDelete(file.id)}>
-            Delete 
+          <Dropdown.Item 
+            onClick={() => this.handleFileDelete(file.id)} 
+            style={
+              { color: '#5CC3E9', 
+              display: 'flex', 
+              flexDirection: 'row', 
+              justifyContent: 'center', 
+              padding: '10px',
+              }
+            }
+          >
+            <Image src={require('../../assets/images/icon-trash.svg')} />
+            <p style={{'color':'#5CC3E9'}}>
+              Delete
+            </p> 
           </Dropdown.Item>
         
         </Dropdown.Menu>

@@ -11,6 +11,7 @@ import {
   Dropdown,
   Divider,
   Icon,
+  Image,
 } from 'semantic-ui-react';
 
 class EditModal extends Component {
@@ -45,7 +46,14 @@ class EditModal extends Component {
     const { file, labels } = this.props;
     return (
       <div>
-        <Modal trigger={<Dropdown.Item>Edit Post</Dropdown.Item>}
+        <Modal trigger={
+          <Dropdown.Item style={{ color: '#5CC3E9', display: 'flex', justifyContent: 'center', padding: '10px' }}>
+            <Image src={require('../../assets/images/icon-edit.svg')} />
+            <p>
+              Edit Tags
+            </p>
+          </Dropdown.Item>
+        }
           closeIcon
           size={'mini'}
         >

@@ -17,7 +17,7 @@ export const fileButtons = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Menu.Item onClick={() => toggleAccordion()}>
-        <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
+        <Image src={require('../assets/images/icon-create-post.svg')} alt='Upload' />
       </Menu.Item>
 
       <Menu.Item>
