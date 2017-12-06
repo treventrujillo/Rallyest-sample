@@ -4,7 +4,7 @@ import { Button, Image, Menu } from 'semantic-ui-react';
 
 export const fileButtons = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Menu.Item onClick={() => test()}>
         <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
       </Menu.Item>
@@ -18,7 +18,7 @@ export const fileButtons = () => {
 
 export const feedButtons = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Menu.Item>
         <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
       </Menu.Item>
