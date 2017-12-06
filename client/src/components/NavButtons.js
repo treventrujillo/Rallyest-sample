@@ -15,7 +15,7 @@ const toggleAccordion = () => {
 
 export const fileButtons = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Menu.Item onClick={() => toggleAccordion()}>
         <Image src={require('../assets/images/icon-create-post.svg')} alt='Team' />
       </Menu.Item>
@@ -29,7 +29,7 @@ export const fileButtons = () => {
 
 export const feedButtons = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <Menu.Item>
         <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
       </Menu.Item>
