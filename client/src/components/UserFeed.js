@@ -30,33 +30,32 @@ class UserFeed extends Component {
 
 
   // TODO FIX REDUX STUFF
-  componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(getPosts())
-  }
+  // componentWillMount() {
+  //   const { dispatch } = this.props;
+  //   dispatch(getPosts())
+  // }
+
+  // componentDidMount() {
+  //   const { dispatch } = this.props;
+  //   dispatch(getPosts())
+  // }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(getPosts())
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(getPosts());
+    this.getPosts();
   }
   
-  // getPosts = () => {
-  //   axios.get('/api/posts')
-  //     .then(res => {
-  //       const { data } = res;
-  //       const posts = JSON.parse(res.data.res)
-  //       this.setState({ posts: posts.included }
-  //     )}
-  //   )
-  //   .catch(res => {
-  //     console.log(res)
-  //   })
-  // }
+  getPosts = () => {
+    axios.get('/api/posts')
+      .then(res => {
+        const { data } = res;
+        const posts = JSON.parse(res.data.res)
+        this.setState({ posts: posts.included }
+      )}
+    )
+    .catch(res => {
+      console.log(res)
+    })
+  }
 
   // potential func that wont let you edit other users posts
   // setUsers = (user) => {
@@ -68,7 +67,7 @@ class UserFeed extends Component {
       //   this.setState({users, editPost: null})
       // }
 
-  areYouSure = (id, post) => {
+  areYouSure = (id) => {
     return(
       <Modal
         trigger={ 
@@ -98,6 +97,7 @@ class UserFeed extends Component {
         </Modal.Actions>
       </Modal>
     )
+    debugger
   }
 
   toggleOpen = () => {
@@ -127,12 +127,6 @@ class UserFeed extends Component {
     
   }
 
-  destoryPostButton(id) {
-    // if (this.props.post.id !== id)
-      // return(
-        // <Icon button color='red' name='remove circle' onClick={() => this.postDestroy(id)} />
-    // )
-  }
 
   // Post List values:
   // post id = post.id
@@ -186,7 +180,7 @@ class UserFeed extends Component {
                               name='edit' 
                               onClick={() => this.setEditPost(id, post.attributes.text)} 
                             />
-                            {this.areYouSure(id, post)}
+                            {this.areYouSure(id)}
                           </div>
                         </div>
                       </Feed.Like>

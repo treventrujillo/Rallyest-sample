@@ -3,6 +3,7 @@ import { Modal, Form, Input, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setFlash } from '../actions/flash';
 import { setHeaders } from '../actions/headers';
+import UserFeed from './UserFeed';
 import axios from 'axios';
 
 class PostEdit extends Component {
