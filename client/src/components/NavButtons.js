@@ -19,10 +19,6 @@ export const fileButtons = () => {
       <Menu.Item onClick={() => toggleAccordion()} style={styles.background}>
         <Image src={require('../assets/images/icon-create-post.svg')} alt='Upload' />
       </Menu.Item>
-
-      <Menu.Item style={styles.background}>
-        <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
-      </Menu.Item>
     </div>
   )
 }
