@@ -12,7 +12,7 @@ export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS'
 const receivePosts = (json) => {
   return {
     type: LOAD_POSTS_SUCCESS,
-    files: json.data,
+    posts: json.included,
     receivedAt: Date.now()
   }
 }

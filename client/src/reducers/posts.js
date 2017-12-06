@@ -7,7 +7,7 @@ import {
 const posts = (
   state = {
     isFetching: false,
-    files: [],
+    posts: [],
     open: false,
     fileId: ''
   },
@@ -19,7 +19,7 @@ const posts = (
     case LOAD_POSTS_SUCCESS:
       return {
         ...state,
-        files: action.posts,
+        posts: action.posts,
         isFetching: false,
         lastUpdated: action.receivedAt
       }
@@ -30,4 +30,4 @@ const posts = (
   }
 }
 
-export default posts
+export default posts;

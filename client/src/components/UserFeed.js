@@ -7,7 +7,7 @@ import PostForm from './PostForm';
 import PostEdit from './PostEdit';
 import PostComment from './PostComment';
 import PostLikes from './PostLikes';
-import {getPosts} from '../actions/posts';
+import { getPosts } from '../actions/posts';
 import {
   Form,
   Accordion,
@@ -28,35 +28,16 @@ import { setFlash } from '../actions/flash';
 class UserFeed extends Component {
   state = { posts: [], editPost: null }
 
-
-  // TODO FIX REDUX STUFF
-  // componentWillMount() {
-  //   const { dispatch } = this.props;
-  //   dispatch(getPosts())
-  // }
-
-  // componentDidMount() {
-  //   const { dispatch } = this.props;
-  //   dispatch(getPosts())
-  // }
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch(getPosts());
+  }
 
   componentDidMount() {
-    this.getPosts();
+    const { dispatch } = this.props;
+    dispatch(getPosts());
   }
   
-  getPosts = () => {
-    axios.get('/api/posts')
-      .then(res => {
-        const { data } = res;
-        const posts = JSON.parse(res.data.res)
-        this.setState({ posts: posts.included }
-      )}
-    )
-    .catch(res => {
-      console.log(res)
-    })
-  }
-
   // potential func that wont let you edit other users posts
   // setUsers = (user) => {
     //   const users = this.state.users.map(u => {
@@ -97,7 +78,6 @@ class UserFeed extends Component {
         </Modal.Actions>
       </Modal>
     )
-    debugger
   }
 
   toggleOpen = () => {
@@ -118,8 +98,8 @@ class UserFeed extends Component {
       })
   }
 
-  setEditPost = (editPost) => {
-    this.setState({ editPost });
+  setEditPost = (id) => {
+    this.setState({ editPost: id });
   }
 
   setDestroyPost = (areYouSure) => {
@@ -132,8 +112,8 @@ class UserFeed extends Component {
   // post id = post.id
   // post content = post.attributes.text
   
-  listPosts = (id) => {
-    return this.state.posts.map( post =>
+  listPosts = (posts) => {
+    return posts.posts.map( post =>
       <Segment key={post.id}>
         <Feed.Event>
           <div style={{ display: 'flex', }}>
@@ -178,9 +158,9 @@ class UserFeed extends Component {
                               button 
                               color='black' 
                               name='edit' 
-                              onClick={() => this.setEditPost(id, post.attributes.text)} 
+                              onClick={() => this.setEditPost(post)} 
                             />
-                            {this.areYouSure(id)}
+                            {this.areYouSure(post.id)}
                           </div>
                         </div>
                       </Feed.Like>
@@ -198,7 +178,8 @@ class UserFeed extends Component {
 
 
   render() {
-    const { posts, editPost } = this.state;
+    const { editPost } = this.state;
+    const { posts } = this.props;
     if (posts) {
       return (
         <div 
@@ -239,8 +220,8 @@ class UserFeed extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { post: state.post };
+const mapStateToProps = (state) => {
+  return { posts: state.posts };
 }
 
 const styles = {
