@@ -16,11 +16,11 @@ const toggleAccordion = () => {
 export const fileButtons = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <Menu.Item onClick={() => toggleAccordion()}>
+      <Menu.Item onClick={() => toggleAccordion()} style={styles.background}>
         <Image src={require('../assets/images/icon-create-post.svg')} alt='Upload' />
       </Menu.Item>
 
-      <Menu.Item>
+      <Menu.Item style={styles.background}>
         <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
       </Menu.Item>
     </div>
@@ -30,14 +30,19 @@ export const fileButtons = () => {
 export const feedButtons = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <Menu.Item>
+      <Menu.Item style={styles.background}>
         <Image src={require('../assets/images/icon-upload-files.svg')} alt='Team' />
       </Menu.Item>
 
-      <Menu.Item>
+      <Menu.Item style={styles.background}>
         <Image src={require('../assets/images/photo.svg')} alt='Upload Photo' />
       </Menu.Item>
     </div>
   )
 }
 
+const styles = {
+  background: {
+    background: 'none'
+ }
+}
