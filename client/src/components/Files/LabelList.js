@@ -10,15 +10,15 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
-class labelList extends Component {
+class LabelList extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
     dispatch(getLabels())
   }
 
   deleteLabel = (id) => {
-    const { labels } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, labels } = this.props;
+    debugger
     axios.delete(`/api/labels/${id}`)
       .then(res => {
         dispatch(setFlash('Label deleted', 'green'))
@@ -35,12 +35,8 @@ class labelList extends Component {
     axios.post('/api/addlabel', { id, label })
       .then(res => {
         console.log(res)
-        dispatch(setFlash('Label Added to File', 'green'))
+        dispatch(setFlash('Label Added to File', 'green'), err => console.log(err))
       })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Label Failed', 'red'))
-      });
   }
 
   listLabels = (labels) => {
@@ -81,4 +77,4 @@ const mapStateToProps = (state) => {
   return { labels: state.labels }
 }
 
-export default connect(mapStateToProps)(labelList);
+export default connect(mapStateToProps)(LabelList);

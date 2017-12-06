@@ -41,21 +41,13 @@ export const deleteFile = (id) => {
   }
 }
 
-export const handleUpload = (file, metadata, callback) => {
+export const handleUpload = (file, metadata) => {
   return(dispatch) => {
     let data = new FormData();
     data.append(1, file);
-    data.append('description', metadata.description);
+    // data.append('description', metadata.description);
     // data.append('metadata', metadata)
-    axios.post('/api/upload', data, metadata)
-      .then( res => {
-        dispatch(setFlash('File Uploaded Successfully!', 'success'));
-      })
-      .then( () => {
-        callback()
-      })
-      .catch( res => {
-        dispatch(setFlash('Error uploading files', 'error'))
-    });
+    axios.post('/api/holdfiles', data)
+      .then(res => console.log(data))
   }
 }

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     resources :photos, only: [:index]
     
+    post '/holdfiles', to: 'files#new'
     post '/upload', to: 'files#create'
     get '/verifytoken', to: 'rallybase#verify'
   end

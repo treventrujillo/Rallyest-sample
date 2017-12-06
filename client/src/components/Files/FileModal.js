@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { setFlash } from '../../actions/flash';
 import VisibleToModal from './VisibleToModal';
 import upload from '../../assets/images/upload.svg';
 import { handleUpload } from '../../actions/files';
@@ -26,45 +28,46 @@ class FileModal extends Component {
   state = { 
     modalVisible: false,
     files: [],
-    fileUploading: false,
+    fileUploading: null,
     description: ''
    }
-  
+
   toggleModal = () => {
     this.setState({
       modalVisible: !this.state.modalVisible
     });
   }
 
-  toggleUploading = () => {
-    this.setState({ fileUploading: !this.state.fileUploading })
-  }
-
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  onDrop = (files) => {
-    this.setState({ files: files })
-  }
+  handleUpload = () => {
+    axios.post('/api/upload')
+      .then(res => this.props.dispatch(setFlash('Successfully uploaded files', 'green')), err => console.log(err))
+    this.setState({ modalVisible: !this.state.modalVisible })
+  } 
 
-  handleSubmit = () => {
+  onDrop = (files) => {
     const { dispatch } = this.props;
-    const { files, description } = this.state
-    const metadata = {
-      description
-    }
-    dispatch(handleUpload(files[0], metadata, this.toggleUploading));
-    this.toggleUploading();
+    dispatch(handleUpload(files[0]))
+    this.setState({ files: files })
   }
 
   renderUploadBox() {
     if (this.state.files.length > 0) {
-      return (
+
+      return this.state.files.map(file => 
         <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh', }}>
-          <Image src={this.state.files[0].preview} size='small' />
+          <Image src={file.preview} size='small' />
         </div>
       )
+
+      // return (
+      //   <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh', }}>
+      //     <Image src={this.state.files[0].preview} size='small' />
+      //   </div>
+      // )
     }
     return (
       <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh', }}>
@@ -179,7 +182,7 @@ class FileModal extends Component {
                 circular 
                 type='submit' 
                 floated='right'
-                onClick={this.handleSubmit}
+                onClick={() => this.handleUpload()}
                 style={{ width: '18vw', color: '', backgroundColor: '#00AADF', color: '#ffffff' }}
               >
                Post
@@ -191,4 +194,9 @@ class FileModal extends Component {
     )
   }
 }
-export default connect()(FileModal);
+
+const mapStateToProps = (state) => {
+  return { fileUpload: state.fileUpload }
+}
+
+export default connect(mapStateToProps)(FileModal);
