@@ -29,11 +29,16 @@ import Page1 from './NoAuth/Page1';
 import Page2 from './NoAuth/Page2';
 import Page3 from './NoAuth/Page3';
 
+const flash = () => {
+  store.dispatch(setFlash('Login to continue', 'red'))
+}
+
 /*  Route wrapper  */
 const DashboardRoute = ({component: Component, ...rest, user}) => {
   if (!user.isAuthenticated) {
     return (
       <div>
+        {flash()}
         <Redirect to='/' />
       </div>
     );
