@@ -33,6 +33,24 @@ class Api::LoginsController < ApplicationController
       end
   end
 
+  def get_session
+
+    request = RestClient::Request.new(:url => 'https://rallyfy.com/api/session', :method => :get,
+      :headers => {:Authorization => "Bearer #{session[:access_token]}"},
+      :verify_ssl => false
+    )
+
+    response = request.execute {|response| results = response }
+    case response.code
+      when 200
+        puts "Good"
+        render json: { res: response }
+      when 401 || 500
+        puts "Bad"
+        render json: { res: response }
+      end
+  end
+
   def destroy
     session.delete(:access_token)
     session.delete(:refresh_token)

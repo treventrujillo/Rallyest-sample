@@ -40,16 +40,33 @@ const receiveLogin = (res) => {
 
 export const handleLogin = (email, password, history) => {
   return (dispatch) => {
-    axios.post('/api/logins', { email, password })
+    return axios.post('/api/logins', { email, password })
       .then(res => {
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('refresh_token', res.data.refresh_token)
         dispatch(receiveLogin(res))
+        dispatch(getSession())
         history.push('/Feed')
       })
       .catch(res => {
         console.log(res)
         dispatch(setFlash('Invalid Email/Password', 'red'))
       })
+  }
+}
+
+const getSession = () => {
+  return (dispatch) => {
+    return axios.get('/api/session')
+      .then(res => dispatch(receiveSession(res)))
+  }
+}
+
+export const RECEIVE_SESSION_ID = 'RECEIVE_SESSION_ID'
+const receiveSession = (res) => {
+  let session = JSON.parse(res.data.res)
+  return {
+    type: RECEIVE_SESSION_ID,
+    id: session.data.id
   }
 }

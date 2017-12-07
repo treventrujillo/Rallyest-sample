@@ -3,20 +3,20 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :logins, only: [:create, :destroy]
+    get '/session', to: 'logins#get_session'
     
     resources :posts, only: [:index, :create, :destroy]
 
     resources :files, only: [:index, :destroy]
     post '/addlabel', to: 'files#add_label'
     post '/removelabel', to: 'files#remove_label'
+    post '/holdfiles', to: 'files#new'
+    post '/upload', to: 'files#create'
 
     resources :labels, only: [:index, :create, :destroy]
 
     resources :photos, only: [:index]
     
-    post '/holdfiles', to: 'files#new'
-    post '/upload', to: 'files#create'
-    get '/verifytoken', to: 'rallybase#verify'
   end
 
   #Do not place any routes below this one
