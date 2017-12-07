@@ -4,49 +4,52 @@ import axios from 'axios';
 import { setFlash } from '../actions/flash';
 import { setHeaders } from '../actions/headers';
 
-const login = user => {
-  return { type: 'LOGIN', user };
-};
 
-const logout = () => {
-  return { type: 'LOGOUT' };
-};
+export const RECEIVE_LOGOUT = 'RECEIVE_LOGOUT'
+const receiveLogout = () => {
+  return {
+    type: RECEIVE_LOGIN
+  }
+}
 
 export const handleLogout = () => {
 
-  return dispatch => {
+  return (dispatch) => {
     axios.delete('/api/logins/1')
-    delete sessionStorage.token
-    dispatch(setFlash('Logged out successfully!', 'green'))
-    window.location = '/'
+      .then(res => {
+        delete sessionStorage.token
+        delete sessionStorage.refresh_token
+        dispatch(setFlash('Logged out successfully!', 'green'))
+        dispatch(receiveLogout())
+        window.location = '/'
+      })
+      .catch(res => {
+        console.log(res)
+        dispatch(setFlash('Failed to logout', 'red'))
+      })
   };
 };
 
-/* Creates new session access token for user */
-export const handleLogin = (email, password, history) => {
-  return dispatch => {
+export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
+const receiveLogin = (res) => {
+  return {
+    type: RECEIVE_LOGIN,
+    user: res
+  }
+}
 
+export const handleLogin = (email, password, history) => {
+  return (dispatch) => {
     axios.post('/api/logins', { email, password })
       .then(res => {
-        const { data: user, headers } = res;
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('refresh_token', res.data.refresh_token)
-        dispatch(setFlash('Login Successful!', 'green'))
-        dispatch(login(user));
-        dispatch(setHeaders(res.headers));
-        window.location = '/Feed'
+        dispatch(receiveLogin(res))
+        history.push('/Feed')
       })
       .catch(res => {
-        const { response: data } = res;
-        dispatch(setFlash('Invalid email/password', 'red'));
-      });
-    }
-  }
-
-/* Verifies access token */
-export const verifyToken = () => {
-  return dispatch => { 
-    axios.get('/api/verifytoken')
-      .then(res => dispatch({ type: 'AUTHENTICATED', authenticated: res.data.authenticated }) );
+        console.log(res)
+        dispatch(setFlash('Invalid Email/Password', 'red'))
+      })
   }
 }

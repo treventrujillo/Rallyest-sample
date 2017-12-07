@@ -30,7 +30,7 @@ class UserFeed extends Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
-    dispatch(getPosts());
+    dispatch(getPosts())
   }
 
   componentDidMount() {

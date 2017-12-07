@@ -7,6 +7,10 @@ import Flash from './Flash'
 import DashboardLayout from './Layouts/DashboardLayout';
 import LoginLayout from './Layouts/LoginLayout';
 
+import store from '../store';
+import { setFlash } from '../actions/flash';
+import { connect } from 'react-redux';
+
 // Pages in Switch
 import NoMatch from './NoMatch';
 import UserFeed from './UserFeed';
@@ -26,19 +30,28 @@ import Page2 from './NoAuth/Page2';
 import Page3 from './NoAuth/Page3';
 
 /*  Route wrapper  */
-const DashboardRoute = ({component: Component, ...rest}) => {
-  return (
-    <Route {...rest} render={matchProps => (
-      <DashboardLayout>
-        <div>
+const DashboardRoute = ({component: Component, ...rest, user}) => {
+  if (!user.isAuthenticated) {
+    return (
+      <div>
+        <Redirect to='/' />
+      </div>
+    );
+  } else {
+    return (
+      <Route {...rest} render={matchProps => (
+        <DashboardLayout>
           <div>
-          <Flash />
+            <div>
+              <Flash />
+            </div>
+            <Component {...matchProps} />
           </div>
-          <Component {...matchProps} />
-        </div>
-      </DashboardLayout>
-    )} />
-)};
+        </DashboardLayout>
+      )} />
+    )
+  }
+};
 const LoginLayoutRoute = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => (
@@ -79,6 +92,7 @@ const style= {
 /*   App   */ 
 class App extends Component {
   render() {
+    const { user } = this.props;
     return (
       <Router>
         <Switch>
@@ -87,17 +101,17 @@ class App extends Component {
           <LoginLayoutRoute path='/Tour_1' component={Page1}/>
           <LoginLayoutRoute path='/Tour_2' component={Page2}/>
           <LoginLayoutRoute path='/Tour_3' component={Page3}/>
-          <DashboardRoute exact path='/Feed' component={UserFeed} />
-          <DashboardRoute path='/Files' component={Files}/>
-          <DashboardRoute path='/Photos' component={Photos} />
-          <DashboardRoute path='/Letters' component={Letters} />
-          <DashboardRoute path='/Goals' component={Goals} />
-          <DashboardRoute path='/Courses' component={Courses} />
-          <DashboardRoute path='/Announcements' component={Announcements} />
-          <DashboardRoute path='/Updates' component={Updates} />
-          <DashboardRoute path='/Assignments' component={Assignments} />
-          <DashboardRoute path='/Community' component={Community} />
-          <DashboardRoute path='/Settings' component={Settings} />
+          <DashboardRoute exact path='/Feed' component={UserFeed} user={user} />
+          <DashboardRoute path='/Files' component={Files} user={user} />
+          <DashboardRoute path='/Photos' component={Photos} user={user} />
+          <DashboardRoute path='/Letters' component={Letters} user={user}/>
+          <DashboardRoute path='/Goals' component={Goals} user={user}/>
+          <DashboardRoute path='/Courses' component={Courses} user={user}/>
+          <DashboardRoute path='/Announcements' component={Announcements} user={user}/>
+          <DashboardRoute path='/Updates' component={Updates} user={user}/>
+          <DashboardRoute path='/Assignments' component={Assignments} user={user}/>
+          <DashboardRoute path='/Community' component={Community} user={user}/>
+          <DashboardRoute path='/Settings' component={Settings} user={user}/>
           <Route component={NoMatch} />
         </Switch>
       </Router>
@@ -105,4 +119,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps)(App);
