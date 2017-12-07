@@ -12,15 +12,14 @@ const labels = (
 ) => {
   switch(action.type) {
     case LOAD_LABELS_REQUEST:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
+      return { ...state, isFetching: true }
     case LOAD_LABELS_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         labels: action.labels,
         lastUpdated: action.receivedAt
-      });
+      }
     default:
       return state;
   }
