@@ -8,13 +8,15 @@ const user = (state = {
   switch (action.type) {
     case RECEIVE_LOGIN:
       return {
+        ...state,
         data: action.user,
         isAuthenticated: true,
       }
     case RECEIVE_LOGOUT:
       return {
-        data: {},
-        isAuthenticated: false
+        data: '',
+        isAuthenticated: false,
+        id: '',
       }
     case RECEIVE_SESSION_ID:
       return {
