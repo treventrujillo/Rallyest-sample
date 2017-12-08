@@ -9,15 +9,14 @@ import axios from 'axios';
 class PostEdit extends Component {
   state = { editPost: { ...this.props.post } }
 
-  editPost = (e) => {
+  editPost = (id, e) => {
     if (this.props.message === ' ') {
       e.preventDefault();
-      const { dispatch } = this.props;
-      const { message } = this.state;
+      const { message, dispatch } = this.props;
       axios.post(`/api/posts/`, { message })
         .then(res => {
           this.props.setPosts(res.data)
-          dispatch(setHeaders(res.headers))      
+          dispatch(setFlash('Edit successful', 'green'))
         })
         .catch(res => {
           dispatch(setFlash('Failed to edit post', 'red'))
@@ -52,7 +51,7 @@ class PostEdit extends Component {
     this.setState({ message: e.target.value })
   }
 
-  render(post) {
+  render(posts) {
     if(this.props.editPost) {
       const { post, id, text } = this.props.editPost
       return(
@@ -74,10 +73,10 @@ class PostEdit extends Component {
               <Form.Field>
                 <label>Edit Post</label>
                 <Form.Input 
-                  value={text} 
+                  value={post} 
                   id='message' 
                   onChange={this.handleChange}
-                  // placeholder={post.attributes.text}
+                  placeholder='i dont think this works'
                   autoFocus />
               </Form.Field>
               <Button editPost>Submit</Button>

@@ -86,11 +86,11 @@ class UserFeed extends Component {
 
   postDestroy = (id) => {
     // const { post } = this.state;
-    const {dispatch} = this.props;
+    const {dispatch, posts} = this.props;
     axios.delete(`/api/posts/${id}`)
       .then(res => {
         dispatch(setFlash('Post deleted', 'green'))
-        // this.setState({ posts: post.filter(post => post.id !== id) })
+        dispatch(setHeaders(res.headers))
       })
       .catch(res => {
         console.log(res)
@@ -102,8 +102,8 @@ class UserFeed extends Component {
     this.setState({ editPost: id });
   }
 
-  setDestroyPost = (areYouSure) => {
-    this.setState({ areYouSure })
+  setDestroyPost = (areYouSure, id) => {
+    this.setState({ areYouSure, id })
     
   }
 
