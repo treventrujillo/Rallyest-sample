@@ -12,9 +12,6 @@ import { verifyToken } from '../actions/auth';
 class Login extends Component {
   state = { email: '', password: '' };
 
-  componentDidMount() {
-    this.props.dispatch(verifyToken())
-  }
   handleChange = event => {
     const { id, value } = event.target;
     this.setState({ [id]: value });

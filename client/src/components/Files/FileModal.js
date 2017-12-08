@@ -42,8 +42,9 @@ class FileModal extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleUpload = () => {
-    axios.post('/api/upload')
+  uploadToServer = () => {
+    const { user } = this.props;
+    axios.post('/api/upload', { id: user.id })
       .then(res => this.props.dispatch(setFlash('Successfully uploaded files', 'green')), err => console.log(err))
     this.setState({ modalVisible: !this.state.modalVisible })
   } 
@@ -60,6 +61,12 @@ class FileModal extends Component {
       return this.state.files.map(file => 
         <div style={{ alignContent: 'center', justifyContent: 'center', padding: '2vh', }}>
           <Image src={file.preview} size='small' />
+          <Dropzone
+            className="dropzone"
+            accept="image/jpeg, image/png"
+            onDrop={this.onDrop}
+          >
+          </Dropzone>
         </div>
       )
 
@@ -182,7 +189,7 @@ class FileModal extends Component {
                 circular 
                 type='submit' 
                 floated='right'
-                onClick={() => this.handleUpload()}
+                onClick={() => this.uploadToServer()}
                 style={{ width: '18vw', color: '', backgroundColor: '#00AADF', color: '#ffffff' }}
               >
                Post
@@ -196,7 +203,7 @@ class FileModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { fileUpload: state.fileUpload }
+  return { fileUpload: state.fileUpload, user: state.user }
 }
 
 export default connect(mapStateToProps)(FileModal);

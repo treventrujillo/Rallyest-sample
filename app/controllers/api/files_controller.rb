@@ -28,13 +28,14 @@ class Api::FilesController < Api::RallybaseController
     session[:files].each do |file|
       path = file[:file_path]
       name = file[:file_name]
+      id = params[:id]
       file = File.new(path).path
 
       request = RestClient::Request.new(
         :method => :post, 
         :url => 'https://rallyfy.com/api/file', 
         :payload => {:file => file, :name => name, :fileType => 'image/jpeg', 
-        :size => '8160', :ownerUserId => '90002', :ownerGroupId => '47018', :isPublished => '1' },
+        :size => '8160', :ownerUserId => id, :ownerGroupId => '47018', :isPublished => '1' },
         :verify_ssl => false,
         :headers => {:Authorization => "Bearer #{session[:access_token]}"}
       )

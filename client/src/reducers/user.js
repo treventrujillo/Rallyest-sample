@@ -1,9 +1,28 @@
-const user = (state = {}, action) => {
+import { RECEIVE_LOGIN, RECEIVE_LOGOUT, RECEIVE_SESSION_ID } from '../actions/auth';
+
+const user = (state = {
+  data: '',
+  isAuthenticated: false,
+  id: '',
+}, action) => {
   switch (action.type) {
-    case 'LOGIN':
-      return action.user;
-    case 'LOGOUT':
-      return {};
+    case RECEIVE_LOGIN:
+      return {
+        ...state,
+        data: action.user,
+        isAuthenticated: true,
+      }
+    case RECEIVE_LOGOUT:
+      return {
+        data: '',
+        isAuthenticated: false,
+        id: '',
+      }
+    case RECEIVE_SESSION_ID:
+      return {
+        ...state,
+        id: action.id
+      }
     default:
       return state;
   }

@@ -25,11 +25,31 @@ class Api::LoginsController < ApplicationController
         # set sesssion to token
         session[:access_token] = access_token
         session[:refresh_token] = refresh_token
+
+        cookies[:access_token] = access_token
         # Render response to client
         render json: { token: session[:access_token], refresh_token: session[:refresh_token] }
       when 401
         render json: { res: response }
         raise "Unauthorized"
+      end
+  end
+
+  def get_session
+
+    request = RestClient::Request.new(:url => 'https://rallyfy.com/api/session', :method => :get,
+      :headers => {:Authorization => "Bearer #{session[:access_token]}"},
+      :verify_ssl => false
+    )
+
+    response = request.execute {|response| results = response }
+    case response.code
+      when 200
+        puts "Good"
+        render json: { res: response }
+      when 401 || 500
+        puts "Bad"
+        render json: { res: response }
       end
   end
 

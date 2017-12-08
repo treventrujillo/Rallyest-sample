@@ -41,7 +41,7 @@ export const deleteFile = (id) => {
   }
 }
 
-export const handleUpload = (file, metadata) => {
+export const handleUpload = (file, id) => {
   return(dispatch) => {
     let data = new FormData();
     data.append(1, file);
