@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "jshint": "^2.9.5"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3"
   }
 }

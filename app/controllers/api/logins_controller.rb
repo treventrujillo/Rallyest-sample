@@ -25,6 +25,8 @@ class Api::LoginsController < ApplicationController
         # set sesssion to token
         session[:access_token] = access_token
         session[:refresh_token] = refresh_token
+
+        cookies[:access_token] = access_token
         # Render response to client
         render json: { token: session[:access_token], refresh_token: session[:refresh_token] }
       when 401
