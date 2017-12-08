@@ -63,7 +63,7 @@ class EditModal extends Component {
           </Modal.Header>
           <Modal.Content>
             {labels.labels.map(label => 
-              <div style= {{ display: 'flex', flexDirection: 'column'}}>
+              <div key={label.id} style= {{ display: 'flex', flexDirection: 'column'}}>
                 <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center',}}>
                   <div
                     style={{
