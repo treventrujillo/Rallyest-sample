@@ -1,9 +1,8 @@
-/*jshint esversion: 6 */
-import React from 'react';
-import axios from 'axios';
-import { setFlash } from '../actions/flash';
-import { setHeaders } from '../actions/headers';
-
+/* jshint esversion: 6 */
+import React from 'react'
+import axios from 'axios'
+import { setFlash } from '../actions/flash'
+import { setHeaders } from '../actions/headers'
 
 export const RECEIVE_LOGOUT = 'RECEIVE_LOGOUT'
 const receiveLogout = () => {
@@ -13,7 +12,6 @@ const receiveLogout = () => {
 }
 
 export const handleLogout = () => {
-
   return (dispatch) => {
     axios.delete('/api/logins/1')
       .then(res => {
@@ -27,8 +25,8 @@ export const handleLogout = () => {
         console.log(res)
         dispatch(setFlash('Failed to logout', 'red'))
       })
-  };
-};
+  }
+}
 
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
 const receiveLogin = (res) => {
@@ -38,28 +36,41 @@ const receiveLogin = (res) => {
   }
 }
 
-export const handleLogin = (email, password, history) => {
+export const handleLogin = (email, password) => {
   return (dispatch) => {
     return axios.post('/api/logins', { email, password })
-      .then(res => {
-        sessionStorage.setItem('token', res.data.token)
-        sessionStorage.setItem('refresh_token', res.data.refresh_token)
-        dispatch(setFlash('Successfully logged in', 'green'))
-        dispatch(receiveLogin(res))
-        dispatch(getSession())
-        history.push('/Feed')
-      })
-      .catch(res => {
-        console.log(res)
+      .then(res => dispatch(receiveLogin(res)))
+      .then(history => dispatch(getSession(history)))
+      .catch(err => {
+        console.log(err)
         dispatch(setFlash('Invalid Email/Password', 'red'))
       })
   }
 }
 
+// export const handleLogin = (email, password, history) => {
+//   return (dispatch) => {
+//     return axios.post('/api/logins', { email, password })
+//       .then(res => {
+//         dispatch(getSession())
+//         dispatch(receiveLogin(res))
+//         dispatch(setFlash('Successfully logged in', 'green'))
+//       })
+//       .then(e => history.push("/Feed")
+//       .catch(res => {
+//         console.log(res)
+//         dispatch(setFlash('Invalid Email/Password', 'red'))
+//       })
+//     }
+
 const getSession = () => {
   return (dispatch) => {
     return axios.get('/api/session')
       .then(res => dispatch(receiveSession(res)))
+      .then(res => {
+        dispatch(setFlash('Successfully logged in', 'green'))
+        window.location = '/Feed'
+      })
   }
 }
 
