@@ -1,15 +1,14 @@
-/*jshint esversion: 6 */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store';
-import 'semantic-ui-css/semantic.min.css';
-import { injectGlobal } from 'styled-components';
-import { Dropzone } from 'react-dropzone';
-
+/* jshint esversion: 6 */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './components/App'
+import registerServiceWorker from './registerServiceWorker'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
+import 'semantic-ui-css/semantic.min.css'
+import { injectGlobal } from 'styled-components'
+import { CookiesProvider } from 'react-cookie'
 
 // eslint-disable-next-line
 injectGlobal`
@@ -92,9 +91,11 @@ body{
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App/>
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
-);
-registerServiceWorker();
+)
+registerServiceWorker()

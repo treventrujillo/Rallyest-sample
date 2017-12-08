@@ -26,7 +26,7 @@ class Api::LoginsController < ApplicationController
         session[:access_token] = access_token
         session[:refresh_token] = refresh_token
 
-        cookies[:access_token] = access_token
+        cookies[:access_token] = { value: access_token, expires: 2.days.from_now.utc }
         # Render response to client
         render json: { token: session[:access_token], refresh_token: session[:refresh_token] }
       when 401
@@ -56,6 +56,7 @@ class Api::LoginsController < ApplicationController
   def destroy
     session.delete(:access_token)
     session.delete(:refresh_token)
+    cookies.delete(:access_token)
     puts "Session destroyed"
   end
 
