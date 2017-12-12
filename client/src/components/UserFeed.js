@@ -7,7 +7,6 @@ import PostForm from './PostForm';
 import PostEdit from './PostEdit';
 import PostComment from './PostComment';
 import PostLikes from './PostLikes';
-import { getPosts } from '../actions/posts';
 import {
   Form,
   Accordion,
@@ -23,6 +22,8 @@ import {
   Button,
 } from 'semantic-ui-react';
 import { setHeaders } from '../actions/headers';
+import { getPosts } from '../actions/posts';
+import { deletePost } from '../actions/posts';
 import { setFlash } from '../actions/flash';
 
 class UserFeed extends Component {
@@ -36,6 +37,12 @@ class UserFeed extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getPosts());
+  }
+
+  handlePostDelete = (id) => {
+    const { dispatch } = this.props;
+    dispatch(deletePost(id))
+
   }
   
   // potential func that wont let you edit other users posts
@@ -72,7 +79,7 @@ class UserFeed extends Component {
           </Form> */}
         </Modal.Content>
         <Modal.Actions>
-          <Button negative onClick={() => this.postDestroy(id)}>
+          <Button negative onClick={() => this.handlePostDelete(id)}>
             I'm sure, Delete!
           </Button>
         </Modal.Actions>
@@ -82,20 +89,6 @@ class UserFeed extends Component {
 
   toggleOpen = () => {
     this.setState({ open: !this.state.open });
-  }
-
-  postDestroy = (id) => {
-    // const { post } = this.state;
-    const {dispatch, posts} = this.props;
-    axios.delete(`/api/posts/${id}`)
-      .then(res => {
-        dispatch(setFlash('Post deleted', 'green'))
-        dispatch(setHeaders(res.headers))
-      })
-      .catch(res => {
-        console.log(res)
-        dispatch(setFlash('Failed to delete post', 'red'))
-      })
   }
 
   setEditPost = (id) => {
