@@ -1,7 +1,7 @@
 class Api::PostsController < Api::RallybaseController
 
   def index
-    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post',
+    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post?include=team,items',
       :headers => {:Authorization => "Bearer #{session[:access_token]}"},
       :verify_ssl => false 
     )

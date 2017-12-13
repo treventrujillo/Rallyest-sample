@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :logins, only: [:create, :destroy]
     get '/session', to: 'logins#get_session'
+    post '/username', to: 'logins#user_name'
     
     resources :posts, only: [:index, :create, :destroy]
 
@@ -13,9 +14,12 @@ Rails.application.routes.draw do
     post '/holdfiles', to: 'files#new'
     post '/upload', to: 'files#create'
 
+    resources :letters, only: [:index]
+
     resources :labels, only: [:index, :create, :destroy]
 
     resources :photos, only: [:index]
+
     
   end
 
