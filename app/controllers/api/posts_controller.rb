@@ -1,20 +1,57 @@
 class Api::PostsController < Api::RallybaseController
 
   def index
-    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post?include=team,items',
-      :headers => {:Authorization => "Bearer #{session[:access_token]}"},
-      :verify_ssl => false 
-    )
+    # request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/post?include=team,items',
+    #   :headers => {:Authorization => "Bearer #{session[:access_token]}"},
+    #   :verify_ssl => false 
+    # )
     
-    response = request.execute {|response| results = response}
+    # response = request.execute {|response| results = response}
     
-    case response.code
-      when 200
-        puts "Good"
-        render json: { res: response }
-      when 401 || 500
-        render json: { res: response }
-      end
+    # case response.code
+      # when 200
+      #   puts "Good"
+      #   render json: { res: response }
+      # when 401 || 500
+      #   render json: { res: response }
+      # end
+    date = Date.today
+
+    # posts = { "data":
+    #   {
+    #     "type": "post",
+    #     "attributes": {
+    #       "submitterId": session[:user_id],
+    #       "submitterGroupId": "47018",
+    #       "message": "yeah",
+    #       "postType": "3"
+    #     }
+    #   } 
+    # }
+
+    # puts JSON[posts]
+
+    posts = {
+       :data => [
+          { 
+            :userName => "Sam Abdelfattah",
+            :text => "I love Rallyest!",
+            :date => date,
+            :comments => [],
+            :likes => [] 
+          }, 
+         {
+            :userName => "Erik McComb",
+            :text => "I hate millennials even though I am one",
+            :date => date,
+            :comments => [],
+            :likes => [] 
+          }
+        ] 
+      }
+
+    render json: { posts: posts }
+
   end
 
   def create
@@ -29,7 +66,7 @@ class Api::PostsController < Api::RallybaseController
       {
         "type": "post",
         "attributes": {
-          "submitterId": "90000",
+          "submitterId": session[:user_id],
           "submitterGroupId": "47018",
           "message": "#{message}",
           "postType": "3"
