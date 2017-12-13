@@ -1,20 +1,42 @@
 class Api::FilesController < Api::RallybaseController
   def index
 
-    request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/file?schema',
-      :headers => {:Authorization => "Bearer #{session[:access_token]}"},
-      :verify_ssl => false 
-    )
+    # request = RestClient::Request.new(method: :get, :url => 'https://rallyfy.com/api/file?schema',
+    #   :headers => {:Authorization => "Bearer #{session[:access_token]}"},
+    #   :verify_ssl => false 
+    # )
 
-    response = request.execute {|response| $results = response }
-    case response.code
-      when 200
-        puts "Good"
-        render json: { res: response }
-      when 401 || 500
-        puts "Bad"
-        render json: { res: response }
-      end
+    # response = request.execute {|response| $results = response }
+    # case response.code
+    #   when 200
+    #     puts "Good"
+    #     render json: { res: response }
+    #   when 401 || 500
+    #     puts "Bad"
+    #     render json: { res: response }
+    #   end
+
+    date = Date.today
+
+    files = {
+      :data => [
+        {
+          :name => "Erik's anime drawings",
+          :date => date
+        },
+        {
+          :name => "Screamo SCRUM Meeting Songs",
+          :date => date
+        },
+        {
+          :name => "Nuclear Codes",
+          :date => date
+        }
+      ]
+    }
+
+    render json: { files: files }
+
   end
 
   def new
