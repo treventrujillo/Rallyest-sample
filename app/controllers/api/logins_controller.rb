@@ -46,6 +46,12 @@ class Api::LoginsController < ApplicationController
     case response.code
       when 200
         puts "Good"
+
+        session_json = JSON.parse(response.body)
+        user_id = session_json["data"]["id"]
+
+        session[:user_id] = user_id
+
         render json: { res: response }
       when 401 || 500
         puts "Bad"
@@ -56,6 +62,7 @@ class Api::LoginsController < ApplicationController
   def destroy
     session.delete(:access_token)
     session.delete(:refresh_token)
+    session.delete(:user_id)
     cookies.delete(:access_token)
     puts "Session destroyed"
   end

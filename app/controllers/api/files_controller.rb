@@ -35,7 +35,7 @@ class Api::FilesController < Api::RallybaseController
         :method => :post, 
         :url => 'https://rallyfy.com/api/file', 
         :payload => {:file => file, :name => name, :fileType => 'image/jpeg', 
-        :size => '8160', :ownerUserId => id, :ownerGroupId => '47018', :isPublished => '1' },
+        :size => '8160', :ownerUserId => session[:user_id], :ownerGroupId => '47018', :isPublished => '1' },
         :verify_ssl => false,
         :headers => {:Authorization => "Bearer #{session[:access_token]}"}
       )
