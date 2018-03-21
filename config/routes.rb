@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :logins, only: [:create, :destroy]
-    get '/session', to: 'logins#get_session'
+    get '/session', to: 'sessions#get_session'
     post '/username', to: 'logins#user_name'
     
     resources :posts, only: [:index, :create, :destroy]

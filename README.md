@@ -1,36 +1,11 @@
-# README
+This is a sample of the Rallyest API written with Ruby on Rails.
 
-## Rallyest
-* Our goal is to make excellent aftercare available to every family through technology, tools and time tested expertise.
+To run this program on your machine:
 
-### Ruby Version 
-* 2.4.2
+1. Download / Copy repository
 
-### System Dependencies
-* jshint: 2.9.5
+2. Make sure your ruby version matches the version at the top of the Gemfile.
 
-## Build
+3. In your terminal run 'bundle install' inside the root directory to install dependencies.
 
-### Locally using npm
-* Clone/download the repo
-
-* `cd rallyest`
-
-* If you don't have create-react-app installed run `npm install create-react-app` 
-
-* `bundle exec rails s -p 3001`
-
-* `cd client`
-
-* `yarn start`
-
-### Database creation
-
-### Database initialization
-
-### How to run the test suite
-
-### Services (job queues, cache servers, search engines, etc.)
-
-
-
+4. Run with 'rails s -p 3001' to port the server to run on 3001 so the client can listen to it. 
